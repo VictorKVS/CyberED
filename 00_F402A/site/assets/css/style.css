@@ -1,0 +1,431 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, Segoe UI, Arial, sans-serif;
+    background:
+        radial-gradient(circle at 15% 10%, #102e46 0, transparent 35%),
+        #050a0f;
+    color: #e9f1f7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.topbar {
+    height: 76px;
+    padding: 0 6vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #1c2a35;
+    background: rgba(5, 10, 15, .85);
+    backdrop-filter: blur(16px);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.brand {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid #39d7ff;
+    color: #39d7ff;
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.brand div {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand div span {
+    color: #738696;
+    font-size: 11px;
+    letter-spacing: .12em;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    color: #95a5b2;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #39d7ff;
+}
+
+main {
+    max-width: 1500px;
+    margin: auto;
+}
+
+.hero {
+    min-height: 650px;
+    padding: 100px 7vw;
+
+    display: grid;
+    grid-template-columns: 1.6fr .8fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.eyebrow {
+    color: #39d7ff;
+    font-size: 13px;
+    letter-spacing: .18em;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 0;
+
+    max-width: 900px;
+
+    font-size: clamp(50px, 7vw, 98px);
+    line-height: .94;
+    letter-spacing: -.055em;
+}
+
+h1 span {
+    color: #39d7ff;
+}
+
+.hero-text {
+    max-width: 720px;
+
+    margin-top: 32px;
+
+    color: #91a3b1;
+
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 14px;
+
+    margin-top: 38px;
+}
+
+.button {
+    padding: 14px 22px;
+
+    border: 1px solid #263947;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .04em;
+}
+
+.button.primary {
+    color: #041016;
+    background: #39d7ff;
+    border-color: #39d7ff;
+}
+
+.button.secondary:hover {
+    border-color: #39d7ff;
+}
+
+.status-card {
+    padding: 28px;
+
+    border: 1px solid #213441;
+    background: rgba(12, 22, 30, .75);
+
+    box-shadow: 0 30px 100px rgba(0,0,0,.3);
+}
+
+.status-header {
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+
+    border-bottom: 1px solid #1b2a35;
+
+    color: #718491;
+
+    font-size: 11px;
+    letter-spacing: .16em;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+    background: #39d7ff;
+
+    box-shadow: 0 0 16px #39d7ff;
+}
+
+.metric {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 17px 0;
+
+    border-bottom: 1px solid #16242d;
+}
+
+.metric span {
+    color: #728692;
+    font-size: 13px;
+}
+
+.metric strong {
+    font-size: 13px;
+}
+
+.progress {
+    height: 4px;
+
+    margin-top: 30px;
+
+    background: #172630;
+}
+
+.progress-fill {
+    width: 5%;
+    height: 100%;
+
+    background: #39d7ff;
+}
+
+.status-card small {
+    display: block;
+
+    margin-top: 12px;
+
+    color: #687b88;
+}
+
+.section {
+    padding: 90px 7vw;
+    border-top: 1px solid #172630;
+}
+
+.section-title {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+
+    margin-bottom: 45px;
+}
+
+.section-title > span {
+    color: #39d7ff;
+    font-family: monospace;
+}
+
+.section-title h2 {
+    margin: 0 0 8px;
+
+    font-size: 35px;
+}
+
+.section-title p {
+    margin: 0;
+    color: #778b99;
+}
+
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.module {
+    min-height: 210px;
+
+    padding: 25px;
+
+    border: 1px solid #1b2d38;
+    background: #091117;
+
+    transition: .25s;
+}
+
+.module:hover {
+    transform: translateY(-4px);
+    border-color: #39d7ff;
+}
+
+.module.active {
+    border-color: #39d7ff;
+}
+
+.module-number {
+    color: #39d7ff;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.module h3 {
+    margin: 40px 0 10px;
+    font-size: 21px;
+}
+
+.module p {
+    min-height: 45px;
+
+    color: #718491;
+    line-height: 1.5;
+}
+
+.module > span {
+    color: #536773;
+    font-family: monospace;
+    font-size: 11px;
+}
+
+.lab-section {
+    background: #070e13;
+}
+
+.lab-map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    overflow-x: auto;
+    padding: 40px 0;
+}
+
+.node {
+    min-width: 155px;
+
+    padding: 24px 18px;
+
+    text-align: center;
+
+    border: 1px solid #243743;
+    background: #0c161d;
+}
+
+.node strong,
+.node span {
+    display: block;
+}
+
+.node span {
+    margin-top: 7px;
+
+    color: #708492;
+    font-size: 11px;
+}
+
+.node.security {
+    border-color: #39d7ff;
+}
+
+.arrow {
+    color: #39d7ff;
+    font-size: 26px;
+}
+
+.artifact-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
+
+.artifact-grid div {
+    padding: 25px 12px;
+
+    text-align: center;
+
+    border: 1px solid #1b2d38;
+
+    color: #8ca0ad;
+
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+footer {
+    max-width: 1500px;
+
+    margin: auto;
+    padding: 35px 7vw;
+
+    display: flex;
+    justify-content: space-between;
+
+    border-top: 1px solid #172630;
+
+    color: #536571;
+
+    font-size: 11px;
+    letter-spacing: .08em;
+}
+
+
+@media (max-width: 900px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .module-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .artifact-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding-top: 65px;
+    }
+
+    .module-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .artifact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

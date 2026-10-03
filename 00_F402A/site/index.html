@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberED — Инженер по информационной безопасности</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="brand">
+        <span class="brand-mark">C</span>
+
+        <div>
+            <strong>CyberED</strong>
+            <span>Security Engineering Lab</span>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#course">Курс</a>
+        <a href="#modules">Модули</a>
+        <a href="#labs">Лаборатория</a>
+        <a href="#progress">Прогресс</a>
+    </nav>
+</header>
+
+
+<main>
+
+    <section class="hero" id="course">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                00_F402A · Введение в курс
+            </div>
+
+            <h1>
+                Инженер по
+                <span>информационной безопасности</span>
+            </h1>
+
+            <p class="hero-text">
+                Учебно-инженерная среда CyberED для изучения,
+                моделирования и практической защиты современной
+                корпоративной инфраструктуры.
+            </p>
+
+            <div class="hero-actions">
+
+                <a class="button primary" href="#modules">
+                    Открыть программу
+                </a>
+
+                <a class="button secondary" href="#labs">
+                    CyberED Lab
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="status-card">
+
+            <div class="status-header">
+                <span>COURSE STATUS</span>
+                <span class="status-dot"></span>
+            </div>
+
+            <div class="metric">
+                <span>Текущий модуль</span>
+                <strong>00_F402A</strong>
+            </div>
+
+            <div class="metric">
+                <span>Статус</span>
+                <strong>Начало обучения</strong>
+            </div>
+
+            <div class="metric">
+                <span>Режим</span>
+                <strong>Engineering Track</strong>
+            </div>
+
+            <div class="progress">
+                <div class="progress-fill"></div>
+            </div>
+
+            <small>Формирование инженерного портфолио</small>
+
+        </div>
+
+    </section>
+
+
+    <section class="section" id="modules">
+
+        <div class="section-title">
+            <span>01</span>
+            <div>
+                <h2>Учебный маршрут</h2>
+                <p>От инфраструктуры до средств защиты и SOC.</p>
+            </div>
+        </div>
+
+
+        <div class="module-grid">
+
+            <article class="module active">
+                <div class="module-number">00</div>
+                <h3>Введение</h3>
+                <p>Архитектура курса и подготовка рабочей среды.</p>
+                <span>00_F402A</span>
+            </article>
+
+
+            <article class="module">
+                <div class="module-number">01</div>
+                <h3>Основы ИБ</h3>
+                <p>Активы, угрозы, уязвимости и модели защиты.</p>
+                <span>F106 / F107</span>
+            </article>
+
+
+            <article class="module">
+                <div class="module-number">02</div>
+                <h3>Сети</h3>
+                <p>OSI, TCP/IP, VLAN, ACL, NAT, VPN.</p>
+                <span>F109</span>
+            </article>
+
+
+            <article class="module">
+                <div class="module-number">03</div>
+                <h3>Linux</h3>
+                <p>Администрирование и безопасность Linux.</p>
+                <span>F108</span>
+            </article>
+
+
+            <article class="module">
+                <div class="module-number">04</div>
+                <h3>Windows / AD</h3>
+                <p>Windows Server, Active Directory, GPO и PKI.</p>
+                <span>F110</span>
+            </article>
+
+
+            <article class="module">
+                <div class="module-number">05</div>
+                <h3>Средства защиты</h3>
+                <p>SIEM, IDS/IPS, WAF, EDR и SOC.</p>
+                <span>F111</span>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <section class="section lab-section" id="labs">
+
+        <div class="section-title">
+            <span>02</span>
+            <div>
+                <h2>CyberED Security Lab</h2>
+                <p>Будущий единый виртуальный полигон курса.</p>
+            </div>
+        </div>
+
+
+        <div class="lab-map">
+
+            <div class="node">
+                <strong>Internet</strong>
+                <span>OUTSIDE</span>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="node security">
+                <strong>Firewall</strong>
+                <span>Security Gateway</span>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="node">
+                <strong>DMZ</strong>
+                <span>Web / WAF</span>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="node">
+                <strong>INSIDE</strong>
+                <span>AD / Linux / Users</span>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="node security">
+                <strong>SOC</strong>
+                <span>SIEM / IDS / EDR</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="section" id="progress">
+
+        <div class="section-title">
+            <span>03</span>
+            <div>
+                <h2>Инженерный результат</h2>
+                <p>Каждый модуль должен оставлять работающий артефакт.</p>
+            </div>
+        </div>
+
+
+        <div class="artifact-grid">
+
+            <div>Architecture</div>
+            <div>Lab</div>
+            <div>Configuration</div>
+            <div>Security Testing</div>
+            <div>Report</div>
+            <div>Portfolio</div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <span>CyberED</span>
+    <span>Information Security Engineering</span>
+    <span id="year"></span>
+</footer>
+
+
+<script src="assets/js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+﻿{
+  "course": {
+    "code": "00_F402A",
+    "title": "Инженер по информационной безопасности",
+    "subtitle": "CyberED Security Engineering Track"
+  },
+
+  "modules": [
+    {
+      "id": "00",
+      "code": "00_F402A",
+      "title": "Введение в курс",
+      "status": "active",
+      "lessons": [
+        "О программе",
+        "Карта курса",
+        "Инструменты",
+        "Лабораторная среда"
+      ]
+    },
+
+    {
+      "id": "01",
+      "code": "F106-F107",
+      "title": "Основы информационной безопасности",
+      "status": "locked",
+      "lessons": [
+        "Виртуализация",
+        "Безопасный доступ",
+        "Криптография",
+        "Основные концепции безопасности"
+      ]
+    },
+
+    {
+      "id": "02",
+      "code": "F109",
+      "title": "Локальные сети",
+      "status": "locked",
+      "lessons": [
+        "GNS3 / EVE-NG",
+        "OSI",
+        "L2 и ARP",
+        "L3 и IP",
+        "TCP / UDP",
+        "VLAN",
+        "ACL",
+        "NAT",
+        "SSH",
+        "VPN"
+      ]
+    },
+
+    {
+      "id": "03",
+      "code": "F108",
+      "title": "Операционная система Linux",
+      "status": "locked",
+      "lessons": [
+        "Linux Basics",
+        "Terminal",
+        "Users & Permissions",
+        "Networking",
+        "Services",
+        "Firewall",
+        "Fail2ban",
+        "Security Audit"
+      ]
+    },
+
+    {
+      "id": "04",
+      "code": "F110",
+      "title": "Доменная структура Windows",
+      "status": "locked",
+      "lessons": [
+        "Windows Server",
+        "Active Directory",
+        "DNS",
+        "DHCP",
+        "GPO",
+        "Authentication",
+        "DFS",
+        "AD CS",
+        "Sites & Trust"
+      ]
+    },
+
+    {
+      "id": "05",
+      "code": "F111",
+      "title": "Администрирование СЗИ",
+      "status": "locked",
+      "lessons": [
+        "SOC",
+        "SIEM",
+        "IDS / IPS",
+        "WAF",
+        "EDR",
+        "MITRE ATT&CK",
+        "Incident Monitoring"
+      ]
+    }
+  ]
+}
