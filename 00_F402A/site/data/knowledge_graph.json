@@ -4,7 +4,8 @@
   "consumer": "CyberED",
   "generated_from": [
     "site/data/documents.json",
-    "site/data/knowledge_core.json"
+    "site/data/knowledge_core.json",
+    "site/data/people_competencies.json"
   ],
   "weight_model": {
     "note": "Weights are graph relevance/confidence values, not legal force or priority.",
@@ -17,9 +18,11 @@
     }
   },
   "stats": {
-    "nodes": 323,
-    "edges": 820,
-    "documents": 284
+    "nodes": 368,
+    "edges": 923,
+    "documents": 284,
+    "roles": 16,
+    "competencies": 30
   },
   "nodes": [
     {
@@ -3418,6 +3421,366 @@
       "weight": 0.72,
       "origin": "document_registry",
       "scope": "ИСПДн / уровни защищенности"
+    },
+    {
+      "id": "COMP-GRC",
+      "label": "Нормативные требования и applicability",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Governance"
+    },
+    {
+      "id": "COMP-PDN",
+      "label": "Персональные данные / ИСПДн",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Compliance"
+    },
+    {
+      "id": "COMP-KII",
+      "label": "КИИ и категорирование",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Compliance"
+    },
+    {
+      "id": "COMP-CRYPTO",
+      "label": "СКЗИ и криптографическая защита",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Engineering"
+    },
+    {
+      "id": "COMP-NET",
+      "label": "Сетевая безопасность",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Engineering"
+    },
+    {
+      "id": "COMP-LINUX",
+      "label": "Linux Security / hardening",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Engineering"
+    },
+    {
+      "id": "COMP-WINAD",
+      "label": "Windows Server / AD / GPO / PKI",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Engineering"
+    },
+    {
+      "id": "COMP-SZI",
+      "label": "СЗИ: SIEM / IDS / IPS / WAF / EDR",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Engineering"
+    },
+    {
+      "id": "COMP-SOC",
+      "label": "SOC / мониторинг / detection engineering",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Operations"
+    },
+    {
+      "id": "COMP-IR",
+      "label": "Incident Response / ГосСОПКА",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Operations"
+    },
+    {
+      "id": "COMP-AUDIT",
+      "label": "Аудит ИБ / evidence / gap-analysis",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Assurance"
+    },
+    {
+      "id": "COMP-RISK",
+      "label": "Риск-анализ и модель угроз",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Assurance"
+    },
+    {
+      "id": "COMP-ARCH",
+      "label": "Security Architecture",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Architecture"
+    },
+    {
+      "id": "COMP-DOC",
+      "label": "ИБ-документооборот и трассируемость",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Governance"
+    },
+    {
+      "id": "COMP-LEAD",
+      "label": "Управление ИБ-командой и контроль исполнения",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Management"
+    },
+    {
+      "id": "COMP-ITOPS",
+      "label": "IT infrastructure / operations",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "IT"
+    },
+    {
+      "id": "COMP-DEV",
+      "label": "Software engineering / programming",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Development"
+    },
+    {
+      "id": "COMP-SDLC",
+      "label": "SDLC / QA / CI-CD",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Development"
+    },
+    {
+      "id": "COMP-AI",
+      "label": "AI / ML / LLM systems",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "AI"
+    },
+    {
+      "id": "COMP-RAG",
+      "label": "RAG / Vector DB / Agent systems",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "AI"
+    },
+    {
+      "id": "COMP-CLOUD",
+      "label": "Cloud architecture",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Cloud"
+    },
+    {
+      "id": "COMP-K8S",
+      "label": "Containers / Kubernetes",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Cloud"
+    },
+    {
+      "id": "COMP-IAC",
+      "label": "IaC / Terraform / GitOps",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Cloud"
+    },
+    {
+      "id": "COMP-IT-AUDIT",
+      "label": "IT audit / IT controls / evidence",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Assurance"
+    },
+    {
+      "id": "COMP-PENTEST",
+      "label": "Pentest / vulnerability assessment",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Offensive Security"
+    },
+    {
+      "id": "COMP-APPSEC",
+      "label": "Application Security / DevSecOps",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Security Engineering"
+    },
+    {
+      "id": "COMP-ITSO",
+      "label": "ИТСО / physical security systems",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Physical Security"
+    },
+    {
+      "id": "COMP-CCTV",
+      "label": "CCTV / VMS / video analytics",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Physical Security"
+    },
+    {
+      "id": "COMP-ACS",
+      "label": "СКУД / access control systems",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "Physical Security"
+    },
+    {
+      "id": "COMP-CV",
+      "label": "Computer Vision / VLM analytics",
+      "type": "competency",
+      "weight": 0.82,
+      "origin": "father_people_competencies",
+      "scope": "AI / Physical Security"
+    },
+    {
+      "id": "ROLE-HEAD-IB",
+      "label": "Руководитель ИБ",
+      "type": "role",
+      "weight": 0.88,
+      "origin": "father_people_competencies",
+      "scope": "SECURITY"
+    },
+    {
+      "id": "ROLE-GRC",
+      "label": "GRC / нормативные требования",
+      "type": "role",
+      "weight": 0.88,
+      "origin": "father_people_competencies",
+      "scope": "SECURITY"
+    },
+    {
+      "id": "ROLE-ENGINEER",
+      "label": "ИБ-инженер",
+      "type": "role",
+      "weight": 0.88,
+      "origin": "father_people_competencies",
+      "scope": "SECURITY"
+    },
+    {
+      "id": "ROLE-SOC",
+      "label": "SOC / Incident Response",
+      "type": "role",
+      "weight": 0.88,
+      "origin": "father_people_competencies",
+      "scope": "SECURITY"
+    },
+    {
+      "id": "ROLE-KII",
+      "label": "Специалист по КИИ",
+      "type": "role",
+      "weight": 0.88,
+      "origin": "father_people_competencies",
+      "scope": "SECURITY"
+    },
+    {
+      "id": "ROLE-CRYPTO",
+      "label": "СКЗИ / криптографическая защита",
+      "type": "role",
+      "weight": 0.88,
+      "origin": "father_people_competencies",
+      "scope": "SECURITY"
+    },
+    {
+      "id": "ROLE-AUDIT",
+      "label": "ИБ-аудит",
+      "type": "role",
+      "weight": 0.88,
+      "origin": "father_people_competencies",
+      "scope": "SECURITY"
+    },
+    {
+      "id": "ROLE-IT-ENGINEER",
+      "label": "IT-инженер / Infrastructure Engineer",
+      "type": "role",
+      "weight": 0.88,
+      "origin": "father_people_competencies",
+      "scope": "IT"
+    },
+    {
+      "id": "ROLE-DEVELOPER",
+      "label": "Software Developer / Engineer",
+      "type": "role",
+      "weight": 0.88,
+      "origin": "father_people_competencies",
+      "scope": "DEVELOPMENT"
+    },
+    {
+      "id": "ROLE-AI-ENGINEER",
+      "label": "AI / LLM Engineer",
+      "type": "role",
+      "weight": 0.88,
+      "origin": "father_people_competencies",
+      "scope": "AI"
+    },
+    {
+      "id": "ROLE-CLOUD-ARCH",
+      "label": "Cloud Architect",
+      "type": "role",
+      "weight": 0.88,
+      "origin": "father_people_competencies",
+      "scope": "CLOUD"
+    },
+    {
+      "id": "ROLE-IT-AUDITOR",
+      "label": "IT Auditor",
+      "type": "role",
+      "weight": 0.88,
+      "origin": "father_people_competencies",
+      "scope": "AUDIT"
+    },
+    {
+      "id": "ROLE-PENTESTER",
+      "label": "Pentester / Red Team Engineer",
+      "type": "role",
+      "weight": 0.88,
+      "origin": "father_people_competencies",
+      "scope": "OFFENSIVE_SECURITY"
+    },
+    {
+      "id": "ROLE-SEC-ARCH",
+      "label": "Security Architect",
+      "type": "role",
+      "weight": 0.88,
+      "origin": "father_people_competencies",
+      "scope": "ARCHITECTURE"
+    },
+    {
+      "id": "ROLE-ITSO-ENGINEER",
+      "label": "Инженер ИТСО / CCTV / СКУД",
+      "type": "role",
+      "weight": 0.88,
+      "origin": "father_people_competencies",
+      "scope": "PHYSICAL_SECURITY"
     }
   ],
   "edges": [
@@ -9095,6 +9458,814 @@
       "type": "classified_as",
       "weight": 0.96,
       "auto": true
+    },
+    {
+      "from": "ROLE-HEAD-IB",
+      "to": "DOM-IB",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-HEAD-IB",
+      "to": "COMP-LEAD",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-HEAD-IB",
+      "to": "COMP-GRC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-HEAD-IB",
+      "to": "COMP-RISK",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-HEAD-IB",
+      "to": "COMP-ARCH",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-HEAD-IB",
+      "to": "COMP-AUDIT",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-HEAD-IB",
+      "to": "COMP-DOC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-GRC",
+      "to": "DOM-GRC",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-GRC",
+      "to": "COMP-GRC",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-GRC",
+      "to": "COMP-DOC",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-GRC",
+      "to": "COMP-AUDIT",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-GRC",
+      "to": "COMP-RISK",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-GRC",
+      "to": "COMP-PDN",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-GRC",
+      "to": "COMP-KII",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-ENGINEER",
+      "to": "DOM-IB",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-ENGINEER",
+      "to": "COMP-NET",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-ENGINEER",
+      "to": "COMP-LINUX",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-ENGINEER",
+      "to": "COMP-WINAD",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-ENGINEER",
+      "to": "COMP-SZI",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-ENGINEER",
+      "to": "COMP-CRYPTO",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-ENGINEER",
+      "to": "COMP-ARCH",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-SOC",
+      "to": "DOM-SOC",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-SOC",
+      "to": "COMP-SOC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-SOC",
+      "to": "COMP-IR",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-SOC",
+      "to": "COMP-SZI",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-SOC",
+      "to": "COMP-NET",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-SOC",
+      "to": "COMP-RISK",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-KII",
+      "to": "DOM-KII",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-KII",
+      "to": "COMP-KII",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-KII",
+      "to": "COMP-GRC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-KII",
+      "to": "COMP-RISK",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-KII",
+      "to": "COMP-AUDIT",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-KII",
+      "to": "COMP-DOC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-PDN",
+      "to": "DOM-PDN",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-PDN",
+      "to": "COMP-PDN",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-PDN",
+      "to": "COMP-GRC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-PDN",
+      "to": "COMP-DOC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-PDN",
+      "to": "COMP-AUDIT",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-PDN",
+      "to": "COMP-RISK",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-CRYPTO",
+      "to": "DOM-SKZI",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-CRYPTO",
+      "to": "COMP-CRYPTO",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-CRYPTO",
+      "to": "COMP-SZI",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-CRYPTO",
+      "to": "COMP-DOC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-CRYPTO",
+      "to": "COMP-AUDIT",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-AUDIT",
+      "to": "DOM-IB-AUDIT",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-AUDIT",
+      "to": "COMP-AUDIT",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-AUDIT",
+      "to": "COMP-GRC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-AUDIT",
+      "to": "COMP-RISK",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-AUDIT",
+      "to": "COMP-DOC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-AUDIT",
+      "to": "COMP-PDN",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-AUDIT",
+      "to": "COMP-KII",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-IT-ENGINEER",
+      "to": "DOM-IT",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-IT-ENGINEER",
+      "to": "COMP-ITOPS",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-IT-ENGINEER",
+      "to": "COMP-NET",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-IT-ENGINEER",
+      "to": "COMP-LINUX",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-IT-ENGINEER",
+      "to": "COMP-WINAD",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-IT-ENGINEER",
+      "to": "COMP-DOC",
+      "type": "requires_competency",
+      "weight": 0.4,
+      "level": 2,
+      "auto": false
+    },
+    {
+      "from": "ROLE-DEVELOPER",
+      "to": "DOM-DEV",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-DEVELOPER",
+      "to": "COMP-DEV",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-DEVELOPER",
+      "to": "COMP-SDLC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-DEVELOPER",
+      "to": "COMP-APPSEC",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-DEVELOPER",
+      "to": "COMP-ITOPS",
+      "type": "requires_competency",
+      "weight": 0.4,
+      "level": 2,
+      "auto": false
+    },
+    {
+      "from": "ROLE-AI-ENGINEER",
+      "to": "DOM-AI",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-AI-ENGINEER",
+      "to": "COMP-AI",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-AI-ENGINEER",
+      "to": "COMP-RAG",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-AI-ENGINEER",
+      "to": "COMP-DEV",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-AI-ENGINEER",
+      "to": "COMP-CLOUD",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-AI-ENGINEER",
+      "to": "COMP-APPSEC",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-CLOUD-ARCH",
+      "to": "DOM-CLOUD",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-CLOUD-ARCH",
+      "to": "COMP-CLOUD",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-CLOUD-ARCH",
+      "to": "COMP-K8S",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-CLOUD-ARCH",
+      "to": "COMP-IAC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-CLOUD-ARCH",
+      "to": "COMP-NET",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-CLOUD-ARCH",
+      "to": "COMP-ARCH",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-CLOUD-ARCH",
+      "to": "COMP-SZI",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-IT-AUDITOR",
+      "to": "DOM-IT-AUDIT",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-IT-AUDITOR",
+      "to": "COMP-IT-AUDIT",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-IT-AUDITOR",
+      "to": "COMP-ITOPS",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-IT-AUDITOR",
+      "to": "COMP-DOC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-IT-AUDITOR",
+      "to": "COMP-RISK",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-IT-AUDITOR",
+      "to": "COMP-GRC",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-PENTESTER",
+      "to": "DOM-PENTEST",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-PENTESTER",
+      "to": "COMP-PENTEST",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-PENTESTER",
+      "to": "COMP-NET",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-PENTESTER",
+      "to": "COMP-LINUX",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-PENTESTER",
+      "to": "COMP-WINAD",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-PENTESTER",
+      "to": "COMP-APPSEC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-PENTESTER",
+      "to": "COMP-CLOUD",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-SEC-ARCH",
+      "to": "DOM-SEC-ARCH",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-SEC-ARCH",
+      "to": "COMP-ARCH",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-SEC-ARCH",
+      "to": "COMP-RISK",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-SEC-ARCH",
+      "to": "COMP-GRC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-SEC-ARCH",
+      "to": "COMP-NET",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-SEC-ARCH",
+      "to": "COMP-CLOUD",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-SEC-ARCH",
+      "to": "COMP-APPSEC",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-SEC-ARCH",
+      "to": "COMP-SZI",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-ITSO-ENGINEER",
+      "to": "DOM-ITSO",
+      "type": "works_in_domain",
+      "weight": 0.92,
+      "auto": false
+    },
+    {
+      "from": "ROLE-ITSO-ENGINEER",
+      "to": "COMP-ITSO",
+      "type": "requires_competency",
+      "weight": 1,
+      "level": 5,
+      "auto": false
+    },
+    {
+      "from": "ROLE-ITSO-ENGINEER",
+      "to": "COMP-CCTV",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-ITSO-ENGINEER",
+      "to": "COMP-ACS",
+      "type": "requires_competency",
+      "weight": 0.8,
+      "level": 4,
+      "auto": false
+    },
+    {
+      "from": "ROLE-ITSO-ENGINEER",
+      "to": "COMP-NET",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-ITSO-ENGINEER",
+      "to": "COMP-CV",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
+    },
+    {
+      "from": "ROLE-ITSO-ENGINEER",
+      "to": "COMP-PDN",
+      "type": "requires_competency",
+      "weight": 0.6,
+      "level": 3,
+      "auto": false
     }
   ]
 }
