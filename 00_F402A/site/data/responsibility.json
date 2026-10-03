@@ -1,0 +1,312 @@
+{
+  "schema": "cybered.responsibility.v1",
+  "model_status": "TEMPLATE_REQUIRES_ORG_EVIDENCE",
+  "legal_context": [
+    {
+      "id": "LAW-UP250",
+      "title": "Указ Президента РФ №250",
+      "date": "2022-05-01",
+      "edition": "ред. от 13.06.2024",
+      "scope": "Органы и организации, перечисленные в Указе",
+      "establishes": [
+        "Полномочия по обеспечению ИБ возлагаются на заместителя руководителя",
+        "Создается подразделение ИБ либо функции возлагаются на существующее подразделение",
+        "Руководитель несет персональную ответственность за обеспечение ИБ"
+      ],
+      "verification_status": "SOURCE_VERIFIED"
+    },
+    {
+      "id": "LAW-PP1272",
+      "title": "Постановление Правительства РФ №1272",
+      "date": "2022-07-15",
+      "scope": "Типовые положения для ответственного заместителя и подразделения ИБ",
+      "establishes": [
+        "Полномочия, права и обязанности ответственного заместителя",
+        "Цели, задачи, функции, права и связи подразделения ИБ"
+      ],
+      "verification_status": "SOURCE_VERIFIED"
+    }
+  ],
+  "hierarchy": [
+    {
+      "id": "ROLE-LEADER",
+      "title": "Руководитель организации",
+      "kind": "normative",
+      "responsibility": "Персональная ответственность за обеспечение информационной безопасности",
+      "basis": [
+        "LAW-UP250"
+      ],
+      "evidence": [
+        "Устав/положение об организации",
+        "Внутренние распорядительные документы"
+      ],
+      "responsibility_status": "NORMATIVE_BASELINE"
+    },
+    {
+      "id": "ROLE-DEPUTY-IB",
+      "title": "Заместитель руководителя, ответственный за ИБ",
+      "kind": "normative",
+      "responsibility": "Организация и координация обеспечения ИБ, включая вопросы компьютерных атак и инцидентов",
+      "basis": [
+        "LAW-UP250",
+        "LAW-PP1272"
+      ],
+      "evidence": [
+        "Приказ о возложении полномочий",
+        "Положение/должностная инструкция"
+      ],
+      "responsibility_status": "NOT_PROVEN"
+    },
+    {
+      "id": "ROLE-IB-UNIT",
+      "title": "Подразделение информационной безопасности",
+      "kind": "normative",
+      "responsibility": "Выполнение функций по обеспечению ИБ в пределах закрепленных полномочий",
+      "basis": [
+        "LAW-UP250",
+        "LAW-PP1272"
+      ],
+      "evidence": [
+        "Положение о подразделении",
+        "Штатная структура",
+        "Должностные инструкции"
+      ],
+      "responsibility_status": "NOT_PROVEN"
+    }
+  ],
+  "team_roles": [
+    {
+      "id": "ROLE-HEAD-IB",
+      "title": "Руководитель ИБ",
+      "lane": "Управление",
+      "responsibilities": [
+        "управление работами ИБ",
+        "контроль исполнения требований",
+        "координация команды"
+      ],
+      "evidence": [
+        "приказ",
+        "положение",
+        "должностная инструкция"
+      ],
+      "status": "NOT_PROVEN"
+    },
+    {
+      "id": "ROLE-GRC",
+      "title": "GRC / нормативные требования",
+      "lane": "Governance",
+      "responsibilities": [
+        "реестр требований",
+        "применимость",
+        "compliance",
+        "методология"
+      ],
+      "evidence": [
+        "должностная инструкция",
+        "матрица ответственности"
+      ],
+      "status": "NOT_PROVEN"
+    },
+    {
+      "id": "ROLE-ENGINEER",
+      "title": "ИБ-инженер",
+      "lane": "Engineering",
+      "responsibilities": [
+        "реализация мер защиты",
+        "hardening",
+        "сопровождение СЗИ",
+        "технические проверки"
+      ],
+      "evidence": [
+        "должностная инструкция",
+        "эксплуатационные регламенты"
+      ],
+      "status": "NOT_PROVEN"
+    },
+    {
+      "id": "ROLE-SOC",
+      "title": "SOC / Incident Response",
+      "lane": "Operations",
+      "responsibilities": [
+        "мониторинг",
+        "обнаружение",
+        "реагирование",
+        "разбор инцидентов"
+      ],
+      "evidence": [
+        "регламент мониторинга",
+        "регламент реагирования",
+        "график/приказ"
+      ],
+      "status": "NOT_PROVEN"
+    },
+    {
+      "id": "ROLE-KII",
+      "title": "Специалист по КИИ",
+      "lane": "Compliance",
+      "responsibilities": [
+        "учет объектов",
+        "категорирование",
+        "выполнение требований КИИ"
+      ],
+      "evidence": [
+        "приказ",
+        "положение",
+        "должностная инструкция"
+      ],
+      "status": "NOT_PROVEN"
+    },
+    {
+      "id": "ROLE-PDN",
+      "title": "Специалист по ПДн",
+      "lane": "Compliance",
+      "responsibilities": [
+        "контур ПДн",
+        "организационные меры",
+        "контроль документов и процессов"
+      ],
+      "evidence": [
+        "приказ о назначении",
+        "политики",
+        "должностная инструкция"
+      ],
+      "status": "NOT_PROVEN"
+    },
+    {
+      "id": "ROLE-CRYPTO",
+      "title": "СКЗИ / криптографическая защита",
+      "lane": "Engineering",
+      "responsibilities": [
+        "эксплуатация СКЗИ в пределах назначенных полномочий",
+        "учет и регламенты"
+      ],
+      "evidence": [
+        "приказы",
+        "эксплуатационные документы",
+        "должностная инструкция"
+      ],
+      "status": "NOT_PROVEN"
+    },
+    {
+      "id": "ROLE-AUDIT",
+      "title": "ИБ-аудит",
+      "lane": "Assurance",
+      "responsibilities": [
+        "проверка выполнения требований",
+        "сбор evidence",
+        "findings и gap-analysis"
+      ],
+      "evidence": [
+        "программа аудита",
+        "приказ/план",
+        "матрица независимости"
+      ],
+      "status": "NOT_PROVEN"
+    }
+  ],
+  "raci": {
+    "status": "TEMPLATE",
+    "note": "RACI является рабочей моделью CyberED и должна подтверждаться внутренними документами конкретной организации.",
+    "columns": [
+      {
+        "id": "leader",
+        "title": "Руководитель"
+      },
+      {
+        "id": "deputy",
+        "title": "Зам. по ИБ"
+      },
+      {
+        "id": "head",
+        "title": "Рук. ИБ"
+      },
+      {
+        "id": "grc",
+        "title": "GRC"
+      },
+      {
+        "id": "engineer",
+        "title": "Инженер"
+      },
+      {
+        "id": "soc",
+        "title": "SOC"
+      },
+      {
+        "id": "it",
+        "title": "ИТ"
+      },
+      {
+        "id": "owner",
+        "title": "Владелец ИС"
+      }
+    ],
+    "rows": [
+      {
+        "activity": "Утверждение политики ИБ",
+        "leader": "A",
+        "deputy": "R",
+        "head": "C",
+        "grc": "R",
+        "engineer": "I",
+        "soc": "I",
+        "it": "C",
+        "owner": "C"
+      },
+      {
+        "activity": "Ведение реестра требований",
+        "leader": "I",
+        "deputy": "A",
+        "head": "C",
+        "grc": "R",
+        "engineer": "C",
+        "soc": "C",
+        "it": "I",
+        "owner": "C"
+      },
+      {
+        "activity": "Проектирование мер защиты",
+        "leader": "I",
+        "deputy": "A",
+        "head": "R",
+        "grc": "C",
+        "engineer": "R",
+        "soc": "C",
+        "it": "C",
+        "owner": "C"
+      },
+      {
+        "activity": "Мониторинг и реагирование",
+        "leader": "I",
+        "deputy": "A",
+        "head": "C",
+        "grc": "I",
+        "engineer": "C",
+        "soc": "R",
+        "it": "C",
+        "owner": "I"
+      },
+      {
+        "activity": "Аудит выполнения требований",
+        "leader": "I",
+        "deputy": "A",
+        "head": "C",
+        "grc": "R",
+        "engineer": "C",
+        "soc": "C",
+        "it": "C",
+        "owner": "C"
+      }
+    ]
+  },
+  "traceability": [
+    "REQUIREMENT",
+    "OBLIGATION",
+    "ROLE",
+    "INTERNAL_DOCUMENT",
+    "PERSON",
+    "ACTION",
+    "EVIDENCE",
+    "COMPLIANCE_STATUS"
+  ]
+}
