@@ -1,6 +1,6 @@
 {
-  "schema": "cybered.knowledge_core.v1",
-  "generated_at": "2026-10-03",
+  "schema": "father.cybered.knowledge_core.v2",
+  "generated_at": "2026-10-04",
   "weight_model": {
     "note": "Weights are graph relevance/confidence values, not legal force or priority.",
     "edge_weight": "0..1 strength of the modeled relationship",
@@ -200,6 +200,90 @@
       "type": "role",
       "weight": 0.78,
       "origin": "knowledge_model"
+    },
+    {
+      "id": "DOM-IT",
+      "label": "IT Engineering",
+      "type": "domain",
+      "weight": 0.96,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-DEV",
+      "label": "Software Development",
+      "type": "domain",
+      "weight": 0.96,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-AI",
+      "label": "AI Systems",
+      "type": "domain",
+      "weight": 0.95,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-CLOUD",
+      "label": "Cloud Systems Architecture",
+      "type": "domain",
+      "weight": 0.94,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-IT-AUDIT",
+      "label": "IT Audit",
+      "type": "domain",
+      "weight": 0.91,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-IB-AUDIT",
+      "label": "Security Audit",
+      "type": "domain",
+      "weight": 0.94,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-PENTEST",
+      "label": "Pentest / Red Team",
+      "type": "domain",
+      "weight": 0.92,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-SEC-ARCH",
+      "label": "Security Architecture",
+      "type": "domain",
+      "weight": 0.98,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-SOC",
+      "label": "SOC / Incident Response",
+      "type": "domain",
+      "weight": 0.94,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-GRC",
+      "label": "GRC / Risk / Compliance",
+      "type": "domain",
+      "weight": 0.96,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-ITSO",
+      "label": "ИТСО / CCTV / СКУД / Physical Security",
+      "type": "domain",
+      "weight": 0.88,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-DOCS",
+      "label": "IT / IB Documents & Standards",
+      "type": "domain",
+      "weight": 0.95,
+      "origin": "father_it_ib_core"
     }
   ],
   "edges": [
@@ -436,6 +520,165 @@
       "to": "PDN-ANON",
       "type": "governs_datasets",
       "weight": 0.9
+    },
+    {
+      "from": "DOM-IB",
+      "to": "DOM-IT",
+      "type": "security_of",
+      "weight": 0.92
+    },
+    {
+      "from": "DOM-DEV",
+      "to": "DOM-IT",
+      "type": "part_of",
+      "weight": 0.86
+    },
+    {
+      "from": "DOM-AI",
+      "to": "DOM-DEV",
+      "type": "specialization_of",
+      "weight": 0.88
+    },
+    {
+      "from": "DOM-CLOUD",
+      "to": "DOM-IT",
+      "type": "part_of",
+      "weight": 0.9
+    },
+    {
+      "from": "DOM-IT-AUDIT",
+      "to": "DOM-IT",
+      "type": "assures",
+      "weight": 0.9
+    },
+    {
+      "from": "DOM-IB-AUDIT",
+      "to": "DOM-IB",
+      "type": "assures",
+      "weight": 0.96
+    },
+    {
+      "from": "DOM-PENTEST",
+      "to": "DOM-IB",
+      "type": "tests",
+      "weight": 0.94
+    },
+    {
+      "from": "DOM-SEC-ARCH",
+      "to": "DOM-IB",
+      "type": "designs",
+      "weight": 0.98
+    },
+    {
+      "from": "DOM-SOC",
+      "to": "DOM-IB",
+      "type": "operates",
+      "weight": 0.95
+    },
+    {
+      "from": "DOM-GRC",
+      "to": "DOM-IB",
+      "type": "governs",
+      "weight": 0.96
+    },
+    {
+      "from": "DOM-ITSO",
+      "to": "DOM-IB",
+      "type": "integrates_physical_security",
+      "weight": 0.8
+    },
+    {
+      "from": "DOM-DOCS",
+      "to": "DOM-IB",
+      "type": "source_for",
+      "weight": 0.95
+    },
+    {
+      "from": "DOM-DOCS",
+      "to": "DOM-IT",
+      "type": "source_for",
+      "weight": 0.9
+    },
+    {
+      "from": "DOM-STANDARDS",
+      "to": "DOM-DOCS",
+      "type": "part_of",
+      "weight": 0.96
+    },
+    {
+      "from": "DOM-PDN",
+      "to": "DOM-GRC",
+      "type": "regulated_domain",
+      "weight": 0.9
+    },
+    {
+      "from": "DOM-GIS",
+      "to": "DOM-SEC-ARCH",
+      "type": "architecture_scope",
+      "weight": 0.9
+    },
+    {
+      "from": "DOM-KII",
+      "to": "DOM-SEC-ARCH",
+      "type": "architecture_scope",
+      "weight": 0.92
+    },
+    {
+      "from": "DOM-SKZI",
+      "to": "DOM-SEC-ARCH",
+      "type": "control_domain",
+      "weight": 0.9
+    },
+    {
+      "from": "DOM-PDN",
+      "to": "DOM-IB-AUDIT",
+      "type": "audit_scope",
+      "weight": 0.86
+    },
+    {
+      "from": "DOM-GIS",
+      "to": "DOM-IB-AUDIT",
+      "type": "audit_scope",
+      "weight": 0.88
+    },
+    {
+      "from": "DOM-KII",
+      "to": "DOM-IB-AUDIT",
+      "type": "audit_scope",
+      "weight": 0.9
+    },
+    {
+      "from": "DOM-ITSO",
+      "to": "DOM-IT-AUDIT",
+      "type": "audit_scope",
+      "weight": 0.72
+    },
+    {
+      "from": "DOM-CLOUD",
+      "to": "DOM-SEC-ARCH",
+      "type": "architecture_scope",
+      "weight": 0.92
+    },
+    {
+      "from": "DOM-AI",
+      "to": "DOM-SEC-ARCH",
+      "type": "architecture_scope",
+      "weight": 0.88
+    },
+    {
+      "from": "DOM-DEV",
+      "to": "DOM-PENTEST",
+      "type": "tested_by",
+      "weight": 0.78
+    },
+    {
+      "from": "DOM-AI",
+      "to": "DOM-PENTEST",
+      "type": "red_team_scope",
+      "weight": 0.72
     }
-  ]
+  ],
+  "owner": "FATHER",
+  "consumer": "CyberED",
+  "source_manifest": "father_it_ib_core.json"
 }
