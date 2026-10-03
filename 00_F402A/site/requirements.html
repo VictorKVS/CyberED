@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberED — Алина ИБ / Requirements</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/requirements.css">
+</head>
+<body>
+<header class="topbar">
+    <div class="brand">
+        <span class="brand-mark">C</span>
+        <div>
+            <strong>CyberED</strong>
+            <span>Alina Security Knowledge</span>
+        </div>
+    </div>
+    <nav>
+        <a href="index.html">Курс</a>
+        <a href="#status">Статус</a>
+        <a href="#registry">Нормативка</a>
+        <a href="#pipeline">Контур требований</a>
+    </nav>
+</header>
+
+<main class="requirements-main">
+    <section class="requirements-hero">
+        <div>
+            <div class="eyebrow">ALINA ANALYST · INFORMATION SECURITY</div>
+            <h1>База знаний <span>ИБ</span></h1>
+            <p class="hero-text">
+                Автоматический мост между локальной библиотекой Алины и CyberED.
+                Здесь отображаются индексированные источники и кандидаты для контура требований.
+            </p>
+        </div>
+
+        <aside class="status-panel" id="status">
+            <div class="status-line">
+                <span>ALINA</span>
+                <strong id="alina-online">ПРОВЕРКА...</strong>
+            </div>
+            <div class="status-line">
+                <span>Фаза</span>
+                <strong id="alina-phase">—</strong>
+            </div>
+            <div class="status-line">
+                <span>ИБ chunks</span>
+                <strong id="security-chunks">0</strong>
+            </div>
+            <div class="status-line">
+                <span>ИБ источники</span>
+                <strong id="security-books">0</strong>
+            </div>
+            <div class="status-line">
+                <span>Кандидаты</span>
+                <strong id="regulatory-hits">0</strong>
+            </div>
+            <small id="generated-at">Снимок ещё не создан.</small>
+        </aside>
+    </section>
+
+    <section class="section" id="registry">
+        <div class="section-title">
+            <span>01</span>
+            <div>
+                <h2>Нормативный радар</h2>
+                <p>Автоматический поиск по ИБ-библиотеке Алины.</p>
+            </div>
+        </div>
+
+        <div id="query-grid" class="query-grid"></div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <span>02</span>
+            <div>
+                <h2>Найденные источники</h2>
+                <p>Поисковые фрагменты — ещё не верифицированные требования.</p>
+            </div>
+        </div>
+
+        <div id="hits-list" class="hits-list">
+            <div class="empty-card">Запусти синхронизацию Алины, чтобы получить данные.</div>
+        </div>
+    </section>
+
+    <section class="section" id="pipeline">
+        <div class="section-title">
+            <span>03</span>
+            <div>
+                <h2>Контур требований</h2>
+                <p>Так источник превращается в архитектурное решение.</p>
+            </div>
+        </div>
+
+        <div class="pipeline">
+            <div><strong>SOURCE</strong><span>Документ</span></div>
+            <b>→</b>
+            <div><strong>CHUNK</strong><span>Пункт / фрагмент</span></div>
+            <b>→</b>
+            <div><strong>CANDIDATE</strong><span>Кандидат требования</span></div>
+            <b>→</b>
+            <div class="accent"><strong>VERIFIED</strong><span>Проверенное требование</span></div>
+            <b>→</b>
+            <div><strong>CONTROL</strong><span>Мера защиты</span></div>
+            <b>→</b>
+            <div><strong>ARCHITECTURE</strong><span>Решение</span></div>
+            <b>→</b>
+            <div><strong>EVIDENCE</strong><span>Доказательство</span></div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <span>CyberED</span>
+    <span>Alina Analyst · Security Knowledge</span>
+    <span id="year"></span>
+</footer>
+
+<script src="assets/js/requirements.js"></script>
+</body>
+</html>
