@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberED — Лица и компетенции ИБ</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsibility.css">
+</head>
+<body data-view="people">
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">C</span><div><strong>CyberED</strong><span>People · Responsibility · Competence</span></div></div>
+  <nav>
+    <a href="responsibility.html">Ответственность</a>
+    <a href="responsibility-team.html">ИБ-команда</a>
+    <a href="knowledge.html">База знаний</a>
+    <a href="documents.html">Документы</a>
+  </nav>
+</header>
+
+<main class="responsibility-main">
+  <section class="section page-section-first">
+    <div class="page-kicker">RESPONSIBILITY / 05</div>
+    <div class="section-title">
+      <span>05</span>
+      <div>
+        <h2>Лица и компетенции</h2>
+        <p>Кто назначен → за что отвечает → что должен уметь → где взять нужные знания.</p>
+      </div>
+    </div>
+
+    <div class="people-summary">
+      <div><span>РОЛЕЙ</span><strong id="people-role-count">0</strong></div>
+      <div><span>ЛИЦ НАЗНАЧЕНО</span><strong id="people-assigned-count">0</strong></div>
+      <div><span>КОМПЕТЕНЦИЙ</span><strong id="people-comp-count">0</strong></div>
+      <div><span>GAP</span><strong id="people-gap-count">0</strong></div>
+    </div>
+
+    <div class="people-layout">
+      <aside id="people-role-list" class="people-role-list"></aside>
+      <section id="people-profile" class="people-profile">
+        <div class="detail-placeholder">
+          <span>ROLE → PERSON → COMPETENCY</span>
+          <h2>Выберите роль</h2>
+          <p>Покажем назначенное лицо, основание ответственности, требуемые компетенции и источники обучения.</p>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <nav class="page-nav">
+    <a href="responsibility-team.html">← ИБ-команда</a>
+    <a href="responsibility-raci.html">RACI →</a>
+  </nav>
+</main>
+
+<footer><span>CyberED</span><span>People & Competency Matrix</span><span id="year"></span></footer>
+<script src="assets/js/people-competencies.js"></script>
+</body>
+</html>
