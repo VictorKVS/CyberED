@@ -1,0 +1,303 @@
+{
+  "schema": "father.it_ib_core.v1",
+  "generated_at": "2026-10-04",
+  "owner": "FATHER",
+  "purpose": "Единое ядро знаний по IT и информационной безопасности. CyberED и другие модули FATHER являются потребителями, а не владельцами отдельных копий знаний.",
+  "principles": [
+    "Один источник знания — много потребителей.",
+    "Документ хранится один раз и связывается с несколькими доменами.",
+    "Курс не является источником истины: курс собирается из Knowledge Core.",
+    "Роль и конкретное лицо разделены; лицо подтверждается внутренним документом.",
+    "Компетенция связывается с источником знания, лабораторией и evidence.",
+    "Вес графа означает силу связи/доверие, а не юридическую силу."
+  ],
+  "domains": [
+    {
+      "id": "DOM-IT",
+      "title": "IT Engineering",
+      "scope": [
+        "сети",
+        "Linux",
+        "Windows/AD",
+        "виртуализация",
+        "БД",
+        "storage",
+        "эксплуатация",
+        "DevOps",
+        "контейнеры"
+      ]
+    },
+    {
+      "id": "DOM-DEV",
+      "title": "Software Development",
+      "scope": [
+        "Python",
+        "backend",
+        "frontend",
+        "API",
+        "SDLC",
+        "QA",
+        "DevSecOps",
+        "AppSec"
+      ]
+    },
+    {
+      "id": "DOM-AI",
+      "title": "AI Systems",
+      "scope": [
+        "LLM",
+        "RAG",
+        "agents",
+        "ML",
+        "MLOps",
+        "AI platform",
+        "AI security"
+      ]
+    },
+    {
+      "id": "DOM-CLOUD",
+      "title": "Cloud Systems Architecture",
+      "scope": [
+        "public/private/hybrid cloud",
+        "Kubernetes",
+        "IaC",
+        "GitOps",
+        "IAM",
+        "HA/DR",
+        "FinOps",
+        "AI infrastructure"
+      ]
+    },
+    {
+      "id": "DOM-IT-AUDIT",
+      "title": "IT Audit",
+      "scope": [
+        "IT controls",
+        "configuration audit",
+        "service/process audit",
+        "evidence",
+        "gap analysis"
+      ]
+    },
+    {
+      "id": "DOM-IB-AUDIT",
+      "title": "Security Audit",
+      "scope": [
+        "compliance",
+        "security controls",
+        "evidence",
+        "findings",
+        "risk",
+        "re-audit"
+      ]
+    },
+    {
+      "id": "DOM-PENTEST",
+      "title": "Pentest / Red Team",
+      "scope": [
+        "web",
+        "API",
+        "network",
+        "AD",
+        "Linux",
+        "cloud",
+        "containers",
+        "mobile",
+        "Wi-Fi",
+        "AI/LLM red team"
+      ]
+    },
+    {
+      "id": "DOM-SEC-ARCH",
+      "title": "Security Architecture",
+      "scope": [
+        "requirements",
+        "threat modeling",
+        "controls",
+        "target architecture",
+        "IAM",
+        "network",
+        "cloud",
+        "AppSec"
+      ]
+    },
+    {
+      "id": "DOM-SOC",
+      "title": "SOC / Incident Response",
+      "scope": [
+        "monitoring",
+        "detection",
+        "SIEM",
+        "IR",
+        "forensics",
+        "GosSOPKA"
+      ]
+    },
+    {
+      "id": "DOM-GRC",
+      "title": "GRC / Risk / Compliance",
+      "scope": [
+        "requirements",
+        "applicability",
+        "risk",
+        "policies",
+        "RACI",
+        "evidence"
+      ]
+    },
+    {
+      "id": "DOM-PDN",
+      "title": "Персональные данные / ИСПДн",
+      "scope": [
+        "152-ФЗ",
+        "ИСПДн",
+        "биометрия",
+        "обезличивание",
+        "инциденты",
+        "Роскомнадзор"
+      ]
+    },
+    {
+      "id": "DOM-GIS",
+      "title": "ГИС / госсектор",
+      "scope": [
+        "ГИС",
+        "МИС",
+        "ГосТех",
+        "ЕСИА",
+        "СМЭВ",
+        "государственное облако"
+      ]
+    },
+    {
+      "id": "DOM-KII",
+      "title": "КИИ",
+      "scope": [
+        "категорирование",
+        "значимые объекты",
+        "187-ФЗ",
+        "ФСТЭК",
+        "GosSOPKA"
+      ]
+    },
+    {
+      "id": "DOM-SKZI",
+      "title": "СКЗИ / PKI / Crypto",
+      "scope": [
+        "ФСБ",
+        "СКЗИ",
+        "PKI",
+        "электронная подпись",
+        "криптография"
+      ]
+    },
+    {
+      "id": "DOM-ITSO",
+      "title": "ИТСО / CCTV / СКУД / Physical Security",
+      "scope": [
+        "CCTV",
+        "VMS",
+        "СКУД",
+        "PSIM",
+        "периметр",
+        "датчики",
+        "биометрия",
+        "CV/VLM video analytics"
+      ]
+    },
+    {
+      "id": "DOM-DOCS",
+      "title": "IT / IB Documents & Standards",
+      "scope": [
+        "законы",
+        "указы",
+        "ПП РФ",
+        "ФСТЭК",
+        "ФСБ",
+        "Роскомнадзор",
+        "Минцифры",
+        "ГОСТ",
+        "ISO/IEC",
+        "ЛНА",
+        "регламенты"
+      ]
+    }
+  ],
+  "common_entities": [
+    "DOCUMENT",
+    "REQUIREMENT",
+    "DOMAIN",
+    "SYSTEM",
+    "ASSET",
+    "DATA",
+    "PROCESS",
+    "THREAT",
+    "VULNERABILITY",
+    "RISK",
+    "CONTROL",
+    "ARCHITECTURE",
+    "ROLE",
+    "PERSON",
+    "COMPETENCY",
+    "KNOWLEDGE",
+    "COURSE",
+    "LAB",
+    "ACTION",
+    "TEST",
+    "EVIDENCE"
+  ],
+  "canonical_flow": [
+    "DOCUMENT",
+    "REQUIREMENT",
+    "APPLICABILITY",
+    "SYSTEM/ASSET/PROCESS",
+    "THREAT/VULNERABILITY/RISK",
+    "CONTROL",
+    "ARCHITECTURE",
+    "ROLE",
+    "PERSON",
+    "COMPETENCY",
+    "KNOWLEDGE",
+    "COURSE/LAB",
+    "ACTION",
+    "TEST",
+    "EVIDENCE"
+  ],
+  "consumers": [
+    {
+      "id": "CYBERED",
+      "title": "CyberED Courses",
+      "mode": "education"
+    },
+    {
+      "id": "ALINA",
+      "title": "Алина — аналитик / правовед / проджект",
+      "mode": "knowledge_worker"
+    },
+    {
+      "id": "AUDIT-FACTORY",
+      "title": "IT/IB Audit Factory",
+      "mode": "audit"
+    },
+    {
+      "id": "PENTEST-FACTORY",
+      "title": "Pentest Factory",
+      "mode": "security_testing"
+    },
+    {
+      "id": "SEC-ARCH-WORKPLACE",
+      "title": "Security Architect Workplace",
+      "mode": "architecture"
+    },
+    {
+      "id": "ITSO-FACTORY",
+      "title": "ITSO / Physical Security Factory",
+      "mode": "engineering"
+    },
+    {
+      "id": "DEV-AI-FACTORY",
+      "title": "Software / AI Factory",
+      "mode": "development"
+    }
+  ]
+}
