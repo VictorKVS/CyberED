@@ -3,7 +3,7 @@ if (yearNode) yearNode.textContent = new Date().getFullYear();
 
 const LABELS = {
   REQUIREMENT:"Требование", OBLIGATION:"Обязанность", ROLE:"Роль",
-  INTERNAL_DOCUMENT:"ЛНА / приказ / ДИ", PERSON:"Лицо", ACTION:"Действие",
+  INTERNAL_DOCUMENT:"ЛНА / приказ / ДИ", PERSON:"Лицо", COMPETENCY:"Компетенция", ACTION:"Действие",
   EVIDENCE:"Evidence", COMPLIANCE_STATUS:"Статус"
 };
 
