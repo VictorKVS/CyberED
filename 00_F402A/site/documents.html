@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberED — ИБ-документация</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/documents.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">C</span>
+    <div><strong>CyberED</strong><span>Security Legal Library</span></div>
+  </div>
+  <nav>
+    <a href="index.html">Курс</a>
+    <a href="documents.html">Документы</a>
+    <a href="requirements.html">Требования</a>
+    <a href="responsibility.html">Ответственность</a>
+  </nav>
+</header>
+
+<main class="docs-main">
+  <section class="docs-head">
+    <div>
+      <div class="eyebrow">SECURITY DOCUMENTATION · LEGAL LIBRARY</div>
+      <h1>ИБ‑документация</h1>
+      <p class="hero-text">Справочно‑правовой интерфейс CyberED: источник → редакция → пункт → требование → ответственность → контроль → evidence.</p>
+    </div>
+    <div class="docs-search-box">
+      <label for="doc-search">Поиск по реестру</label>
+      <input id="doc-search" type="search" placeholder="ФСТЭК, 152-ФЗ, ГОСТ, ПДн, КИИ...">
+      <div class="search-meta"><span id="doc-count">0</span> документов в текущем представлении</div>
+    </div>
+  </section>
+
+  <section class="docs-workspace">
+    <aside class="docs-sidebar">
+      <div class="side-title">КЛАССИФИКАТОР</div>
+      <button class="filter-btn active" data-filter="all">Все документы</button>
+      <button class="filter-btn" data-filter="law">Федеральные законы</button>
+      <button class="filter-btn" data-filter="government">Постановления Правительства</button>
+      <button class="filter-btn" data-filter="fstec">ФСТЭК</button>
+      <button class="filter-btn" data-filter="fsb">ФСБ</button>
+      <button class="filter-btn" data-filter="rkn">Роскомнадзор</button>
+      <button class="filter-btn" data-filter="gost">ГОСТ / ISO</button>
+      <button class="filter-btn" data-filter="internal">Внутренние ЛНА</button>
+
+      <div class="side-title second">СТАТУС</div>
+      <button class="status-btn active" data-status="all">Все</button>
+      <button class="status-btn" data-status="VERIFIED">Проверено</button>
+      <button class="status-btn" data-status="TO_VERIFY">Требует проверки</button>
+      <button class="status-btn" data-status="SUPERSEDED">Утратившие актуальность</button>
+    </aside>
+
+    <section class="docs-list-pane">
+      <div class="pane-head">
+        <span>РЕЕСТР ДОКУМЕНТОВ</span>
+        <span>ALINA KNOWLEDGE SOURCE</span>
+      </div>
+      <div id="docs-list" class="docs-list"></div>
+    </section>
+
+    <section class="doc-detail-pane">
+      <div id="doc-detail" class="doc-detail empty-detail">
+        <div class="detail-placeholder">
+          <span>CYBERED LEGAL LIBRARY</span>
+          <h2>Выберите документ</h2>
+          <p>Справа откроется карточка: источник, редакция, статус проверки, область применения и связанные требования.</p>
+        </div>
+      </div>
+    </section>
+  </section>
+</main>
+
+<footer>
+  <span>CyberED</span>
+  <span>Information Security Legal Library</span>
+  <span id="year"></span>
+</footer>
+
+<script src="assets/js/documents.js"></script>
+</body>
+</html>
