@@ -1,0 +1,7 @@
+# Generated local Alina/CyberED knowledge snapshots
+site/data/alina_ib_index.json
+site/data/alina_ib_index.json.tmp
+
+# Local automation runtime
+automation/logs/
+automation/*.log
