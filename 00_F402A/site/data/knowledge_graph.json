@@ -1,0 +1,5768 @@
+{
+  "schema": "cybered.knowledge_graph.v1",
+  "generated_at": "2026-10-03",
+  "weight_model": {
+    "note": "Weights are graph relevance/confidence values, not legal force or priority.",
+    "edge_weight": "0..1 strength of the modeled relationship",
+    "node_weight": "0..1 importance inside the current knowledge model",
+    "source_confidence": {
+      "VERIFIED": 1,
+      "SOURCE_LISTED": 0.72,
+      "SUPERSEDED": 0.25
+    }
+  },
+  "stats": {
+    "nodes": 311,
+    "edges": 353,
+    "documents": 284
+  },
+  "nodes": [
+    {
+      "id": "DOM-IB",
+      "label": "Информационная безопасность",
+      "type": "domain",
+      "weight": 1,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "DOM-PDN",
+      "label": "Персональные данные",
+      "type": "domain",
+      "weight": 1,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "DOM-GIS",
+      "label": "ГИС / госсектор",
+      "type": "domain",
+      "weight": 0.95,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "DOM-KII",
+      "label": "КИИ",
+      "type": "domain",
+      "weight": 0.92,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "DOM-SKZI",
+      "label": "СКЗИ / криптография",
+      "type": "domain",
+      "weight": 0.9,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "DOM-STANDARDS",
+      "label": "ГОСТ / ISO / стандарты",
+      "type": "domain",
+      "weight": 0.82,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "PDN-ISPDN",
+      "label": "ИСПДн",
+      "type": "system",
+      "weight": 1,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "PDN-DATA",
+      "label": "Персональные данные",
+      "type": "data",
+      "weight": 1,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "PDN-BIO",
+      "label": "Биометрические ПДн",
+      "type": "data",
+      "weight": 0.88,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-THREATS",
+      "label": "Угрозы безопасности ПДн",
+      "type": "knowledge",
+      "weight": 0.96,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-LEVELS",
+      "label": "Уровни защищённости ИСПДн",
+      "type": "knowledge",
+      "weight": 0.98,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-MEASURES",
+      "label": "Организационные и технические меры",
+      "type": "control_family",
+      "weight": 1,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-CRYPTO",
+      "label": "Криптографическая защита",
+      "type": "control_family",
+      "weight": 0.94,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-DAMAGE",
+      "label": "Оценка вреда субъекту ПДн",
+      "type": "process",
+      "weight": 0.84,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-DESTROY",
+      "label": "Уничтожение ПДн",
+      "type": "process",
+      "weight": 0.86,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-NOTIFY",
+      "label": "Уведомления оператора",
+      "type": "process",
+      "weight": 0.88,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-INCIDENT",
+      "label": "Инцидент с ПДн",
+      "type": "process",
+      "weight": 0.96,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-ANON",
+      "label": "Обезличивание ПДн",
+      "type": "process",
+      "weight": 0.86,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-XBORDER",
+      "label": "Трансграничная передача",
+      "type": "process",
+      "weight": 0.82,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-CONTROL",
+      "label": "Контроль / надзор",
+      "type": "process",
+      "weight": 0.8,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-LOCALDOCS",
+      "label": "Локальные акты оператора",
+      "type": "artifact",
+      "weight": 0.92,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "PDN-EVIDENCE",
+      "label": "Evidence выполнения",
+      "type": "artifact",
+      "weight": 0.95,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "PDN-AUDIT",
+      "label": "Аудит ПДн",
+      "type": "process",
+      "weight": 0.9,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "ROLE-OPERATOR",
+      "label": "Оператор ПДн",
+      "type": "role",
+      "weight": 1,
+      "origin": "source_model"
+    },
+    {
+      "id": "ROLE-PDN",
+      "label": "Ответственный за организацию обработки ПДн",
+      "type": "role",
+      "weight": 0.95,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "ROLE-IB",
+      "label": "Подразделение / специалист ИБ",
+      "type": "role",
+      "weight": 0.9,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "ROLE-IT",
+      "label": "ИТ / администратор системы",
+      "type": "role",
+      "weight": 0.78,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "DOC-149-ФЗ",
+      "label": "149-ФЗ",
+      "type": "document",
+      "title": "Об информации, информационных технологиях и о защите информации",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГИС / ИТ / ИБ"
+    },
+    {
+      "id": "DOC-59-ФЗ",
+      "label": "59-ФЗ",
+      "type": "document",
+      "title": "О порядке рассмотрения обращений граждан Российской Федерации",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГИС для взаимодействия с гражданами"
+    },
+    {
+      "id": "DOC-8-ФЗ",
+      "label": "8-ФЗ",
+      "type": "document",
+      "title": "Об обеспечении доступа к информации о деятельности государственных органов и органов местного самоуправления",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГИС / официальные сайты"
+    },
+    {
+      "id": "DOC-20-ФЗ",
+      "label": "20-ФЗ",
+      "type": "document",
+      "title": "О Государственной автоматизированной системе Российской Федерации «Выборы»",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГАС «Выборы»"
+    },
+    {
+      "id": "DOC-41-ФЗ",
+      "label": "41-ФЗ",
+      "type": "document",
+      "title": "О создании государственной информационной системы противодействия правонарушениям, совершаемым с использованием ИКТ",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГИС противодействия ИКТ-правонарушениям"
+    },
+    {
+      "id": "DOC-156-ФЗ",
+      "label": "156-ФЗ",
+      "type": "document",
+      "title": "О создании многофункционального сервиса обмена информацией и о внесении изменений в отдельные законодательные акты РФ",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Государственные цифровые сервисы"
+    },
+    {
+      "id": "DOC-УП-467",
+      "label": "УП-467",
+      "type": "document",
+      "title": "О государственном информационном ресурсе «Цифровой профиль иностранного гражданина»",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Государственный информационный ресурс"
+    },
+    {
+      "id": "DOC-ПП-424",
+      "label": "ПП-424",
+      "type": "document",
+      "title": "Об особенностях подключения федеральных государственных информационных систем к информационно-телекоммуникационным сетям",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ФГИС / сети"
+    },
+    {
+      "id": "DOC-ПП-953",
+      "label": "ПП-953",
+      "type": "document",
+      "title": "Об обеспечении доступа к информации о деятельности Правительства РФ и федеральных органов исполнительной власти",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Официальные сайты / открытость"
+    },
+    {
+      "id": "DOC-ПП-697",
+      "label": "ПП-697",
+      "type": "document",
+      "title": "О единой системе межведомственного электронного взаимодействия",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "СМЭВ"
+    },
+    {
+      "id": "DOC-ПП-451",
+      "label": "ПП-451",
+      "type": "document",
+      "title": "Об инфраструктуре информационно-технологического взаимодействия государственных информационных систем",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Электронные госуслуги"
+    },
+    {
+      "id": "DOC-ПП-977",
+      "label": "ПП-977",
+      "type": "document",
+      "title": "О федеральной государственной информационной системе ЕСИА",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ЕСИА / идентификация"
+    },
+    {
+      "id": "DOC-ПП-644",
+      "label": "ПП-644",
+      "type": "document",
+      "title": "О ФГИС учета информационных систем, создаваемых и приобретаемых за счет бюджетных средств",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Учет ГИС"
+    },
+    {
+      "id": "DOC-ПП-584",
+      "label": "ПП-584",
+      "type": "document",
+      "title": "Об использовании ЕСИА",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ЕСИА"
+    },
+    {
+      "id": "DOC-ПП-675",
+      "label": "ПП-675",
+      "type": "document",
+      "title": "О контроле за размещением технических средств информационных систем на территории РФ и соблюдением требований к ГИС",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГИС / контроль"
+    },
+    {
+      "id": "DOC-ПП-676",
+      "label": "ПП-676",
+      "type": "document",
+      "title": "О требованиях к порядку создания, развития, ввода в эксплуатацию, эксплуатации и вывода из эксплуатации ГИС",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Жизненный цикл ГИС"
+    },
+    {
+      "id": "DOC-ПП-1235",
+      "label": "ПП-1235",
+      "type": "document",
+      "title": "О федеральной государственной информационной системе координации информатизации",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Координация информатизации"
+    },
+    {
+      "id": "DOC-ПП-1264",
+      "label": "ПП-1264",
+      "type": "document",
+      "title": "Об утверждении Правил обмена документами в электронном виде при организации информационного взаимодействия",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Электронный обмен"
+    },
+    {
+      "id": "DOC-ПП-1040",
+      "label": "ПП-1040",
+      "type": "document",
+      "title": "О ФГИС «Единая цифровая платформа Национальная система пространственных данных»",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ФГИС / пространственные данные"
+    },
+    {
+      "id": "DOC-ПП-1498",
+      "label": "ПП-1498",
+      "type": "document",
+      "title": "Об аккредитации государственных органов на владение ГИС идентификации и аутентификации",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГИС / идентификация"
+    },
+    {
+      "id": "DOC-ПП-1152",
+      "label": "ПП-1152",
+      "type": "document",
+      "title": "О создании, эксплуатации и развитии ФГИС «Единая система предоставления государственных и муниципальных услуг»",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Госуслуги"
+    },
+    {
+      "id": "DOC-ПП-335",
+      "label": "ПП-335",
+      "type": "document",
+      "title": "О субсидиях на создание и развитие государственных информационных систем",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Создание / развитие ГИС"
+    },
+    {
+      "id": "DOC-ПП-929",
+      "label": "ПП-929",
+      "type": "document",
+      "title": "Об утверждении Положения о государственной единой облачной платформе",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГЕОП / облако"
+    },
+    {
+      "id": "DOC-ПП-900",
+      "label": "ПП-900",
+      "type": "document",
+      "title": "Об учете ИТ-активов цифровой трансформации государственного и муниципального управления",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ИТ-активы"
+    },
+    {
+      "id": "DOC-ПП-981",
+      "label": "ПП-981",
+      "type": "document",
+      "title": "О государственной информационной системе удаленного использования архивных документов",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Архивная ГИС"
+    },
+    {
+      "id": "DOC-ПП-1092",
+      "label": "ПП-1092",
+      "type": "document",
+      "title": "О ГИС «Интеграционный шлюз национального сегмента РФ интегрированной информационной системы ЕАЭС»",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Интеграция / ЕАЭС"
+    },
+    {
+      "id": "DOC-ПП-1443",
+      "label": "ПП-1443",
+      "type": "document",
+      "title": "О применении мобильного приложения ЕПГУ для представления сведений из документов граждан",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ЕПГУ / цифровые документы"
+    },
+    {
+      "id": "DOC-ПП-1933",
+      "label": "ПП-1933",
+      "type": "document",
+      "title": "О ГИС по предупреждению, выявлению и пресечению ограничивающих конкуренцию соглашений",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Отраслевая ГИС"
+    },
+    {
+      "id": "DOC-ПП-102-2026",
+      "label": "ПП-102-2026",
+      "type": "document",
+      "title": "Требования к доступности информации на официальных сайтах государственных органов для инвалидов по зрению",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Госсайты / доступность"
+    },
+    {
+      "id": "DOC-ПП-200-2026",
+      "label": "ПП-200-2026",
+      "type": "document",
+      "title": "Положение о ГИС противодействия правонарушениям, совершаемым с использованием ИКТ",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГИС / антифрод"
+    },
+    {
+      "id": "DOC-ПП-712-2026",
+      "label": "ПП-712-2026",
+      "type": "document",
+      "title": "Требования к актам Правительства РФ, на основании которых создаются федеральные ГИС",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Создание ФГИС"
+    },
+    {
+      "id": "DOC-ПП-1024-2026",
+      "label": "ПП-1024-2026",
+      "type": "document",
+      "title": "Правила использования технических средств, программ и баз данных для создания и эксплуатации ГИС и иных ИС госорганов",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГИС / инфраструктура"
+    },
+    {
+      "id": "DOC-Минкомсвязь-104",
+      "label": "Минкомсвязь-104",
+      "type": "document",
+      "title": "Требования по обеспечению целостности, устойчивости функционирования и безопасности информационных систем общего пользования",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ИС общего пользования"
+    },
+    {
+      "id": "DOC-Минкомсвязь-127",
+      "label": "Минкомсвязь-127",
+      "type": "document",
+      "title": "Методические указания по учету информационных систем и компонентов ИТ-инфраструктуры",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Учет ИТ"
+    },
+    {
+      "id": "DOC-Минкомсвязь-149",
+      "label": "Минкомсвязь-149",
+      "type": "document",
+      "title": "Требования к средствам размещения открытых данных государственными органами",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Открытые данные"
+    },
+    {
+      "id": "DOC-Минкомсвязь-220",
+      "label": "Минкомсвязь-220",
+      "type": "document",
+      "title": "Методические рекомендации по учету и классификации ИС и ИТ-инфраструктуры субъектов РФ",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Региональные ИС"
+    },
+    {
+      "id": "DOC-Минкомсвязь-120",
+      "label": "Минкомсвязь-120",
+      "type": "document",
+      "title": "Требования технологической совместимости ИС с инфраструктурой электронных госуслуг и к защите каналов СКЗИ",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Интеграция / СКЗИ"
+    },
+    {
+      "id": "DOC-Минцифры-ФСО-611-96",
+      "label": "Минцифры-ФСО-611-96",
+      "type": "document",
+      "title": "Требования к организационно-техническому взаимодействию государственных органов и государственных организаций",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Взаимодействие госорганов"
+    },
+    {
+      "id": "DOC-Минцифры-677",
+      "label": "Минцифры-677",
+      "type": "document",
+      "title": "Требования о защите информации при предоставлении вычислительной мощности операторам ГИС, МИС и государственных учреждений",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Хостинг / облако / ГИС"
+    },
+    {
+      "id": "DOC-Минцифры-1106",
+      "label": "Минцифры-1106",
+      "type": "document",
+      "title": "Требования к обеспечению информационной безопасности при предоставлении облачных услуг посредством государственной единой облачной платформы",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГЕОП / ИБ"
+    },
+    {
+      "id": "DOC-Минкомсвязь-210",
+      "label": "Минкомсвязь-210",
+      "type": "document",
+      "title": "Технические требования к взаимодействию информационных систем в СМЭВ",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "СМЭВ"
+    },
+    {
+      "id": "DOC-166-ФЗ",
+      "label": "166-ФЗ",
+      "type": "document",
+      "title": "О технологической платформе создания, развития и эксплуатации информационных систем",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГосТех"
+    },
+    {
+      "id": "DOC-УП-231",
+      "label": "УП-231",
+      "type": "document",
+      "title": "О создании, развитии и эксплуатации ГИС с использованием ЕЦП РФ «ГосТех»",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГосТех"
+    },
+    {
+      "id": "DOC-РП-3102-р",
+      "label": "РП-3102-р",
+      "type": "document",
+      "title": "Концепция создания и функционирования ЕЦП РФ «ГосТех»",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГосТех"
+    },
+    {
+      "id": "DOC-ПП-2194",
+      "label": "ПП-2194",
+      "type": "document",
+      "title": "Положение о ФГИС управления платформой «ГосТех» и ФГИС «Госмаркет»",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГосТех"
+    },
+    {
+      "id": "DOC-ПП-2338",
+      "label": "ПП-2338",
+      "type": "document",
+      "title": "Положение о единой цифровой платформе РФ «ГосТех»",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ГосТех"
+    },
+    {
+      "id": "DOC-Минздрав-911н",
+      "label": "Минздрав-911н",
+      "type": "document",
+      "title": "Требования к государственным информационным системам в сфере здравоохранения, МИС и ИС фармацевтических организаций",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Здравоохранение / МИС"
+    },
+    {
+      "id": "DOC-УП-351",
+      "label": "УП-351",
+      "type": "document",
+      "title": "О мерах по обеспечению информационной безопасности РФ при использовании сетей международного информационного обмена",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Подключение к Интернет"
+    },
+    {
+      "id": "DOC-УП-260",
+      "label": "УП-260",
+      "type": "document",
+      "title": "О некоторых вопросах информационной безопасности РФ",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Государственный сегмент Интернет"
+    },
+    {
+      "id": "DOC-ФСО-443",
+      "label": "ФСО-443",
+      "type": "document",
+      "title": "Положение о российском государственном сегменте сети Интернет",
+      "kind": "gis",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Государственный сегмент Интернет"
+    },
+    {
+      "id": "DOC-ФСТЭК-117",
+      "label": "ФСТЭК-117",
+      "type": "document",
+      "title": "Требования о защите информации в ГИС и иных ИС госорганов, ГУП и государственных учреждений",
+      "kind": "fstec",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "ГИС / госсектор"
+    },
+    {
+      "id": "DOC-ФСТЭК-137",
+      "label": "ФСТЭК-137",
+      "type": "document",
+      "title": "Изменения в Требования, утвержденные приказом ФСТЭК России №117",
+      "kind": "fstec",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "ГИС / госсектор"
+    },
+    {
+      "id": "DOC-ФСТЭК-МД-12-04-2026",
+      "label": "ФСТЭК-МД-12.04.2026",
+      "type": "document",
+      "title": "Состав и содержание мероприятий и мер по защите информации, содержащейся в информационных системах",
+      "kind": "fstec",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "ГИС / ИС"
+    },
+    {
+      "id": "DOC-ФСТЭК-21",
+      "label": "ФСТЭК-21",
+      "type": "document",
+      "title": "Состав и содержание организационных и технических мер по обеспечению безопасности ПДн в ИСПДн",
+      "kind": "fstec",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "ИСПДн"
+    },
+    {
+      "id": "DOC-ФСТЭК-31",
+      "label": "ФСТЭК-31",
+      "type": "document",
+      "title": "Требования к защите информации в АСУ производственными и технологическими процессами на критически важных и опасных объектах",
+      "kind": "fstec",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "АСУ ТП"
+    },
+    {
+      "id": "DOC-ФСТЭК-55",
+      "label": "ФСТЭК-55",
+      "type": "document",
+      "title": "Положение о системе сертификации средств защиты информации",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Сертификация СЗИ"
+    },
+    {
+      "id": "DOC-ФСТЭК-77",
+      "label": "ФСТЭК-77",
+      "type": "document",
+      "title": "Порядок организации и проведения работ по аттестации объектов информатизации",
+      "kind": "fstec",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Аттестация"
+    },
+    {
+      "id": "DOC-ФСТЭК-76",
+      "label": "ФСТЭК-76",
+      "type": "document",
+      "title": "Требования по безопасности информации, устанавливающие уровни доверия к средствам ТЗИ и средствам обеспечения безопасности ИТ",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Уровни доверия"
+    },
+    {
+      "id": "DOC-ФСТЭК-235",
+      "label": "ФСТЭК-235",
+      "type": "document",
+      "title": "Требования к созданию систем безопасности значимых объектов КИИ и обеспечению их функционирования",
+      "kind": "fstec",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "КИИ"
+    },
+    {
+      "id": "DOC-ФСТЭК-236",
+      "label": "ФСТЭК-236",
+      "type": "document",
+      "title": "Форма направления сведений о результатах категорирования объекта КИИ",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "КИИ"
+    },
+    {
+      "id": "DOC-ФСТЭК-239",
+      "label": "ФСТЭК-239",
+      "type": "document",
+      "title": "Требования по обеспечению безопасности значимых объектов КИИ",
+      "kind": "fstec",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "КИИ"
+    },
+    {
+      "id": "DOC-ФСТЭК-75",
+      "label": "ФСТЭК-75",
+      "type": "document",
+      "title": "Порядок согласования подключения значимого объекта КИИ к сети связи общего пользования",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "КИИ"
+    },
+    {
+      "id": "DOC-ФСТЭК-227",
+      "label": "ФСТЭК-227",
+      "type": "document",
+      "title": "Порядок ведения реестра значимых объектов КИИ",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "КИИ"
+    },
+    {
+      "id": "DOC-ФСТЭК-229",
+      "label": "ФСТЭК-229",
+      "type": "document",
+      "title": "Форма акта проверки по государственному контролю безопасности значимых объектов КИИ",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "КИИ"
+    },
+    {
+      "id": "DOC-ФСТЭК-33",
+      "label": "ФСТЭК-33",
+      "type": "document",
+      "title": "Правила отдельных работ по аккредитации органов по сертификации и испытательных лабораторий",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Сертификация"
+    },
+    {
+      "id": "DOC-ФСТЭК-240",
+      "label": "ФСТЭК-240",
+      "type": "document",
+      "title": "Порядок сертификации процессов безопасной разработки ПО средств защиты информации",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Безопасная разработка"
+    },
+    {
+      "id": "DOC-ФСТЭК-206",
+      "label": "ФСТЭК-206",
+      "type": "document",
+      "title": "Оценочный лист лицензионных требований по деятельности ТЗКИ",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Лицензирование"
+    },
+    {
+      "id": "DOC-ФСТЭК-207",
+      "label": "ФСТЭК-207",
+      "type": "document",
+      "title": "Оценочный лист лицензионных требований по разработке и производству СЗКИ",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Лицензирование"
+    },
+    {
+      "id": "DOC-ФСТЭК-3-2023",
+      "label": "ФСТЭК-3-2023",
+      "type": "document",
+      "title": "Формы документов для лицензирования деятельности по технической защите конфиденциальной информации",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Лицензирование"
+    },
+    {
+      "id": "DOC-ФСТЭК-4-2023",
+      "label": "ФСТЭК-4-2023",
+      "type": "document",
+      "title": "Формы документов для лицензирования разработки и производства средств защиты конфиденциальной информации",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Лицензирование"
+    },
+    {
+      "id": "DOC-ФСТЭК-163",
+      "label": "ФСТЭК-163",
+      "type": "document",
+      "title": "Административные процедуры лицензионного контроля деятельности по ТЗКИ",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Лицензирование"
+    },
+    {
+      "id": "DOC-ФСТЭК-164",
+      "label": "ФСТЭК-164",
+      "type": "document",
+      "title": "Административные процедуры лицензионного контроля разработки и производства средств защиты конфиденциальной информации",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Лицензирование"
+    },
+    {
+      "id": "DOC-ФСБ-321",
+      "label": "ФСБ-321",
+      "type": "document",
+      "title": "Требования о защите информации в ГИС и иных ИС государственного контура с использованием СКЗИ",
+      "kind": "fsb",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "ГИС / СКЗИ"
+    },
+    {
+      "id": "DOC-ФСБ-117-2025",
+      "label": "ФСБ-117-2025",
+      "type": "document",
+      "title": "Требования о защите информации в ГИС с использованием СКЗИ",
+      "kind": "fsb",
+      "status": "SUPERSEDED",
+      "weight": 0.25,
+      "origin": "document_registry",
+      "scope": "ГИС / СКЗИ"
+    },
+    {
+      "id": "DOC-ФСБ-378",
+      "label": "ФСБ-378",
+      "type": "document",
+      "title": "Организационные и технические меры по безопасности ПДн в ИСПДн с использованием СКЗИ",
+      "kind": "fsb",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ПДн / СКЗИ"
+    },
+    {
+      "id": "DOC-ФСБ-77",
+      "label": "ФСБ-77",
+      "type": "document",
+      "title": "Порядок взаимодействия операторов с ГосСОПКА при инцидентах, повлекших неправомерную передачу ПДн",
+      "kind": "fsb",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ПДн / инциденты"
+    },
+    {
+      "id": "DOC-ФСБ-66",
+      "label": "ФСБ-66",
+      "type": "document",
+      "title": "Положение о разработке, производстве, реализации и эксплуатации шифровальных средств (ПКЗ-2005)",
+      "kind": "fsb",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "СКЗИ"
+    },
+    {
+      "id": "DOC-ФАПСИ-152",
+      "label": "ФАПСИ-152",
+      "type": "document",
+      "title": "Инструкция по безопасности хранения, обработки и передачи информации ограниченного доступа с использованием СКЗИ",
+      "kind": "fsb",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "СКЗИ"
+    },
+    {
+      "id": "DOC-РКН-18",
+      "label": "РКН-18",
+      "type": "document",
+      "title": "Требования к содержанию согласия на обработку ПДн, разрешенных субъектом для распространения",
+      "kind": "rkn",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "ПДн"
+    },
+    {
+      "id": "DOC-РКН-253",
+      "label": "РКН-253",
+      "type": "document",
+      "title": "Форма проверочного листа федерального контроля за обработкой персональных данных",
+      "kind": "rkn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ПДн / надзор"
+    },
+    {
+      "id": "DOC-РКН-128",
+      "label": "РКН-128",
+      "type": "document",
+      "title": "Перечень иностранных государств, обеспечивающих адекватную защиту прав субъектов ПДн",
+      "kind": "rkn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Трансграничная передача ПДн"
+    },
+    {
+      "id": "DOC-РКН-178",
+      "label": "РКН-178",
+      "type": "document",
+      "title": "Требования к оценке вреда субъектам ПДн",
+      "kind": "rkn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ПДн"
+    },
+    {
+      "id": "DOC-РКН-179",
+      "label": "РКН-179",
+      "type": "document",
+      "title": "Требования к подтверждению уничтожения персональных данных",
+      "kind": "rkn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ПДн"
+    },
+    {
+      "id": "DOC-РКН-180",
+      "label": "РКН-180",
+      "type": "document",
+      "title": "Формы уведомлений об обработке ПДн, изменении сведений и прекращении обработки",
+      "kind": "rkn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ПДн"
+    },
+    {
+      "id": "DOC-РКН-187",
+      "label": "РКН-187",
+      "type": "document",
+      "title": "Порядок взаимодействия Роскомнадзора с операторами в рамках реестра учета инцидентов ПДн",
+      "kind": "rkn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ПДн / инциденты"
+    },
+    {
+      "id": "DOC-РКН-140",
+      "label": "РКН-140",
+      "type": "document",
+      "title": "Требования и методы обезличивания персональных данных",
+      "kind": "rkn",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "ПДн / обезличивание"
+    },
+    {
+      "id": "DOC-РКН-84",
+      "label": "РКН-84",
+      "type": "document",
+      "title": "Порядок взаимодействия оператора реестра нарушителей прав субъектов ПДн с провайдером хостинга",
+      "kind": "rkn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ПДн / блокировка"
+    },
+    {
+      "id": "DOC-РКН-85",
+      "label": "РКН-85",
+      "type": "document",
+      "title": "Форма заявления субъекта ПДн о принятии мер по ограничению доступа к информации",
+      "kind": "rkn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ПДн / блокировка"
+    },
+    {
+      "id": "DOC-РКН-13",
+      "label": "РКН-13",
+      "type": "document",
+      "title": "Порядок мониторинга информационно-телекоммуникационных сетей, включая Интернет",
+      "kind": "rkn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Интернет / мониторинг"
+    },
+    {
+      "id": "DOC-РКН-25",
+      "label": "РКН-25",
+      "type": "document",
+      "title": "Технические условия установки ТСПУ и требования к сетям связи при их использовании",
+      "kind": "rkn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Сети связи / ТСПУ"
+    },
+    {
+      "id": "DOC-РКН-LIST-2025",
+      "label": "РКН-LIST-2025",
+      "type": "document",
+      "title": "Перечень НПА, содержащих обязательные требования при федеральном контроле за обработкой ПДн",
+      "kind": "rkn",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "ПДн / обязательные требования"
+    },
+    {
+      "id": "DOC-РПН-42",
+      "label": "РПН-42",
+      "type": "document",
+      "title": "Об обеспечении информационной безопасности при работе с базами данных органов и организаций Роспотребнадзора",
+      "kind": "rospotreb",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Ведомственные БД / ИБ"
+    },
+    {
+      "id": "DOC-РПН-964",
+      "label": "РПН-964",
+      "type": "document",
+      "title": "Положение об обработке и защите персональных данных в Роспотребнадзоре",
+      "kind": "rospotreb",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Ведомственный контур ПДн"
+    },
+    {
+      "id": "DOC-РПН-1172",
+      "label": "РПН-1172",
+      "type": "document",
+      "title": "Изменения в Положение об обработке и защите ПДн в Роспотребнадзоре",
+      "kind": "rospotreb",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Ведомственный контур ПДн"
+    },
+    {
+      "id": "DOC-РПН-672",
+      "label": "РПН-672",
+      "type": "document",
+      "title": "Изменения в Положение об обработке и защите ПДн в Роспотребнадзоре",
+      "kind": "rospotreb",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Ведомственный контур ПДн"
+    },
+    {
+      "id": "DOC-РПН-5",
+      "label": "РПН-5",
+      "type": "document",
+      "title": "Типовые обязательства работников и формы согласия на обработку ПДн в Роспотребнадзоре",
+      "kind": "rospotreb",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Ведомственный контур ПДн"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27000-2021",
+      "label": "ГОСТ Р ИСО/МЭК 27000-2021",
+      "type": "document",
+      "title": "СМИБ. Общий обзор и терминология",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "СМИБ"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27001-2021",
+      "label": "ГОСТ Р ИСО/МЭК 27001-2021",
+      "type": "document",
+      "title": "СМИБ. Требования",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "СМИБ"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27002-2021",
+      "label": "ГОСТ Р ИСО/МЭК 27002-2021",
+      "type": "document",
+      "title": "Свод норм и правил применения мер обеспечения информационной безопасности",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Меры ИБ"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27003-2021",
+      "label": "ГОСТ Р ИСО/МЭК 27003-2021",
+      "type": "document",
+      "title": "СМИБ. Руководство по реализации",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "СМИБ"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27005-2010",
+      "label": "ГОСТ Р ИСО/МЭК 27005-2010",
+      "type": "document",
+      "title": "Менеджмент риска информационной безопасности",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Risk Management"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27013-2014",
+      "label": "ГОСТ Р ИСО/МЭК 27013-2014",
+      "type": "document",
+      "title": "Совместное использование ISO/IEC 27001 и ISO/IEC 20000-1",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "СМИБ / ITSM"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27017-2021",
+      "label": "ГОСТ Р ИСО/МЭК 27017-2021",
+      "type": "document",
+      "title": "Правила применения мер ИБ при использовании облачных служб",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Cloud Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27033-1-2011",
+      "label": "ГОСТ Р ИСО/МЭК 27033-1-2011",
+      "type": "document",
+      "title": "Безопасность сетей. Часть 1. Обзор и концепции",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Network Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27033-2-2021",
+      "label": "ГОСТ Р ИСО/МЭК 27033-2-2021",
+      "type": "document",
+      "title": "Безопасность сетей. Проектирование и реализация",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Network Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27033-4-2021",
+      "label": "ГОСТ Р ИСО/МЭК 27033-4-2021",
+      "type": "document",
+      "title": "Безопасность межсетевого взаимодействия с использованием шлюзов безопасности",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Firewall / IPS"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27033-5-2021",
+      "label": "ГОСТ Р ИСО/МЭК 27033-5-2021",
+      "type": "document",
+      "title": "Безопасность межсетевого взаимодействия с помощью VPN",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "VPN"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27034-1-2014",
+      "label": "ГОСТ Р ИСО/МЭК 27034-1-2014",
+      "type": "document",
+      "title": "Безопасность приложений. Обзор и общие понятия",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "AppSec"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27034-2-2021",
+      "label": "ГОСТ Р ИСО/МЭК 27034-2-2021",
+      "type": "document",
+      "title": "Безопасность приложений. Нормативная структура организации",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "AppSec"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27034-3-2021",
+      "label": "ГОСТ Р ИСО/МЭК 27034-3-2021",
+      "type": "document",
+      "title": "Безопасность приложений. Процесс менеджмента безопасности приложений",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "AppSec"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27034-5-2020",
+      "label": "ГОСТ Р ИСО/МЭК 27034-5-2020",
+      "type": "document",
+      "title": "Безопасность приложений. Структуры данных протоколов и мер безопасности приложений",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "AppSec"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27034-6-2021",
+      "label": "ГОСТ Р ИСО/МЭК 27034-6-2021",
+      "type": "document",
+      "title": "Безопасность приложений. Практические примеры",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "AppSec"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27034-7-2020",
+      "label": "ГОСТ Р ИСО/МЭК 27034-7-2020",
+      "type": "document",
+      "title": "Безопасность приложений. Основы прогнозирования доверия",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "AppSec / Assurance"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27037-2014",
+      "label": "ГОСТ Р ИСО/МЭК 27037-2014",
+      "type": "document",
+      "title": "Идентификация, сбор, получение и хранение цифровых свидетельств",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Digital Forensics"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27038-2016",
+      "label": "ГОСТ Р ИСО/МЭК 27038-2016",
+      "type": "document",
+      "title": "Требования и методы электронного цензурирования",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Data Protection"
+    },
+    {
+      "id": "DOC-ГОСТ-ISO-IEC-29100-2021",
+      "label": "ГОСТ ISO/IEC 29100-2021",
+      "type": "document",
+      "title": "Основы защиты персональных данных",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Privacy / ПДн"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-15408-1-2012",
+      "label": "ГОСТ Р ИСО/МЭК 15408-1-2012",
+      "type": "document",
+      "title": "Критерии оценки безопасности ИТ. Часть 1. Введение и общая модель",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Common Criteria"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-15408-2-2013",
+      "label": "ГОСТ Р ИСО/МЭК 15408-2-2013",
+      "type": "document",
+      "title": "Критерии оценки безопасности ИТ. Часть 2. Функциональные компоненты безопасности",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Common Criteria"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-15408-3-2013",
+      "label": "ГОСТ Р ИСО/МЭК 15408-3-2013",
+      "type": "document",
+      "title": "Критерии оценки безопасности ИТ. Часть 3. Компоненты доверия к безопасности",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Common Criteria"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-18045-2013",
+      "label": "ГОСТ Р ИСО/МЭК 18045-2013",
+      "type": "document",
+      "title": "Методология оценки безопасности информационных технологий",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Security Evaluation"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-50922-2006",
+      "label": "ГОСТ Р 50922-2006",
+      "type": "document",
+      "title": "Защита информации. Основные термины и определения",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Терминология ИБ"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-53114-2008",
+      "label": "ГОСТ Р 53114-2008",
+      "type": "document",
+      "title": "Обеспечение информационной безопасности в организации. Основные термины и определения",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Терминология ИБ"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-56545-2015",
+      "label": "ГОСТ Р 56545-2015",
+      "type": "document",
+      "title": "Уязвимости информационных систем. Правила описания уязвимостей",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Vulnerability Management"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-56546-2015",
+      "label": "ГОСТ Р 56546-2015",
+      "type": "document",
+      "title": "Уязвимости информационных систем. Классификация уязвимостей",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Vulnerability Management"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-56939-2024",
+      "label": "ГОСТ Р 56939-2024",
+      "type": "document",
+      "title": "Разработка безопасного программного обеспечения. Общие требования",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Secure SDLC"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-57628-2017",
+      "label": "ГОСТ Р 57628-2017",
+      "type": "document",
+      "title": "Руководство по разработке профилей защиты и заданий по безопасности",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Security Evaluation"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-58142-2018",
+      "label": "ГОСТ Р 58142-2018",
+      "type": "document",
+      "title": "Детализация анализа уязвимостей ПО. Часть 1. Использование доступных источников",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Vulnerability Analysis"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-58143-2018",
+      "label": "ГОСТ Р 58143-2018",
+      "type": "document",
+      "title": "Детализация анализа уязвимостей ПО. Часть 2. Тестирование проникновения",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Pentest"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59710-2022",
+      "label": "ГОСТ Р 59710-2022",
+      "type": "document",
+      "title": "Управление компьютерными инцидентами. Общие положения",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Incident Management / ГосСОПКА"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59711-2022",
+      "label": "ГОСТ Р 59711-2022",
+      "type": "document",
+      "title": "Организация деятельности по управлению компьютерными инцидентами",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Incident Management / ГосСОПКА"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59712-2022",
+      "label": "ГОСТ Р 59712-2022",
+      "type": "document",
+      "title": "Руководство по реагированию на компьютерные инциденты",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Incident Response / ГосСОПКА"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-20000-1-2021",
+      "label": "ГОСТ Р ИСО/МЭК 20000-1-2021",
+      "type": "document",
+      "title": "Менеджмент сервисов. Требования к системе менеджмента сервисов",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "ITSM"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-22301-2021",
+      "label": "ГОСТ Р ИСО 22301-2021",
+      "type": "document",
+      "title": "Системы менеджмента непрерывности деятельности. Требования",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "BCM / BCP"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-12207-2010",
+      "label": "ГОСТ Р ИСО/МЭК 12207-2010",
+      "type": "document",
+      "title": "Системная и программная инженерия. Процессы жизненного цикла программных средств",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Software Lifecycle"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-25010-2015",
+      "label": "ГОСТ Р ИСО/МЭК 25010-2015",
+      "type": "document",
+      "title": "SQuaRE. Модели качества систем и программных продуктов",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Software Quality"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-58609-2019",
+      "label": "ГОСТ Р 58609-2019",
+      "type": "document",
+      "title": "Системная и программная инженерия. Состав и содержание информационных элементов жизненного цикла (документации)",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Документация ИТ"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-30134-1-2018",
+      "label": "ГОСТ Р ИСО/МЭК 30134-1-2018",
+      "type": "document",
+      "title": "Центры обработки данных. КПЭ. Часть 1. Общие требования",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Data Center"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-30134-2-2018",
+      "label": "ГОСТ Р ИСО/МЭК 30134-2-2018",
+      "type": "document",
+      "title": "Центры обработки данных. КПЭ. Часть 2. Коэффициент энергоэффективности PUE",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Data Center"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-57580-1-2017",
+      "label": "ГОСТ Р 57580.1-2017",
+      "type": "document",
+      "title": "Защита информации финансовых организаций. Базовый состав организационных и технических мер",
+      "kind": "gost",
+      "status": "VERIFIED",
+      "weight": 1,
+      "origin": "document_registry",
+      "scope": "Финансовый сектор"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-51188-98",
+      "label": "ГОСТ Р 51188-98",
+      "type": "document",
+      "title": "Защита информации. Испытания программных средств на наличие компьютерных вирусов. Типовое руководство",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Malware / испытания"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-51275-2006",
+      "label": "ГОСТ Р 51275-2006",
+      "type": "document",
+      "title": "Защита информации. Объект информатизации. Факторы, воздействующие на информацию. Общие положения",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Threat / объект информатизации"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-52069-0-2013",
+      "label": "ГОСТ Р 52069.0-2013",
+      "type": "document",
+      "title": "Защита информации. Система стандартов. Основные положения",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Общие положения ЗИ"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-52447-2005",
+      "label": "ГОСТ Р 52447-2005",
+      "type": "document",
+      "title": "Защита информации. Техника защиты информации. Номенклатура показателей качества",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "СЗИ / качество"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-52448-2005",
+      "label": "ГОСТ Р 52448-2005",
+      "type": "document",
+      "title": "Защита информации. Обеспечение безопасности сетей электросвязи. Общие положения",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Network Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-53115-2008",
+      "label": "ГОСТ Р 53115-2008",
+      "type": "document",
+      "title": "Защита информации. Испытание технических средств обработки информации на соответствие требованиям защищенности от НСД. Методы и средства",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Испытания / НСД"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-53131-2008",
+      "label": "ГОСТ Р 53131-2008",
+      "type": "document",
+      "title": "Защита информации. Рекомендации по услугам восстановления после чрезвычайных ситуаций функций и механизмов безопасности ИКТ",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "DR / восстановление"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-56938-2016",
+      "label": "ГОСТ Р 56938-2016",
+      "type": "document",
+      "title": "Защита информации. Защита информации при использовании технологий виртуализации. Общие положения",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Virtualization Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-58189-2018",
+      "label": "ГОСТ Р 58189-2018",
+      "type": "document",
+      "title": "Защита информации. Требования к органам по аттестации объектов информатизации",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Аттестация"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-58256-2018",
+      "label": "ГОСТ Р 58256-2018",
+      "type": "document",
+      "title": "Защита информации. Управление потоками информации в информационной системе. Формат классификационных меток",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Data Flow / labels"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-71753-2024",
+      "label": "ГОСТ Р 71753-2024",
+      "type": "document",
+      "title": "Защита информации. Системы автоматизированного управления учетными записями и правами доступа. Общие требования",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "IAM / Access Management"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59547-2021",
+      "label": "ГОСТ Р 59547-2021",
+      "type": "document",
+      "title": "Защита информации. Мониторинг информационной безопасности. Общие положения",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Security Monitoring"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59548-2022",
+      "label": "ГОСТ Р 59548-2022",
+      "type": "document",
+      "title": "Защита информации. Регистрация событий безопасности. Требования к регистрируемой информации",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Logging / SIEM"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59709-2022",
+      "label": "ГОСТ Р 59709-2022",
+      "type": "document",
+      "title": "Защита информации. Управление компьютерными инцидентами. Термины и определения",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Incident Management"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-72118-2025",
+      "label": "ГОСТ Р 72118-2025",
+      "type": "document",
+      "title": "Защита информации. Системы с конструктивной информационной безопасностью. Методология разработки",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Secure by Design"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-54581-2011",
+      "label": "ГОСТ Р 54581-2011",
+      "type": "document",
+      "title": "Информационная технология. Методы и средства обеспечения безопасности. Основы доверия к безопасности ИТ. Часть 1. Обзор и основы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Security Assurance"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-54582-2011",
+      "label": "ГОСТ Р 54582-2011",
+      "type": "document",
+      "title": "Информационная технология. Методы и средства обеспечения безопасности. Основы доверия к безопасности ИТ. Часть 2. Методы доверия",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Security Assurance"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-54583-2011",
+      "label": "ГОСТ Р 54583-2011",
+      "type": "document",
+      "title": "Информационная технология. Методы и средства обеспечения безопасности. Основы доверия к безопасности ИТ. Часть 3. Анализ методов доверия",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Security Assurance"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-ТО-19791-2008",
+      "label": "ГОСТ Р ИСО/МЭК ТО 19791-2008",
+      "type": "document",
+      "title": "Информационная технология. Методы и средства обеспечения безопасности. Оценка безопасности автоматизированных систем",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Security Evaluation"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-51583-2014",
+      "label": "ГОСТ Р 51583-2014",
+      "type": "document",
+      "title": "Защита информации. Порядок создания автоматизированных систем в защищенном исполнении. Общие положения",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Protected Systems"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-56093-2014",
+      "label": "ГОСТ Р 56093-2014",
+      "type": "document",
+      "title": "Защита информации. Автоматизированные системы в защищенном исполнении. Средства обнаружения преднамеренных силовых электромагнитных воздействий. Общие требования",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Protected Systems / EM"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-56103-2014",
+      "label": "ГОСТ Р 56103-2014",
+      "type": "document",
+      "title": "Защита информации. Автоматизированные системы в защищенном исполнении. Организация и содержание работ по защите от преднамеренных силовых электромагнитных воздействий",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Protected Systems / EM"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-56115-2014",
+      "label": "ГОСТ Р 56115-2014",
+      "type": "document",
+      "title": "Защита информации. Автоматизированные системы в защищенном исполнении. Средства защиты от преднамеренных силовых электромагнитных воздействий",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Protected Systems / EM"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-58412-2019",
+      "label": "ГОСТ Р 58412-2019",
+      "type": "document",
+      "title": "Защита информации. Разработка безопасного программного обеспечения. Угрозы безопасности информации при разработке программного обеспечения",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Secure SDLC"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-71206-2024",
+      "label": "ГОСТ Р 71206-2024",
+      "type": "document",
+      "title": "Защита информации. Разработка безопасного программного обеспечения. Безопасный компилятор языков C/C++. Общие требования",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Secure SDLC"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-71207-2024",
+      "label": "ГОСТ Р 71207-2024",
+      "type": "document",
+      "title": "Защита информации. Разработка безопасного программного обеспечения. Статический анализ программного обеспечения. Общие требования",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "SAST / Secure SDLC"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-58833-2020",
+      "label": "ГОСТ Р 58833-2020",
+      "type": "document",
+      "title": "Защита информации. Идентификация и аутентификация. Общие положения",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "IAM"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-70262-1-2022",
+      "label": "ГОСТ Р 70262.1-2022",
+      "type": "document",
+      "title": "Защита информации. Идентификация и аутентификация. Уровни доверия идентификации",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "IAM"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-70262-2-2025",
+      "label": "ГОСТ Р 70262.2-2025",
+      "type": "document",
+      "title": "Защита информации. Идентификация и аутентификация. Уровни доверия аутентификации",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "IAM"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59453-1-2021",
+      "label": "ГОСТ Р 59453.1-2021",
+      "type": "document",
+      "title": "Защита информации. Формальная модель управления доступом. Часть 1. Общие положения",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Access Control"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59453-2-2021",
+      "label": "ГОСТ Р 59453.2-2021",
+      "type": "document",
+      "title": "Защита информации. Формальная модель управления доступом. Часть 2. Рекомендации по верификации формальной модели управления доступом",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Access Control"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59453-3-2025",
+      "label": "ГОСТ Р 59453.3-2025",
+      "type": "document",
+      "title": "Защита информации. Формальная модель управления доступом. Часть 3. Рекомендации по разработке",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Access Control"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59453-4-2025",
+      "label": "ГОСТ Р 59453.4-2025",
+      "type": "document",
+      "title": "Защита информации. Формальная модель управления доступом. Часть 4. Верификация средства защиты, реализующего политики управления доступом",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Access Control"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-34-10-2012",
+      "label": "ГОСТ Р 34.10-2012",
+      "type": "document",
+      "title": "Информационная технология. Криптографическая защита информации. Процессы формирования и проверки электронной цифровой подписи",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Cryptography"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-34-11-2012",
+      "label": "ГОСТ Р 34.11-2012",
+      "type": "document",
+      "title": "Информационная технология. Криптографическая защита информации. Функция хэширования",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Cryptography"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-34-12-2015",
+      "label": "ГОСТ Р 34.12-2015",
+      "type": "document",
+      "title": "Информационная технология. Криптографическая защита информации. Блочные шифры",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Cryptography"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-34-13-2015",
+      "label": "ГОСТ Р 34.13-2015",
+      "type": "document",
+      "title": "Информационная технология. Криптографическая защита информации. Режимы работы блочных шифров",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Cryptography"
+    },
+    {
+      "id": "DOC-ГОСТ-34-10-2018",
+      "label": "ГОСТ 34.10-2018",
+      "type": "document",
+      "title": "Информационная технология. Криптографическая защита информации. Процессы формирования и проверки электронной цифровой подписи",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Cryptography"
+    },
+    {
+      "id": "DOC-ГОСТ-34-11-2018",
+      "label": "ГОСТ 34.11-2018",
+      "type": "document",
+      "title": "Информационная технология. Криптографическая защита информации. Функция хэширования",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Cryptography"
+    },
+    {
+      "id": "DOC-ГОСТ-34-12-2018",
+      "label": "ГОСТ 34.12-2018",
+      "type": "document",
+      "title": "Информационная технология. Криптографическая защита информации. Блочные шифры",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Cryptography"
+    },
+    {
+      "id": "DOC-ГОСТ-34-13-2018",
+      "label": "ГОСТ 34.13-2018",
+      "type": "document",
+      "title": "Информационная технология. Криптографическая защита информации. Режимы работы блочных шифров",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Cryptography"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-71252-2024",
+      "label": "ГОСТ Р 71252-2024",
+      "type": "document",
+      "title": "Информационная технология. Криптографическая защита информации. Протокол защищенного обмена для индустриальных систем",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Industrial Crypto"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-57580-2-2018",
+      "label": "ГОСТ Р 57580.2-2018",
+      "type": "document",
+      "title": "Безопасность финансовых операций. Защита информации финансовых организаций. Методика оценки соответствия",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Financial Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-57580-3-2022",
+      "label": "ГОСТ Р 57580.3-2022",
+      "type": "document",
+      "title": "Безопасность финансовых операций. Управление риском реализации информационных угроз и обеспечение операционной надежности",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Financial Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-57580-4-2022",
+      "label": "ГОСТ Р 57580.4-2022",
+      "type": "document",
+      "title": "Безопасность финансовых операций. Обеспечение операционной надежности. Базовый состав организационных и технических мер",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Financial Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-57100-2025",
+      "label": "ГОСТ Р 57100-2025",
+      "type": "document",
+      "title": "Системная и программная инженерия. Описание архитектуры",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Architecture"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-57193-2025",
+      "label": "ГОСТ Р 57193-2025",
+      "type": "document",
+      "title": "Системная и программная инженерия. Процессы жизненного цикла систем",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Lifecycle"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-72498-2025",
+      "label": "ГОСТ Р 72498-2025",
+      "type": "document",
+      "title": "Системная инженерия. Системный анализ интероперабельности. Определение существенных угроз и условий",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-72413-2025",
+      "label": "ГОСТ Р 72413-2025",
+      "type": "document",
+      "title": "Системы хранения данных. Термины и определения",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Storage"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-72416-2025",
+      "label": "ГОСТ Р 72416-2025",
+      "type": "document",
+      "title": "Системы хранения данных. Общие технические условия",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Storage"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-72419-2025",
+      "label": "ГОСТ Р 72419-2025",
+      "type": "document",
+      "title": "Системы хранения данных. Классификация продукции и порядок ее применения",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Storage"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-52863-2007",
+      "label": "ГОСТ Р 52863-2007",
+      "type": "document",
+      "title": "Защита информации. АС в защищенном исполнении. Испытания на устойчивость к преднамеренным силовым электромагнитным воздействиям",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "PEMIN / EM"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-53112-2008",
+      "label": "ГОСТ Р 53112-2008",
+      "type": "document",
+      "title": "Защита информации. Комплексы для измерений параметров побочных электромагнитных излучений и наводок",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "PEMIN"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-53113-1-2008",
+      "label": "ГОСТ Р 53113.1-2008",
+      "type": "document",
+      "title": "Защита ИТ и АС от угроз ИБ, реализуемых с использованием скрытых каналов. Часть 1. Общие положения",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Covert Channels"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-53113-2-2009",
+      "label": "ГОСТ Р 53113.2-2009",
+      "type": "document",
+      "title": "Защита ИТ и АС от угроз ИБ, реализуемых с использованием скрытых каналов. Часть 2. Рекомендации",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Covert Channels"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-27799-2015",
+      "label": "ГОСТ Р ИСО 27799-2015",
+      "type": "document",
+      "title": "Информатизация здоровья. Менеджмент защиты информации в здравоохранении по ИСО/МЭК 27002",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Healthcare Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-7498-2-99",
+      "label": "ГОСТ Р ИСО 7498-2-99",
+      "type": "document",
+      "title": "Информационная технология. Взаимосвязь открытых систем. Базовая эталонная модель. Часть 2. Архитектура защиты информации",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Security Architecture"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27004-2021",
+      "label": "ГОСТ Р ИСО/МЭК 27004-2021",
+      "type": "document",
+      "title": "Менеджмент информационной безопасности. Мониторинг, оценка защищенности, анализ и оценивание",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ISMS Metrics"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27006-2020",
+      "label": "ГОСТ Р ИСО/МЭК 27006-2020",
+      "type": "document",
+      "title": "Требования к органам, осуществляющим аудит и сертификацию СМИБ",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ISMS Audit"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27007-2014",
+      "label": "ГОСТ Р ИСО/МЭК 27007-2014",
+      "type": "document",
+      "title": "Руководства по аудиту систем менеджмента информационной безопасности",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ISMS Audit"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27010-2020",
+      "label": "ГОСТ Р ИСО/МЭК 27010-2020",
+      "type": "document",
+      "title": "Менеджмент ИБ при обмене информацией между отраслями и организациями",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Information Exchange"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27011-2012",
+      "label": "ГОСТ Р ИСО/МЭК 27011-2012",
+      "type": "document",
+      "title": "Руководства по менеджменту ИБ для телекоммуникационных организаций",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Telecom Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27018-2020",
+      "label": "ГОСТ Р ИСО/МЭК 27018-2020",
+      "type": "document",
+      "title": "Свод правил по защите персональных данных в публичных облаках",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Cloud Privacy"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27019-2021",
+      "label": "ГОСТ Р ИСО/МЭК 27019-2021",
+      "type": "document",
+      "title": "Меры обеспечения информационной безопасности в энергетике (неатомной)",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Energy Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27021-2021",
+      "label": "ГОСТ Р ИСО/МЭК 27021-2021",
+      "type": "document",
+      "title": "Требования к компетентности специалистов по системам менеджмента информационной безопасности",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ISMS Competence"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27031-2012",
+      "label": "ГОСТ Р ИСО/МЭК 27031-2012",
+      "type": "document",
+      "title": "Руководство по готовности ИКТ к обеспечению непрерывности бизнеса",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ICT Continuity"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27033-3-2014",
+      "label": "ГОСТ Р ИСО/МЭК 27033-3-2014",
+      "type": "document",
+      "title": "Безопасность сетей. Часть 3. Эталонные сетевые сценарии. Угрозы, методы проектирования и вопросы управления",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Network Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27036-1-2021",
+      "label": "ГОСТ Р ИСО/МЭК 27036-1-2021",
+      "type": "document",
+      "title": "Информационная безопасность во взаимоотношениях с поставщиками. Часть 1. Обзор и основные понятия",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Supplier Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27036-2-2020",
+      "label": "ГОСТ Р ИСО/МЭК 27036-2-2020",
+      "type": "document",
+      "title": "Информационная безопасность во взаимоотношениях с поставщиками. Часть 2. Требования",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Supplier Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-27036-4-2020",
+      "label": "ГОСТ Р ИСО/МЭК 27036-4-2020",
+      "type": "document",
+      "title": "Информационная безопасность во взаимоотношениях с поставщиками. Часть 4. Рекомендации по безопасности облачных услуг",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Supplier / Cloud Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-56045-2021",
+      "label": "ГОСТ Р 56045-2021",
+      "type": "document",
+      "title": "Информационные технологии. Методы и средства обеспечения безопасности. Рекомендации по оценке мер обеспечения ИБ",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Security Assessment"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59162-2020",
+      "label": "ГОСТ Р 59162-2020",
+      "type": "document",
+      "title": "Безопасность сетей. Часть 6. Обеспечение ИБ при использовании беспроводных IP-сетей",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Wireless Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59163-2020",
+      "label": "ГОСТ Р 59163-2020",
+      "type": "document",
+      "title": "Руководство по обеспечению безопасности при внедрении серверов виртуализации",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Virtualization Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59215-2020",
+      "label": "ГОСТ Р 59215-2020",
+      "type": "document",
+      "title": "ИБ во взаимоотношениях с поставщиками. Часть 3. Безопасность цепи поставок ИКТ",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Supply Chain Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59381-2021",
+      "label": "ГОСТ Р 59381-2021",
+      "type": "document",
+      "title": "Основы управления идентичностью. Часть 1. Терминология и концепции",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Identity Management"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59382-2021",
+      "label": "ГОСТ Р 59382-2021",
+      "type": "document",
+      "title": "Основы управления идентичностью. Часть 3. Практические приемы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Identity Management"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59383-2021",
+      "label": "ГОСТ Р 59383-2021",
+      "type": "document",
+      "title": "Основы управления доступом",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Access Management"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59407-2021",
+      "label": "ГОСТ Р 59407-2021",
+      "type": "document",
+      "title": "Базовая архитектура защиты персональных данных",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Privacy Architecture"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59494-2021",
+      "label": "ГОСТ Р 59494-2021",
+      "type": "document",
+      "title": "Безопасность приложений. XML-схемы структур данных протоколов и мер безопасности приложений",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "AppSec"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59503-2021",
+      "label": "ГОСТ Р 59503-2021",
+      "type": "document",
+      "title": "Менеджмент информационной безопасности. Экономика информационной безопасности организации",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Security Economics"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59515-2021",
+      "label": "ГОСТ Р 59515-2021",
+      "type": "document",
+      "title": "Подтверждение идентичности",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Identity Assurance"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-13335-1-2006",
+      "label": "ГОСТ Р ИСО/МЭК 13335-1-2006",
+      "type": "document",
+      "title": "Концепция и модели менеджмента безопасности информационных и телекоммуникационных технологий",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Security Management"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-ТО-13335-5-2006",
+      "label": "ГОСТ Р ИСО/МЭК ТО 13335-5-2006",
+      "type": "document",
+      "title": "Руководство по менеджменту безопасности сети",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Network Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-18028-1-2008",
+      "label": "ГОСТ Р ИСО/МЭК 18028-1-2008",
+      "type": "document",
+      "title": "Сетевая безопасность информационных технологий. Часть 1. Менеджмент сетевой безопасности",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Network Security"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-21827-2010",
+      "label": "ГОСТ Р ИСО/МЭК 21827-2010",
+      "type": "document",
+      "title": "Проектирование систем безопасности. Модель зрелости процесса",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Security Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-ТО-18044-2007",
+      "label": "ГОСТ Р ИСО/МЭК ТО 18044-2007",
+      "type": "document",
+      "title": "Менеджмент инцидентов информационной безопасности",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Incident Management"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59329-2021",
+      "label": "ГОСТ Р 59329-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессах приобретения и поставки продукции и услуг для системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59330-2021",
+      "label": "ГОСТ Р 59330-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе управления моделью жизненного цикла системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59331-2021",
+      "label": "ГОСТ Р 59331-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе управления инфраструктурой системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59332-2021",
+      "label": "ГОСТ Р 59332-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе управления портфелем проектов",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59333-2021",
+      "label": "ГОСТ Р 59333-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе управления человеческими ресурсами системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59334-2021",
+      "label": "ГОСТ Р 59334-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе управления качеством системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59335-2021",
+      "label": "ГОСТ Р 59335-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе управления знаниями о системе",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59336-2021",
+      "label": "ГОСТ Р 59336-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе планирования проекта",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59337-2021",
+      "label": "ГОСТ Р 59337-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе оценки и контроля проекта",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59338-2021",
+      "label": "ГОСТ Р 59338-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе управления решениями",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59339-2021",
+      "label": "ГОСТ Р 59339-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе управления рисками для системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59340-2021",
+      "label": "ГОСТ Р 59340-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе управления конфигурацией системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59341-2021",
+      "label": "ГОСТ Р 59341-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе управления информацией системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59342-2021",
+      "label": "ГОСТ Р 59342-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе измерений системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59343-2021",
+      "label": "ГОСТ Р 59343-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе гарантии качества для системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59344-2021",
+      "label": "ГОСТ Р 59344-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе анализа бизнеса или назначения системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59345-2021",
+      "label": "ГОСТ Р 59345-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе определения потребностей и требований заинтересованной стороны для системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59346-2021",
+      "label": "ГОСТ Р 59346-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе определения системных требований",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59347-2021",
+      "label": "ГОСТ Р 59347-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе определения архитектуры системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59348-2021",
+      "label": "ГОСТ Р 59348-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе определения проекта",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59349-2021",
+      "label": "ГОСТ Р 59349-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе системного анализа",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59350-2021",
+      "label": "ГОСТ Р 59350-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе реализации системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59351-2021",
+      "label": "ГОСТ Р 59351-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе комплексирования системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59352-2021",
+      "label": "ГОСТ Р 59352-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе верификации системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59353-2021",
+      "label": "ГОСТ Р 59353-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе передачи системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59354-2021",
+      "label": "ГОСТ Р 59354-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе аттестации системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59355-2021",
+      "label": "ГОСТ Р 59355-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе функционирования системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59356-2021",
+      "label": "ГОСТ Р 59356-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе сопровождения системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-59357-2021",
+      "label": "ГОСТ Р 59357-2021",
+      "type": "document",
+      "title": "Системная инженерия. Защита информации в процессе изъятия и списания системы",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "System Engineering"
+    },
+    {
+      "id": "DOC-ФСТЭК-167",
+      "label": "ФСТЭК-167",
+      "type": "document",
+      "title": "Регламент Федеральной службы по техническому и экспортному контролю",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Полномочия / регламент"
+    },
+    {
+      "id": "DOC-ФСТЭК-147",
+      "label": "ФСТЭК-147",
+      "type": "document",
+      "title": "Порядок аттестации работников органов по сертификации и испытательных лабораторий",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Аттестация / оценка соответствия"
+    },
+    {
+      "id": "DOC-ФСТЭК-483",
+      "label": "ФСТЭК-483",
+      "type": "document",
+      "title": "Программа профилактики нарушений лицензионных требований на 2026 год",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Лицензионный контроль"
+    },
+    {
+      "id": "DOC-ФСТЭК-126",
+      "label": "ФСТЭК-126",
+      "type": "document",
+      "title": "Перечень вопросов при федеральном контроле за обеспечением защиты государственной тайны",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Государственная тайна / контроль"
+    },
+    {
+      "id": "DOC-ФСТЭК-127",
+      "label": "ФСТЭК-127",
+      "type": "document",
+      "title": "Формы документов при федеральном контроле за обеспечением защиты государственной тайны",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Государственная тайна / контроль"
+    },
+    {
+      "id": "DOC-ФСТЭК-130",
+      "label": "ФСТЭК-130",
+      "type": "document",
+      "title": "Порядок подготовки планов проверок и оформления результатов контроля за обеспечением защиты государственной тайны",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Государственная тайна / контроль"
+    },
+    {
+      "id": "DOC-ФСБ416-ФСТЭК489",
+      "label": "ФСБ416-ФСТЭК489",
+      "type": "document",
+      "title": "Требования о защите информации, содержащейся в информационных системах общего пользования",
+      "kind": "fstec",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ИС общего пользования"
+    },
+    {
+      "id": "DOC-ФСТЭК-17-2013",
+      "label": "ФСТЭК-17-2013",
+      "type": "document",
+      "title": "Требования о защите информации, не составляющей государственную тайну, содержащейся в государственных информационных системах",
+      "kind": "fstec",
+      "status": "SUPERSEDED",
+      "weight": 0.25,
+      "origin": "document_registry",
+      "scope": "ГИС / историческая редакция"
+    },
+    {
+      "id": "DOC-РКН-482",
+      "label": "РКН-482",
+      "type": "document",
+      "title": "Образец формы уведомления об обработке персональных данных и рекомендации по заполнению",
+      "kind": "rkn",
+      "status": "SUPERSEDED",
+      "weight": 0.25,
+      "origin": "document_registry",
+      "scope": "ПДн / уведомления"
+    },
+    {
+      "id": "DOC-РКН-106",
+      "label": "РКН-106",
+      "type": "document",
+      "title": "Правила использования информационной системы Роскомнадзора и взаимодействия субъекта ПДн с оператором",
+      "kind": "rkn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ПДн / взаимодействие"
+    },
+    {
+      "id": "DOC-РКН-129",
+      "label": "РКН-129",
+      "type": "document",
+      "title": "Порядок взаимодействия оператора Единого реестра запрещённой информации с иными участниками",
+      "kind": "rkn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Интернет / реестры"
+    },
+    {
+      "id": "DOC-РКН-201",
+      "label": "РКН-201",
+      "type": "document",
+      "title": "Об обработке персональных данных в Федеральной службе по надзору в сфере связи, ИТ и массовых коммуникаций",
+      "kind": "rkn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Ведомственный ПДн"
+    },
+    {
+      "id": "DOC-ГОСТ-ISO-IEC-2382-37-2016",
+      "label": "ГОСТ ISO/IEC 2382-37-2016",
+      "type": "document",
+      "title": "Информационные технологии. Словарь. Часть 37. Биометрия",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Биометрия / терминология"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-52633-0-2006",
+      "label": "ГОСТ Р 52633.0-2006",
+      "type": "document",
+      "title": "Защита информации. Требования к средствам высоконадежной биометрической аутентификации",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Биометрия / аутентификация"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-52633-1-2009",
+      "label": "ГОСТ Р 52633.1-2009",
+      "type": "document",
+      "title": "Требования к формированию баз естественных биометрических образов для тестирования средств высоконадежной биометрической аутентификации",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Биометрия"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-52633-2-2010",
+      "label": "ГОСТ Р 52633.2-2010",
+      "type": "document",
+      "title": "Требования к формированию синтетических биометрических образов для тестирования средств высоконадежной биометрической аутентификации",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Биометрия"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-52633-3-2011",
+      "label": "ГОСТ Р 52633.3-2011",
+      "type": "document",
+      "title": "Тестирование стойкости средств высоконадежной биометрической защиты к атакам подбора",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Биометрия / security testing"
+    },
+    {
+      "id": "DOC-ГОСТ-Р-ИСО-МЭК-19785-4-2012",
+      "label": "ГОСТ Р ИСО/МЭК 19785-4-2012",
+      "type": "document",
+      "title": "Биометрия. Единая структура форматов обмена биометрическими данными. Часть 4. Формат блока защиты информации",
+      "kind": "gost",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Биометрия / защита данных"
+    },
+    {
+      "id": "DOC-152-ФЗ",
+      "label": "152-ФЗ",
+      "type": "document",
+      "title": "О персональных данных",
+      "kind": "pdn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Персональные данные"
+    },
+    {
+      "id": "DOC-160-ФЗ",
+      "label": "160-ФЗ",
+      "type": "document",
+      "title": "О ратификации Конвенции Совета Европы о защите физических лиц при автоматизированной обработке персональных данных",
+      "kind": "pdn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Персональные данные"
+    },
+    {
+      "id": "DOC-ПП-512",
+      "label": "ПП-512",
+      "type": "document",
+      "title": "Требования к материальным носителям биометрических персональных данных и технологиям хранения таких данных вне ИСПДн",
+      "kind": "pdn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Биометрические ПДн"
+    },
+    {
+      "id": "DOC-ПП-687",
+      "label": "ПП-687",
+      "type": "document",
+      "title": "Особенности обработки персональных данных без использования средств автоматизации",
+      "kind": "pdn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Неавтоматизированная обработка ПДн"
+    },
+    {
+      "id": "DOC-ПП-1046",
+      "label": "ПП-1046",
+      "type": "document",
+      "title": "Положение о федеральном государственном контроле (надзоре) за обработкой персональных данных",
+      "kind": "pdn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Контроль ПДн"
+    },
+    {
+      "id": "DOC-ПП-2526",
+      "label": "ПП-2526",
+      "type": "document",
+      "title": "Случаи неприменения отдельных требований к трансграничной передаче персональных данных",
+      "kind": "pdn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Трансграничная передача ПДн"
+    },
+    {
+      "id": "DOC-ПП-6-2023",
+      "label": "ПП-6-2023",
+      "type": "document",
+      "title": "Правила принятия решения о запрещении или ограничении трансграничной передачи персональных данных",
+      "kind": "pdn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Трансграничная передача ПДн"
+    },
+    {
+      "id": "DOC-ПП-24-2023",
+      "label": "ПП-24-2023",
+      "type": "document",
+      "title": "Правила ограничения трансграничной передачи ПДн в целях защиты нравственности, здоровья, прав и законных интересов граждан",
+      "kind": "pdn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Трансграничная передача ПДн"
+    },
+    {
+      "id": "DOC-ПП-538-2025",
+      "label": "ПП-538-2025",
+      "type": "document",
+      "title": "Перечень случаев формирования составов персональных данных, полученных в результате обезличивания",
+      "kind": "pdn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Обезличивание ПДн"
+    },
+    {
+      "id": "DOC-ПП-940",
+      "label": "ПП-940",
+      "type": "document",
+      "title": "Согласование дополнительных угроз безопасности ПДн с ФСБ России и ФСТЭК России",
+      "kind": "pdn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Угрозы ПДн / ИСПДн"
+    },
+    {
+      "id": "DOC-ПП-211",
+      "label": "ПП-211",
+      "type": "document",
+      "title": "Меры по выполнению обязанностей операторов ПДн — государственных или муниципальных органов",
+      "kind": "pdn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "Госсектор / ПДн"
+    },
+    {
+      "id": "DOC-ПП-1119",
+      "label": "ПП-1119",
+      "type": "document",
+      "title": "Требования к защите персональных данных при их обработке в ИСПДн",
+      "kind": "pdn",
+      "status": "SOURCE_LISTED",
+      "weight": 0.72,
+      "origin": "document_registry",
+      "scope": "ИСПДн / уровни защищенности"
+    }
+  ],
+  "edges": [
+    {
+      "from": "DOM-PDN",
+      "to": "DOM-IB",
+      "type": "part_of",
+      "weight": 1
+    },
+    {
+      "from": "PDN-ISPDN",
+      "to": "DOM-PDN",
+      "type": "implements_domain",
+      "weight": 1
+    },
+    {
+      "from": "PDN-DATA",
+      "to": "DOM-PDN",
+      "type": "core_object",
+      "weight": 1
+    },
+    {
+      "from": "PDN-BIO",
+      "to": "PDN-DATA",
+      "type": "subtype",
+      "weight": 0.9
+    },
+    {
+      "from": "PDN-THREATS",
+      "to": "PDN-ISPDN",
+      "type": "threatens",
+      "weight": 0.96
+    },
+    {
+      "from": "PDN-LEVELS",
+      "to": "PDN-ISPDN",
+      "type": "classifies_protection",
+      "weight": 0.98
+    },
+    {
+      "from": "PDN-MEASURES",
+      "to": "PDN-THREATS",
+      "type": "mitigates",
+      "weight": 0.94
+    },
+    {
+      "from": "PDN-MEASURES",
+      "to": "PDN-LEVELS",
+      "type": "selected_for",
+      "weight": 0.96
+    },
+    {
+      "from": "PDN-CRYPTO",
+      "to": "PDN-MEASURES",
+      "type": "specialized_control",
+      "weight": 0.92
+    },
+    {
+      "from": "PDN-INCIDENT",
+      "to": "PDN-EVIDENCE",
+      "type": "produces",
+      "weight": 0.88
+    },
+    {
+      "from": "PDN-AUDIT",
+      "to": "PDN-EVIDENCE",
+      "type": "checks",
+      "weight": 0.95
+    },
+    {
+      "from": "PDN-LOCALDOCS",
+      "to": "PDN-EVIDENCE",
+      "type": "evidence_source",
+      "weight": 0.9
+    },
+    {
+      "from": "ROLE-OPERATOR",
+      "to": "DOM-PDN",
+      "type": "accountable_in_domain",
+      "weight": 1
+    },
+    {
+      "from": "ROLE-PDN",
+      "to": "PDN-LOCALDOCS",
+      "type": "governs",
+      "weight": 0.9
+    },
+    {
+      "from": "ROLE-IB",
+      "to": "PDN-MEASURES",
+      "type": "implements_or_controls",
+      "weight": 0.86
+    },
+    {
+      "from": "ROLE-IT",
+      "to": "PDN-MEASURES",
+      "type": "implements",
+      "weight": 0.72
+    },
+    {
+      "from": "DOC-152-ФЗ",
+      "to": "DOM-PDN",
+      "type": "governs",
+      "weight": 1
+    },
+    {
+      "from": "DOC-152-ФЗ",
+      "to": "ROLE-OPERATOR",
+      "type": "defines_obligations",
+      "weight": 0.98
+    },
+    {
+      "from": "DOC-ПП-1119",
+      "to": "PDN-LEVELS",
+      "type": "specifies",
+      "weight": 1
+    },
+    {
+      "from": "DOC-ПП-1119",
+      "to": "PDN-ISPDN",
+      "type": "protects",
+      "weight": 0.98
+    },
+    {
+      "from": "DOC-ФСТЭК-21",
+      "to": "PDN-MEASURES",
+      "type": "specifies",
+      "weight": 1
+    },
+    {
+      "from": "DOC-ФСТЭК-21",
+      "to": "PDN-ISPDN",
+      "type": "applies_to",
+      "weight": 0.98
+    },
+    {
+      "from": "DOC-ФСБ-378",
+      "to": "PDN-CRYPTO",
+      "type": "specifies",
+      "weight": 1
+    },
+    {
+      "from": "DOC-ПП-940",
+      "to": "PDN-THREATS",
+      "type": "governs",
+      "weight": 0.95
+    },
+    {
+      "from": "DOC-ПП-211",
+      "to": "PDN-LOCALDOCS",
+      "type": "requires_measures",
+      "weight": 0.9
+    },
+    {
+      "from": "DOC-ПП-687",
+      "to": "DOM-PDN",
+      "type": "governs_nonautomated",
+      "weight": 0.86
+    },
+    {
+      "from": "DOC-ПП-512",
+      "to": "PDN-BIO",
+      "type": "governs",
+      "weight": 0.92
+    },
+    {
+      "from": "DOC-ПП-1046",
+      "to": "PDN-CONTROL",
+      "type": "governs",
+      "weight": 0.94
+    },
+    {
+      "from": "DOC-РКН-178",
+      "to": "PDN-DAMAGE",
+      "type": "specifies",
+      "weight": 0.98
+    },
+    {
+      "from": "DOC-РКН-179",
+      "to": "PDN-DESTROY",
+      "type": "specifies",
+      "weight": 0.98
+    },
+    {
+      "from": "DOC-РКН-180",
+      "to": "PDN-NOTIFY",
+      "type": "specifies",
+      "weight": 0.98
+    },
+    {
+      "from": "DOC-РКН-187",
+      "to": "PDN-INCIDENT",
+      "type": "governs",
+      "weight": 0.97
+    },
+    {
+      "from": "DOC-ФСБ-77",
+      "to": "PDN-INCIDENT",
+      "type": "governs_response",
+      "weight": 0.96
+    },
+    {
+      "from": "DOC-РКН-140",
+      "to": "PDN-ANON",
+      "type": "specifies",
+      "weight": 0.98
+    },
+    {
+      "from": "DOC-РКН-128",
+      "to": "PDN-XBORDER",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "from": "DOC-ПП-2526",
+      "to": "PDN-XBORDER",
+      "type": "sets_exceptions",
+      "weight": 0.9
+    },
+    {
+      "from": "DOC-ПП-6-2023",
+      "to": "PDN-XBORDER",
+      "type": "governs_restriction",
+      "weight": 0.92
+    },
+    {
+      "from": "DOC-ПП-24-2023",
+      "to": "PDN-XBORDER",
+      "type": "governs_restriction",
+      "weight": 0.9
+    },
+    {
+      "from": "DOC-ПП-538-2025",
+      "to": "PDN-ANON",
+      "type": "governs_datasets",
+      "weight": 0.9
+    },
+    {
+      "from": "DOC-149-ФЗ",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-59-ФЗ",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-8-ФЗ",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-20-ФЗ",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-41-ФЗ",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-156-ФЗ",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-УП-467",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-424",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-953",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-697",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-451",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-977",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-644",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-584",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-675",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-676",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1235",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1264",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1040",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1498",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1152",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-335",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-929",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-900",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-981",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1092",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1443",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1933",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-102-2026",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-200-2026",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-712-2026",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1024-2026",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минкомсвязь-104",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минкомсвязь-127",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минкомсвязь-149",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минкомсвязь-220",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минкомсвязь-120",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минкомсвязь-120",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минцифры-ФСО-611-96",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минцифры-677",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минцифры-1106",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минкомсвязь-210",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-166-ФЗ",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-УП-231",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РП-3102-р",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-2194",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-2338",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минздрав-911н",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-УП-351",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-УП-260",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСО-443",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-117",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-117",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-137",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-137",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-МД-12-04-2026",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-МД-12-04-2026",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-21",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-21",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-31",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-55",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-77",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-76",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-235",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-235",
+      "to": "DOM-KII",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-236",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-236",
+      "to": "DOM-KII",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-239",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-239",
+      "to": "DOM-KII",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-75",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-75",
+      "to": "DOM-KII",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-227",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-227",
+      "to": "DOM-KII",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-229",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-229",
+      "to": "DOM-KII",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-33",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-240",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-206",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-207",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-3-2023",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-4-2023",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-163",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-164",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-321",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-321",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-117-2025",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-117-2025",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-378",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-378",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-77",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.86,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-77",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-66",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФАПСИ-152",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-18",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-253",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-128",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-178",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-179",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-180",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-187",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-140",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-84",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-85",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-13",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-25",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-LIST-2025",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РПН-42",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-РПН-964",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РПН-1172",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РПН-672",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РПН-5",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27000-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27001-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27002-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27003-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27005-2010",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27013-2014",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27017-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-1-2011",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-2-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-4-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-5-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-1-2014",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-2-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-3-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-5-2020",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-6-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-7-2020",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27037-2014",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27038-2016",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-ISO-IEC-29100-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-ISO-IEC-29100-2021",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-15408-1-2012",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-15408-2-2013",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-15408-3-2013",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-18045-2013",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-50922-2006",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-53114-2008",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56545-2015",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56546-2015",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56939-2024",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57628-2017",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58142-2018",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58143-2018",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59710-2022",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59711-2022",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59712-2022",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-20000-1-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-22301-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-12207-2010",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-25010-2015",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58609-2019",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-30134-1-2018",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-30134-2-2018",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57580-1-2017",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-51188-98",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-51275-2006",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52069-0-2013",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52447-2005",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52448-2005",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-53115-2008",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-53131-2008",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56938-2016",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58189-2018",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58256-2018",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-71753-2024",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59547-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59548-2022",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59548-2022",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59709-2022",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72118-2025",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-54581-2011",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-54582-2011",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-54583-2011",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-ТО-19791-2008",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-51583-2014",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56093-2014",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56103-2014",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56115-2014",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58412-2019",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-71206-2024",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-71207-2024",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58833-2020",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-70262-1-2022",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-70262-2-2025",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59453-1-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59453-2-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59453-3-2025",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59453-4-2025",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-34-10-2012",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-34-10-2012",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-34-11-2012",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-34-11-2012",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-34-12-2015",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-34-12-2015",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-34-13-2015",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-34-13-2015",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-34-10-2018",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-34-10-2018",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-34-11-2018",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-34-11-2018",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-34-12-2018",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-34-12-2018",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-34-13-2018",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-34-13-2018",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-71252-2024",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-71252-2024",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57580-2-2018",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57580-3-2022",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57580-4-2022",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57100-2025",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57193-2025",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72498-2025",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72413-2025",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72416-2025",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72419-2025",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52863-2007",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-53112-2008",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-53113-1-2008",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-53113-2-2009",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-27799-2015",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-7498-2-99",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27004-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27006-2020",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27007-2014",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27010-2020",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27011-2012",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27018-2020",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27018-2020",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27019-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27021-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27031-2012",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-3-2014",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27036-1-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27036-2-2020",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27036-4-2020",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56045-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59162-2020",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59163-2020",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59215-2020",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59381-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59382-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59383-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59407-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59407-2021",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59494-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59503-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59515-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-13335-1-2006",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-ТО-13335-5-2006",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-18028-1-2008",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-21827-2010",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-ТО-18044-2007",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59329-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59330-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59331-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59332-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59333-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59334-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59335-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59336-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59337-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59338-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59339-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59340-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59341-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59342-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59343-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59344-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59345-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59346-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59347-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59348-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59349-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59350-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59351-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59352-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59353-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59354-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59355-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59356-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59357-2021",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-167",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-147",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-483",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-126",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-127",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-130",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ416-ФСТЭК489",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-17-2013",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-17-2013",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-482",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-106",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-129",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-201",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-ISO-IEC-2382-37-2016",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52633-0-2006",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52633-1-2009",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52633-2-2010",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52633-3-2011",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-19785-4-2012",
+      "to": "DOM-STANDARDS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-152-ФЗ",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-160-ФЗ",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-512",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-687",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1046",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-2526",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-6-2023",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-24-2023",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-538-2025",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-940",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-211",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-211",
+      "to": "DOM-GIS",
+      "type": "classified_as",
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1119",
+      "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.94,
+      "auto": true
+    }
+  ]
+}
