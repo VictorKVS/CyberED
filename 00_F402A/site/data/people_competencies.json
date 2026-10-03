@@ -1,6 +1,6 @@
 {
-  "schema": "cybered.people_competencies.v1",
-  "generated_at": "2026-10-03",
+  "schema": "father.people_competencies.v2",
+  "generated_at": "2026-10-04",
   "rules": {
     "person_assignment": "Конкретное лицо считается назначенным только при наличии подтверждающего внутреннего документа.",
     "competency_semantics": "Компетенции CyberED — рабочая инженерная модель; они не считаются нормативно обязательными, если конкретный источник прямо этого не устанавливает.",
@@ -303,6 +303,261 @@
           "href": "responsibility-raci.html"
         }
       ]
+    },
+    {
+      "id": "COMP-ITOPS",
+      "title": "IT infrastructure / operations",
+      "domain": "IT",
+      "sources": [
+        {
+          "type": "course",
+          "label": "База знаний IT",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "lab",
+          "label": "CyberED IT labs",
+          "href": "index.html#labs"
+        }
+      ]
+    },
+    {
+      "id": "COMP-DEV",
+      "title": "Software engineering / programming",
+      "domain": "Development",
+      "sources": [
+        {
+          "type": "course",
+          "label": "База знаний разработки",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "course",
+          "label": "CyberED courses",
+          "href": "course.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-SDLC",
+      "title": "SDLC / QA / CI-CD",
+      "domain": "Development",
+      "sources": [
+        {
+          "type": "site",
+          "label": "ГОСТ / Software Lifecycle",
+          "href": "documents.html"
+        },
+        {
+          "type": "course",
+          "label": "CyberED courses",
+          "href": "course.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-AI",
+      "title": "AI / ML / LLM systems",
+      "domain": "AI",
+      "sources": [
+        {
+          "type": "course",
+          "label": "FATHER AI Knowledge",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "course",
+          "label": "CyberED AI track",
+          "href": "course.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-RAG",
+      "title": "RAG / Vector DB / Agent systems",
+      "domain": "AI",
+      "sources": [
+        {
+          "type": "course",
+          "label": "FATHER Knowledge Graph",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "lab",
+          "label": "CyberED AI labs",
+          "href": "index.html#labs"
+        }
+      ]
+    },
+    {
+      "id": "COMP-CLOUD",
+      "title": "Cloud architecture",
+      "domain": "Cloud",
+      "sources": [
+        {
+          "type": "course",
+          "label": "FATHER Cloud Knowledge",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "site",
+          "label": "Cloud standards",
+          "href": "documents.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-K8S",
+      "title": "Containers / Kubernetes",
+      "domain": "Cloud",
+      "sources": [
+        {
+          "type": "course",
+          "label": "Cloud Knowledge",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "lab",
+          "label": "CyberED labs",
+          "href": "index.html#labs"
+        }
+      ]
+    },
+    {
+      "id": "COMP-IAC",
+      "title": "IaC / Terraform / GitOps",
+      "domain": "Cloud",
+      "sources": [
+        {
+          "type": "course",
+          "label": "Cloud Knowledge",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "lab",
+          "label": "CyberED labs",
+          "href": "index.html#labs"
+        }
+      ]
+    },
+    {
+      "id": "COMP-IT-AUDIT",
+      "title": "IT audit / IT controls / evidence",
+      "domain": "Assurance",
+      "sources": [
+        {
+          "type": "course",
+          "label": "IT Audit domain",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "site",
+          "label": "Documents & standards",
+          "href": "documents.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-PENTEST",
+      "title": "Pentest / vulnerability assessment",
+      "domain": "Offensive Security",
+      "sources": [
+        {
+          "type": "course",
+          "label": "Pentest domain",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "lab",
+          "label": "CyberED security labs",
+          "href": "index.html#labs"
+        }
+      ]
+    },
+    {
+      "id": "COMP-APPSEC",
+      "title": "Application Security / DevSecOps",
+      "domain": "Security Engineering",
+      "sources": [
+        {
+          "type": "site",
+          "label": "AppSec standards",
+          "href": "documents.html"
+        },
+        {
+          "type": "course",
+          "label": "Development / Security graph",
+          "href": "knowledge.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-ITSO",
+      "title": "ИТСО / physical security systems",
+      "domain": "Physical Security",
+      "sources": [
+        {
+          "type": "course",
+          "label": "ИТСО domain",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "site",
+          "label": "Documents & standards",
+          "href": "documents.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-CCTV",
+      "title": "CCTV / VMS / video analytics",
+      "domain": "Physical Security",
+      "sources": [
+        {
+          "type": "course",
+          "label": "ИТСО / CCTV domain",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "site",
+          "label": "Documents & standards",
+          "href": "documents.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-ACS",
+      "title": "СКУД / access control systems",
+      "domain": "Physical Security",
+      "sources": [
+        {
+          "type": "course",
+          "label": "ИТСО / СКУД domain",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "site",
+          "label": "Documents & standards",
+          "href": "documents.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-CV",
+      "title": "Computer Vision / VLM analytics",
+      "domain": "AI / Physical Security",
+      "sources": [
+        {
+          "type": "course",
+          "label": "AI + ITSO Knowledge",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "lab",
+          "label": "CyberED AI labs",
+          "href": "index.html#labs"
+        }
+      ]
     }
   ],
   "role_profiles": [
@@ -337,7 +592,9 @@
           "COMP-DOC",
           4
         ]
-      ]
+      ],
+      "domain_id": "DOM-IB",
+      "role_family": "SECURITY"
     },
     {
       "role_id": "ROLE-GRC",
@@ -370,7 +627,9 @@
           "COMP-KII",
           3
         ]
-      ]
+      ],
+      "domain_id": "DOM-GRC",
+      "role_family": "SECURITY"
     },
     {
       "role_id": "ROLE-ENGINEER",
@@ -403,7 +662,9 @@
           "COMP-ARCH",
           3
         ]
-      ]
+      ],
+      "domain_id": "DOM-IB",
+      "role_family": "SECURITY"
     },
     {
       "role_id": "ROLE-SOC",
@@ -432,7 +693,9 @@
           "COMP-RISK",
           3
         ]
-      ]
+      ],
+      "domain_id": "DOM-SOC",
+      "role_family": "SECURITY"
     },
     {
       "role_id": "ROLE-KII",
@@ -461,7 +724,9 @@
           "COMP-DOC",
           4
         ]
-      ]
+      ],
+      "domain_id": "DOM-KII",
+      "role_family": "SECURITY"
     },
     {
       "role_id": "ROLE-PDN",
@@ -490,7 +755,9 @@
           "COMP-RISK",
           3
         ]
-      ]
+      ],
+      "domain_id": "DOM-PDN",
+      "role_family": "SECURITY"
     },
     {
       "role_id": "ROLE-CRYPTO",
@@ -515,7 +782,9 @@
           "COMP-AUDIT",
           3
         ]
-      ]
+      ],
+      "domain_id": "DOM-SKZI",
+      "role_family": "SECURITY"
     },
     {
       "role_id": "ROLE-AUDIT",
@@ -548,7 +817,275 @@
           "COMP-KII",
           3
         ]
-      ]
+      ],
+      "domain_id": "DOM-IB-AUDIT",
+      "role_family": "SECURITY"
+    },
+    {
+      "role_id": "ROLE-IT-ENGINEER",
+      "role": "IT-инженер / Infrastructure Engineer",
+      "domain_id": "DOM-IT",
+      "role_family": "IT",
+      "required": [
+        [
+          "COMP-ITOPS",
+          5
+        ],
+        [
+          "COMP-NET",
+          4
+        ],
+        [
+          "COMP-LINUX",
+          4
+        ],
+        [
+          "COMP-WINAD",
+          4
+        ],
+        [
+          "COMP-DOC",
+          2
+        ]
+      ],
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": []
+    },
+    {
+      "role_id": "ROLE-DEVELOPER",
+      "role": "Software Developer / Engineer",
+      "domain_id": "DOM-DEV",
+      "role_family": "DEVELOPMENT",
+      "required": [
+        [
+          "COMP-DEV",
+          5
+        ],
+        [
+          "COMP-SDLC",
+          4
+        ],
+        [
+          "COMP-APPSEC",
+          3
+        ],
+        [
+          "COMP-ITOPS",
+          2
+        ]
+      ],
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": []
+    },
+    {
+      "role_id": "ROLE-AI-ENGINEER",
+      "role": "AI / LLM Engineer",
+      "domain_id": "DOM-AI",
+      "role_family": "AI",
+      "required": [
+        [
+          "COMP-AI",
+          5
+        ],
+        [
+          "COMP-RAG",
+          4
+        ],
+        [
+          "COMP-DEV",
+          4
+        ],
+        [
+          "COMP-CLOUD",
+          3
+        ],
+        [
+          "COMP-APPSEC",
+          3
+        ]
+      ],
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": []
+    },
+    {
+      "role_id": "ROLE-CLOUD-ARCH",
+      "role": "Cloud Architect",
+      "domain_id": "DOM-CLOUD",
+      "role_family": "CLOUD",
+      "required": [
+        [
+          "COMP-CLOUD",
+          5
+        ],
+        [
+          "COMP-K8S",
+          4
+        ],
+        [
+          "COMP-IAC",
+          4
+        ],
+        [
+          "COMP-NET",
+          4
+        ],
+        [
+          "COMP-ARCH",
+          4
+        ],
+        [
+          "COMP-SZI",
+          3
+        ]
+      ],
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": []
+    },
+    {
+      "role_id": "ROLE-IT-AUDITOR",
+      "role": "IT Auditor",
+      "domain_id": "DOM-IT-AUDIT",
+      "role_family": "AUDIT",
+      "required": [
+        [
+          "COMP-IT-AUDIT",
+          5
+        ],
+        [
+          "COMP-ITOPS",
+          4
+        ],
+        [
+          "COMP-DOC",
+          4
+        ],
+        [
+          "COMP-RISK",
+          3
+        ],
+        [
+          "COMP-GRC",
+          3
+        ]
+      ],
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": []
+    },
+    {
+      "role_id": "ROLE-PENTESTER",
+      "role": "Pentester / Red Team Engineer",
+      "domain_id": "DOM-PENTEST",
+      "role_family": "OFFENSIVE_SECURITY",
+      "required": [
+        [
+          "COMP-PENTEST",
+          5
+        ],
+        [
+          "COMP-NET",
+          4
+        ],
+        [
+          "COMP-LINUX",
+          4
+        ],
+        [
+          "COMP-WINAD",
+          3
+        ],
+        [
+          "COMP-APPSEC",
+          4
+        ],
+        [
+          "COMP-CLOUD",
+          3
+        ]
+      ],
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": []
+    },
+    {
+      "role_id": "ROLE-SEC-ARCH",
+      "role": "Security Architect",
+      "domain_id": "DOM-SEC-ARCH",
+      "role_family": "ARCHITECTURE",
+      "required": [
+        [
+          "COMP-ARCH",
+          5
+        ],
+        [
+          "COMP-RISK",
+          5
+        ],
+        [
+          "COMP-GRC",
+          4
+        ],
+        [
+          "COMP-NET",
+          4
+        ],
+        [
+          "COMP-CLOUD",
+          4
+        ],
+        [
+          "COMP-APPSEC",
+          4
+        ],
+        [
+          "COMP-SZI",
+          4
+        ]
+      ],
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": []
+    },
+    {
+      "role_id": "ROLE-ITSO-ENGINEER",
+      "role": "Инженер ИТСО / CCTV / СКУД",
+      "domain_id": "DOM-ITSO",
+      "role_family": "PHYSICAL_SECURITY",
+      "required": [
+        [
+          "COMP-ITSO",
+          5
+        ],
+        [
+          "COMP-CCTV",
+          4
+        ],
+        [
+          "COMP-ACS",
+          4
+        ],
+        [
+          "COMP-NET",
+          3
+        ],
+        [
+          "COMP-CV",
+          3
+        ],
+        [
+          "COMP-PDN",
+          3
+        ]
+      ],
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": []
     }
-  ]
+  ],
+  "owner": "FATHER",
+  "consumer": "CyberED"
 }
