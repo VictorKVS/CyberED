@@ -1,14 +1,10 @@
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearNode = document.getElementById("year");
+if (yearNode) yearNode.textContent = new Date().getFullYear();
 
 const LABELS = {
-  REQUIREMENT:"Требование",
-  OBLIGATION:"Обязанность",
-  ROLE:"Роль",
-  INTERNAL_DOCUMENT:"ЛНА / приказ / ДИ",
-  PERSON:"Лицо",
-  ACTION:"Действие",
-  EVIDENCE:"Evidence",
-  COMPLIANCE_STATUS:"Статус"
+  REQUIREMENT:"Требование", OBLIGATION:"Обязанность", ROLE:"Роль",
+  INTERNAL_DOCUMENT:"ЛНА / приказ / ДИ", PERSON:"Лицо", ACTION:"Действие",
+  EVIDENCE:"Evidence", COMPLIANCE_STATUS:"Статус"
 };
 
 function el(tag, className, text) {
@@ -18,8 +14,19 @@ function el(tag, className, text) {
   return node;
 }
 
+function renderSummary(data) {
+  const model = document.getElementById("model-status");
+  if (!model) return;
+  model.textContent = data.model_status;
+  document.getElementById("normative-count").textContent = data.hierarchy.length;
+  document.getElementById("team-count").textContent = data.team_roles.length;
+  document.getElementById("verified-count").textContent =
+    data.team_roles.filter(x => x.status === "VERIFIED").length;
+}
+
 function renderHierarchy(items) {
   const root = document.getElementById("hierarchy-flow");
+  if (!root) return;
   items.forEach(item => {
     const card = el("article", "role-major");
     card.append(el("div", "role-code", item.id));
@@ -32,6 +39,7 @@ function renderHierarchy(items) {
 
 function renderLegal(items) {
   const root = document.getElementById("legal-basis");
+  if (!root) return;
   items.forEach(item => {
     const card = el("article", "legal-card");
     card.append(el("strong", "", item.title));
@@ -45,6 +53,7 @@ function renderLegal(items) {
 
 function renderTeam(items) {
   const root = document.getElementById("team-grid");
+  if (!root) return;
   items.forEach(item => {
     const card = el("article", "team-card");
     card.append(el("div", "lane", item.lane.toUpperCase()));
@@ -59,6 +68,7 @@ function renderTeam(items) {
 
 function renderTrace(items) {
   const root = document.getElementById("traceability");
+  if (!root) return;
   items.forEach((item, index) => {
     const step = el("div", "trace-step");
     step.append(el("strong", "", item));
@@ -69,8 +79,11 @@ function renderTrace(items) {
 }
 
 function renderRaci(raci) {
-  document.getElementById("raci-note").textContent = raci.note;
   const table = document.getElementById("raci-table");
+  if (!table) return;
+  const note = document.getElementById("raci-note");
+  if (note) note.textContent = raci.note;
+
   const thead = document.createElement("thead");
   const trh = document.createElement("tr");
   trh.append(el("th", "", "Процесс / работа"));
@@ -83,8 +96,9 @@ function renderRaci(raci) {
     const tr = document.createElement("tr");
     tr.append(el("td", "", row.activity));
     raci.columns.forEach(c => {
-      const td = el("td", "", row[c.id] || "—");
-      td.dataset.raci = row[c.id] || "";
+      const value = row[c.id] || "—";
+      const td = el("td", "", value);
+      td.dataset.raci = value;
       tr.append(td);
     });
     tbody.append(tr);
@@ -94,14 +108,9 @@ function renderRaci(raci) {
 
 async function load() {
   const response = await fetch("data/responsibility.json", {cache:"no-store"});
+  if (!response.ok) throw new Error("responsibility data unavailable");
   const data = await response.json();
-
-  document.getElementById("model-status").textContent = data.model_status;
-  document.getElementById("normative-count").textContent = data.hierarchy.length;
-  document.getElementById("team-count").textContent = data.team_roles.length;
-  document.getElementById("verified-count").textContent =
-    data.team_roles.filter(x => x.status === "VERIFIED").length;
-
+  renderSummary(data);
   renderHierarchy(data.hierarchy);
   renderLegal(data.legal_context);
   renderTeam(data.team_roles);
@@ -110,6 +119,7 @@ async function load() {
 }
 
 load().catch(err => {
-  document.getElementById("model-status").textContent = "DATA ERROR";
+  const model = document.getElementById("model-status");
+  if (model) model.textContent = "DATA ERROR";
   console.error(err);
 });
