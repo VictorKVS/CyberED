@@ -1,6 +1,11 @@
 {
-  "schema": "cybered.knowledge_graph.v1",
-  "generated_at": "2026-10-03",
+  "schema": "father.it_ib.knowledge_graph.v2",
+  "owner": "FATHER",
+  "consumer": "CyberED",
+  "generated_from": [
+    "site/data/documents.json",
+    "site/data/knowledge_core.json"
+  ],
   "weight_model": {
     "note": "Weights are graph relevance/confidence values, not legal force or priority.",
     "edge_weight": "0..1 strength of the modeled relationship",
@@ -12,8 +17,8 @@
     }
   },
   "stats": {
-    "nodes": 311,
-    "edges": 353,
+    "nodes": 323,
+    "edges": 820,
     "documents": 284
   },
   "nodes": [
@@ -205,6 +210,90 @@
       "type": "role",
       "weight": 0.78,
       "origin": "knowledge_model"
+    },
+    {
+      "id": "DOM-IT",
+      "label": "IT Engineering",
+      "type": "domain",
+      "weight": 0.96,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-DEV",
+      "label": "Software Development",
+      "type": "domain",
+      "weight": 0.96,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-AI",
+      "label": "AI Systems",
+      "type": "domain",
+      "weight": 0.95,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-CLOUD",
+      "label": "Cloud Systems Architecture",
+      "type": "domain",
+      "weight": 0.94,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-IT-AUDIT",
+      "label": "IT Audit",
+      "type": "domain",
+      "weight": 0.91,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-IB-AUDIT",
+      "label": "Security Audit",
+      "type": "domain",
+      "weight": 0.94,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-PENTEST",
+      "label": "Pentest / Red Team",
+      "type": "domain",
+      "weight": 0.92,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-SEC-ARCH",
+      "label": "Security Architecture",
+      "type": "domain",
+      "weight": 0.98,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-SOC",
+      "label": "SOC / Incident Response",
+      "type": "domain",
+      "weight": 0.94,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-GRC",
+      "label": "GRC / Risk / Compliance",
+      "type": "domain",
+      "weight": 0.96,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-ITSO",
+      "label": "ИТСО / CCTV / СКУД / Physical Security",
+      "type": "domain",
+      "weight": 0.88,
+      "origin": "father_it_ib_core"
+    },
+    {
+      "id": "DOM-DOCS",
+      "label": "IT / IB Documents & Standards",
+      "type": "domain",
+      "weight": 0.95,
+      "origin": "father_it_ib_core"
     },
     {
       "id": "DOC-149-ФЗ",
@@ -3567,267 +3656,717 @@
       "weight": 0.9
     },
     {
+      "from": "DOM-IB",
+      "to": "DOM-IT",
+      "type": "security_of",
+      "weight": 0.92
+    },
+    {
+      "from": "DOM-DEV",
+      "to": "DOM-IT",
+      "type": "part_of",
+      "weight": 0.86
+    },
+    {
+      "from": "DOM-AI",
+      "to": "DOM-DEV",
+      "type": "specialization_of",
+      "weight": 0.88
+    },
+    {
+      "from": "DOM-CLOUD",
+      "to": "DOM-IT",
+      "type": "part_of",
+      "weight": 0.9
+    },
+    {
+      "from": "DOM-IT-AUDIT",
+      "to": "DOM-IT",
+      "type": "assures",
+      "weight": 0.9
+    },
+    {
+      "from": "DOM-IB-AUDIT",
+      "to": "DOM-IB",
+      "type": "assures",
+      "weight": 0.96
+    },
+    {
+      "from": "DOM-PENTEST",
+      "to": "DOM-IB",
+      "type": "tests",
+      "weight": 0.94
+    },
+    {
+      "from": "DOM-SEC-ARCH",
+      "to": "DOM-IB",
+      "type": "designs",
+      "weight": 0.98
+    },
+    {
+      "from": "DOM-SOC",
+      "to": "DOM-IB",
+      "type": "operates",
+      "weight": 0.95
+    },
+    {
+      "from": "DOM-GRC",
+      "to": "DOM-IB",
+      "type": "governs",
+      "weight": 0.96
+    },
+    {
+      "from": "DOM-ITSO",
+      "to": "DOM-IB",
+      "type": "integrates_physical_security",
+      "weight": 0.8
+    },
+    {
+      "from": "DOM-DOCS",
+      "to": "DOM-IB",
+      "type": "source_for",
+      "weight": 0.95
+    },
+    {
+      "from": "DOM-DOCS",
+      "to": "DOM-IT",
+      "type": "source_for",
+      "weight": 0.9
+    },
+    {
+      "from": "DOM-STANDARDS",
+      "to": "DOM-DOCS",
+      "type": "part_of",
+      "weight": 0.96
+    },
+    {
+      "from": "DOM-PDN",
+      "to": "DOM-GRC",
+      "type": "regulated_domain",
+      "weight": 0.9
+    },
+    {
+      "from": "DOM-GIS",
+      "to": "DOM-SEC-ARCH",
+      "type": "architecture_scope",
+      "weight": 0.9
+    },
+    {
+      "from": "DOM-KII",
+      "to": "DOM-SEC-ARCH",
+      "type": "architecture_scope",
+      "weight": 0.92
+    },
+    {
+      "from": "DOM-SKZI",
+      "to": "DOM-SEC-ARCH",
+      "type": "control_domain",
+      "weight": 0.9
+    },
+    {
+      "from": "DOM-PDN",
+      "to": "DOM-IB-AUDIT",
+      "type": "audit_scope",
+      "weight": 0.86
+    },
+    {
+      "from": "DOM-GIS",
+      "to": "DOM-IB-AUDIT",
+      "type": "audit_scope",
+      "weight": 0.88
+    },
+    {
+      "from": "DOM-KII",
+      "to": "DOM-IB-AUDIT",
+      "type": "audit_scope",
+      "weight": 0.9
+    },
+    {
+      "from": "DOM-ITSO",
+      "to": "DOM-IT-AUDIT",
+      "type": "audit_scope",
+      "weight": 0.72
+    },
+    {
+      "from": "DOM-CLOUD",
+      "to": "DOM-SEC-ARCH",
+      "type": "architecture_scope",
+      "weight": 0.92
+    },
+    {
+      "from": "DOM-AI",
+      "to": "DOM-SEC-ARCH",
+      "type": "architecture_scope",
+      "weight": 0.88
+    },
+    {
+      "from": "DOM-DEV",
+      "to": "DOM-PENTEST",
+      "type": "tested_by",
+      "weight": 0.78
+    },
+    {
+      "from": "DOM-AI",
+      "to": "DOM-PENTEST",
+      "type": "red_team_scope",
+      "weight": 0.72
+    },
+    {
+      "from": "DOC-149-ФЗ",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
       "from": "DOC-149-ФЗ",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-59-ФЗ",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-59-ФЗ",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-8-ФЗ",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-8-ФЗ",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-20-ФЗ",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-20-ФЗ",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-41-ФЗ",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-41-ФЗ",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-156-ФЗ",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-156-ФЗ",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-УП-467",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-УП-467",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-424",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-424",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-953",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-953",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-697",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-697",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-451",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-451",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-977",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-977",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-644",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-644",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-584",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-584",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-675",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-675",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-675",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-676",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-676",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1235",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-1235",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1264",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-1264",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1040",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-1040",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1498",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-1498",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1152",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-1152",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-335",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-335",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-929",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-929",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-929",
+      "to": "DOM-CLOUD",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-900",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-900",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-981",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-981",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1092",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-1092",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1443",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-1443",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1933",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-1933",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-102-2026",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-102-2026",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-200-2026",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-200-2026",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-712-2026",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-712-2026",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1024-2026",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-1024-2026",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1024-2026",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1024-2026",
+      "to": "DOM-IT",
+      "type": "classified_as",
+      "weight": 0.68,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минкомсвязь-104",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-Минкомсвязь-104",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минкомсвязь-127",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-Минкомсвязь-127",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минкомсвязь-149",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-Минкомсвязь-149",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минкомсвязь-220",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-Минкомсвязь-220",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минкомсвязь-120",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-Минкомсвязь-120",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
       "auto": true
     },
     {
       "from": "DOC-Минкомсвязь-120",
       "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минцифры-ФСО-611-96",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -3836,145 +4375,313 @@
       "from": "DOC-Минцифры-ФСО-611-96",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минцифры-677",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-Минцифры-677",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минцифры-1106",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-Минцифры-1106",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минцифры-1106",
+      "to": "DOM-CLOUD",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минкомсвязь-210",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-Минкомсвязь-210",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-166-ФЗ",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-166-ФЗ",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-УП-231",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-УП-231",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-РП-3102-р",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-РП-3102-р",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-2194",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-2194",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-2338",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-2338",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минздрав-911н",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-Минздрав-911н",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-Минздрав-911н",
+      "to": "DOM-ITSO",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-УП-351",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-УП-351",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-УП-260",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-УП-260",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСО-443",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСО-443",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-117",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-117",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-117",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-117",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-137",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-137",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-137",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-137",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-МД-12-04-2026",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-МД-12-04-2026",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-МД-12-04-2026",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-МД-12-04-2026",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-МД-12-04-2026",
+      "to": "DOM-SEC-ARCH",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-21",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-21",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-21",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-21",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-31",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -3983,165 +4690,487 @@
       "from": "DOC-ФСТЭК-31",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-31",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-31",
+      "to": "DOM-KII",
+      "type": "classified_as",
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-55",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-55",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-55",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-77",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-77",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-77",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-76",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-76",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-76",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-235",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-235",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-235",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-235",
       "to": "DOM-KII",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-236",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-236",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-236",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-236",
       "to": "DOM-KII",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-239",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-239",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-239",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-239",
       "to": "DOM-KII",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-75",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-75",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-75",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-75",
       "to": "DOM-KII",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-227",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-227",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-227",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-227",
       "to": "DOM-KII",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-229",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-229",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-229",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-229",
       "to": "DOM-KII",
       "type": "classified_as",
-      "weight": 0.92,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-229",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-33",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-33",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-33",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-240",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-240",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-240",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-240",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-206",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-206",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-206",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-207",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-207",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-207",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-207",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-3-2023",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-3-2023",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-3-2023",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-4-2023",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-4-2023",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-4-2023",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-4-2023",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-163",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-163",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-163",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-163",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-164",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-164",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-164",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-164",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-164",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-321",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-321",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-321",
       "to": "DOM-IB",
       "type": "classified_as",
       "weight": 0.82,
@@ -4149,42 +5178,70 @@
     },
     {
       "from": "DOC-ФСБ-321",
-      "to": "DOM-SKZI",
-      "type": "classified_as",
-      "weight": 0.9,
-      "auto": true
-    },
-    {
-      "from": "DOC-ФСБ-321",
       "to": "DOM-GIS",
-      "type": "classified_as",
-      "weight": 0.88,
-      "auto": true
-    },
-    {
-      "from": "DOC-ФСБ-117-2025",
-      "to": "DOM-SKZI",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСБ-117-2025",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-117-2025",
+      "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-117-2025",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-117-2025",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-378",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСБ-378",
       "to": "DOM-SKZI",
       "type": "classified_as",
-      "weight": 0.9,
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-378",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
       "auto": true
     },
     {
       "from": "DOC-ФСБ-378",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-77",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4193,12 +5250,33 @@
       "from": "DOC-ФСБ-77",
       "to": "DOM-SKZI",
       "type": "classified_as",
-      "weight": 0.86,
+      "weight": 0.88,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-77",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
       "auto": true
     },
     {
       "from": "DOC-ФСБ-77",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-77",
+      "to": "DOM-SOC",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-66",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4207,12 +5285,47 @@
       "from": "DOC-ФСБ-66",
       "to": "DOM-SKZI",
       "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-66",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ-66",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФАПСИ-152",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
       "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФАПСИ-152",
       "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФАПСИ-152",
+      "to": "DOM-IB",
+      "type": "classified_as",
+      "weight": 0.82,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-18",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4221,12 +5334,47 @@
       "from": "DOC-РКН-18",
       "to": "DOM-PDN",
       "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-18",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-253",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
       "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-РКН-253",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-253",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-253",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-128",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4235,12 +5383,40 @@
       "from": "DOC-РКН-128",
       "to": "DOM-PDN",
       "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-128",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-178",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
       "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-РКН-178",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-178",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-179",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4249,12 +5425,40 @@
       "from": "DOC-РКН-179",
       "to": "DOM-PDN",
       "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-179",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-180",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
       "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-РКН-180",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-180",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-187",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4263,12 +5467,47 @@
       "from": "DOC-РКН-187",
       "to": "DOM-PDN",
       "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-187",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-187",
+      "to": "DOM-SOC",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-140",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
       "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-РКН-140",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-140",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-84",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4277,12 +5516,40 @@
       "from": "DOC-РКН-84",
       "to": "DOM-PDN",
       "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-84",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-85",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
       "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-РКН-85",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-85",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-13",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4291,19 +5558,75 @@
       "from": "DOC-РКН-13",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-13",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-13",
+      "to": "DOM-SOC",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-25",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-РКН-25",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-25",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-LIST-2025",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-РКН-LIST-2025",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-LIST-2025",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-LIST-2025",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-РПН-42",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4312,12 +5635,40 @@
       "from": "DOC-РПН-42",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-РПН-42",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РПН-964",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-РПН-964",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РПН-964",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РПН-1172",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4326,12 +5677,40 @@
       "from": "DOC-РПН-1172",
       "to": "DOM-PDN",
       "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РПН-1172",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РПН-672",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
       "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-РПН-672",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РПН-672",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РПН-5",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4340,6 +5719,20 @@
       "from": "DOC-РПН-5",
       "to": "DOM-PDN",
       "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РПН-5",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27000-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
       "weight": 0.9,
       "auto": true
     },
@@ -4347,145 +5740,355 @@
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27000-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27001-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27001-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27002-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27002-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27003-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27003-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27005-2010",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27005-2010",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27005-2010",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27013-2014",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27013-2014",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27017-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27017-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27017-2021",
+      "to": "DOM-CLOUD",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-1-2011",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-1-2011",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-2-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-2-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-2-2021",
+      "to": "DOM-SEC-ARCH",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-4-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-4-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-5-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-5-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-1-2014",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-1-2014",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-1-2014",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-2-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-2-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-2-2021",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-2-2021",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-3-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-3-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-3-2021",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-5-2020",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-5-2020",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-5-2020",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-6-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-6-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-6-2021",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-7-2020",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-7-2020",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27034-7-2020",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27037-2014",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27037-2014",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27038-2016",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27038-2016",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-ISO-IEC-29100-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-ISO-IEC-29100-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-ISO-IEC-29100-2021",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-15408-1-2012",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4494,411 +6097,985 @@
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-15408-1-2012",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-15408-2-2013",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-15408-2-2013",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-15408-3-2013",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-15408-3-2013",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-18045-2013",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-18045-2013",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-50922-2006",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-50922-2006",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-53114-2008",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-53114-2008",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56545-2015",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-56545-2015",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56545-2015",
+      "to": "DOM-PENTEST",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56546-2015",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-56546-2015",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56546-2015",
+      "to": "DOM-PENTEST",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56939-2024",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-56939-2024",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56939-2024",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57628-2017",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-57628-2017",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57628-2017",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58142-2018",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-58142-2018",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58142-2018",
+      "to": "DOM-PENTEST",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58143-2018",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-58143-2018",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58143-2018",
+      "to": "DOM-PENTEST",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59710-2022",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59710-2022",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59710-2022",
+      "to": "DOM-SOC",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59711-2022",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59711-2022",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59711-2022",
+      "to": "DOM-SOC",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59712-2022",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59712-2022",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59712-2022",
+      "to": "DOM-SOC",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-20000-1-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-20000-1-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-22301-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-22301-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-12207-2010",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-12207-2010",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-12207-2010",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-25010-2015",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-25010-2015",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-25010-2015",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58609-2019",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-58609-2019",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58609-2019",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-30134-1-2018",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-30134-1-2018",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-30134-2-2018",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-30134-2-2018",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57580-1-2017",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-57580-1-2017",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-51188-98",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-51188-98",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-51188-98",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-51275-2006",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-51275-2006",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52069-0-2013",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-52069-0-2013",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52447-2005",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-52447-2005",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52448-2005",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-52448-2005",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-53115-2008",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-53115-2008",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-53131-2008",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-53131-2008",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56938-2016",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-56938-2016",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56938-2016",
+      "to": "DOM-CLOUD",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58189-2018",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-58189-2018",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58256-2018",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-58256-2018",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-71753-2024",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-71753-2024",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59547-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59547-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59547-2021",
+      "to": "DOM-SOC",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59548-2022",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59548-2022",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59548-2022",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59548-2022",
+      "to": "DOM-SOC",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59709-2022",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59709-2022",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59709-2022",
+      "to": "DOM-SOC",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72118-2025",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-72118-2025",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72118-2025",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-54581-2011",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-54581-2011",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-54582-2011",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-54582-2011",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-54583-2011",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-54583-2011",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-ТО-19791-2008",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-ТО-19791-2008",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-51583-2014",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-51583-2014",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-51583-2014",
+      "to": "DOM-SEC-ARCH",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56093-2014",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-56093-2014",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56103-2014",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-56103-2014",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56115-2014",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-56115-2014",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58412-2019",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-58412-2019",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58412-2019",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-71206-2024",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-71206-2024",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-71206-2024",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-71207-2024",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-71207-2024",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-71207-2024",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-58833-2020",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-58833-2020",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-70262-1-2022",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-70262-1-2022",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-70262-2-2025",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-70262-2-2025",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59453-1-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59453-1-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59453-2-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59453-2-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59453-3-2025",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59453-3-2025",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59453-3-2025",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59453-4-2025",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59453-4-2025",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59453-4-2025",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-34-10-2012",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-34-10-2012",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-34-10-2012",
       "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-34-10-2012",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-34-11-2012",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4907,13 +7084,20 @@
       "from": "DOC-ГОСТ-Р-34-11-2012",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-34-11-2012",
       "to": "DOM-SKZI",
       "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-34-12-2015",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
       "weight": 0.9,
       "auto": true
     },
@@ -4921,12 +7105,19 @@
       "from": "DOC-ГОСТ-Р-34-12-2015",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-34-12-2015",
       "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-34-13-2015",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4935,13 +7126,20 @@
       "from": "DOC-ГОСТ-Р-34-13-2015",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-34-13-2015",
       "to": "DOM-SKZI",
       "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-34-10-2018",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
       "weight": 0.9,
       "auto": true
     },
@@ -4949,12 +7147,26 @@
       "from": "DOC-ГОСТ-34-10-2018",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-34-10-2018",
       "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-34-10-2018",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-34-11-2018",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4963,13 +7175,20 @@
       "from": "DOC-ГОСТ-34-11-2018",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-34-11-2018",
       "to": "DOM-SKZI",
       "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-34-12-2018",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
       "weight": 0.9,
       "auto": true
     },
@@ -4977,12 +7196,19 @@
       "from": "DOC-ГОСТ-34-12-2018",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-34-12-2018",
       "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-34-13-2018",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -4991,12 +7217,19 @@
       "from": "DOC-ГОСТ-34-13-2018",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-34-13-2018",
       "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-71252-2024",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -5005,12 +7238,19 @@
       "from": "DOC-ГОСТ-Р-71252-2024",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-71252-2024",
       "to": "DOM-SKZI",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57580-2-2018",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -5019,152 +7259,411 @@
       "from": "DOC-ГОСТ-Р-57580-2-2018",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57580-3-2022",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-57580-3-2022",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57580-3-2022",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57580-4-2022",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-57580-4-2022",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57100-2025",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-57100-2025",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57100-2025",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57100-2025",
+      "to": "DOM-SEC-ARCH",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57193-2025",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-57193-2025",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-57193-2025",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72498-2025",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-72498-2025",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72413-2025",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-72413-2025",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72413-2025",
+      "to": "DOM-AI",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72413-2025",
+      "to": "DOM-IT",
+      "type": "classified_as",
+      "weight": 0.68,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72416-2025",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-72416-2025",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72416-2025",
+      "to": "DOM-AI",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72416-2025",
+      "to": "DOM-IT",
+      "type": "classified_as",
+      "weight": 0.68,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72419-2025",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-72419-2025",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72419-2025",
+      "to": "DOM-AI",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-72419-2025",
+      "to": "DOM-IT",
+      "type": "classified_as",
+      "weight": 0.68,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52863-2007",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-52863-2007",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-53112-2008",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-53112-2008",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-53113-1-2008",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-53113-1-2008",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-53113-2-2009",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-53113-2-2009",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-27799-2015",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-27799-2015",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-27799-2015",
+      "to": "DOM-ITSO",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-7498-2-99",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-7498-2-99",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-7498-2-99",
+      "to": "DOM-SEC-ARCH",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27004-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27004-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27004-2021",
+      "to": "DOM-SOC",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27006-2020",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27006-2020",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27006-2020",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27007-2014",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27007-2014",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27007-2014",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27010-2020",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27010-2020",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27011-2012",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27011-2012",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27018-2020",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27018-2020",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27018-2020",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27018-2020",
+      "to": "DOM-CLOUD",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27019-2021",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -5173,110 +7672,250 @@
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27019-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27021-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27021-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27031-2012",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27031-2012",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-3-2014",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-3-2014",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27033-3-2014",
+      "to": "DOM-SEC-ARCH",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27036-1-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27036-1-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27036-2-2020",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27036-2-2020",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27036-4-2020",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-27036-4-2020",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-27036-4-2020",
+      "to": "DOM-CLOUD",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-56045-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-56045-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59162-2020",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59162-2020",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59163-2020",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59163-2020",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59163-2020",
+      "to": "DOM-CLOUD",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59163-2020",
+      "to": "DOM-IT",
+      "type": "classified_as",
+      "weight": 0.68,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59215-2020",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59215-2020",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59381-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59381-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59382-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59382-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59383-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59383-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59407-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59407-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59407-2021",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59407-2021",
+      "to": "DOM-SEC-ARCH",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59494-2021",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -5285,327 +7924,803 @@
       "from": "DOC-ГОСТ-Р-59494-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59494-2021",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59503-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59503-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59515-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59515-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-13335-1-2006",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-13335-1-2006",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-ТО-13335-5-2006",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-ТО-13335-5-2006",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-18028-1-2008",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-18028-1-2008",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-21827-2010",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-21827-2010",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-21827-2010",
+      "to": "DOM-SEC-ARCH",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-ТО-18044-2007",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-ТО-18044-2007",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-ТО-18044-2007",
+      "to": "DOM-SOC",
+      "type": "classified_as",
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59329-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59329-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59330-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59330-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59330-2021",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59331-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59331-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59332-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59332-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59333-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59333-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59334-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59334-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59335-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59335-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59336-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59336-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59337-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59337-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59337-2021",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59338-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59338-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59339-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59339-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59339-2021",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59340-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59340-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59341-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59341-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59342-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59342-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59343-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59343-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59344-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59344-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59345-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59345-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59346-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59346-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59347-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59347-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59347-2021",
+      "to": "DOM-SEC-ARCH",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59348-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59348-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59349-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59349-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59350-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59350-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59351-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59351-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59352-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59352-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59353-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59353-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59354-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59354-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59355-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59355-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59356-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59356-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-59357-2021",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-59357-2021",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-167",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-167",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-167",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-167",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-147",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-147",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-147",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-483",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-483",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-483",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-483",
+      "to": "DOM-DEV",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-483",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-126",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-126",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-126",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-126",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-127",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-127",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-127",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-127",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-130",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-130",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-130",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-130",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ416-ФСТЭК489",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСБ416-ФСТЭК489",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСБ416-ФСТЭК489",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-17-2013",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-17-2013",
       "to": "DOM-IB",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ФСТЭК-17-2013",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.76,
       "auto": true
     },
     {
       "from": "DOC-ФСТЭК-17-2013",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-482",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-РКН-482",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-482",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-106",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -5614,6 +8729,20 @@
       "from": "DOC-РКН-106",
       "to": "DOM-PDN",
       "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-106",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-129",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
       "weight": 0.9,
       "auto": true
     },
@@ -5621,12 +8750,40 @@
       "from": "DOC-РКН-129",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.82,
+      "weight": 0.84,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-129",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-201",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-РКН-201",
       "to": "DOM-PDN",
+      "type": "classified_as",
+      "weight": 0.92,
+      "auto": true
+    },
+    {
+      "from": "DOC-РКН-201",
+      "to": "DOM-GRC",
+      "type": "classified_as",
+      "weight": 0.78,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-ISO-IEC-2382-37-2016",
+      "to": "DOM-DOCS",
       "type": "classified_as",
       "weight": 0.9,
       "auto": true
@@ -5635,133 +8792,308 @@
       "from": "DOC-ГОСТ-ISO-IEC-2382-37-2016",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-ISO-IEC-2382-37-2016",
+      "to": "DOM-ITSO",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52633-0-2006",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-52633-0-2006",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52633-0-2006",
+      "to": "DOM-ITSO",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52633-1-2009",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-52633-1-2009",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52633-1-2009",
+      "to": "DOM-ITSO",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52633-2-2010",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-52633-2-2010",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52633-2-2010",
+      "to": "DOM-ITSO",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52633-3-2011",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-52633-3-2011",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-52633-3-2011",
+      "to": "DOM-ITSO",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-19785-4-2012",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ГОСТ-Р-ИСО-МЭК-19785-4-2012",
       "to": "DOM-STANDARDS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.94,
+      "auto": true
+    },
+    {
+      "from": "DOC-ГОСТ-Р-ИСО-МЭК-19785-4-2012",
+      "to": "DOM-ITSO",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-152-ФЗ",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-152-ФЗ",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.94,
+      "weight": 0.96,
+      "auto": true
+    },
+    {
+      "from": "DOC-160-ФЗ",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-160-ФЗ",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.94,
+      "weight": 0.96,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-512",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-512",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.94,
+      "weight": 0.96,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-512",
+      "to": "DOM-ITSO",
+      "type": "classified_as",
+      "weight": 0.8,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-687",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-687",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.94,
+      "weight": 0.96,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1046",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-1046",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.94,
+      "weight": 0.96,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1046",
+      "to": "DOM-IB-AUDIT",
+      "type": "classified_as",
+      "weight": 0.72,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-2526",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-2526",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.94,
+      "weight": 0.96,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-6-2023",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-6-2023",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.94,
+      "weight": 0.96,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-24-2023",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-24-2023",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.94,
+      "weight": 0.96,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-538-2025",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-538-2025",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.94,
+      "weight": 0.96,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-940",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-940",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.94,
+      "weight": 0.96,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-211",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-211",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.94,
+      "weight": 0.96,
       "auto": true
     },
     {
       "from": "DOC-ПП-211",
       "to": "DOM-GIS",
       "type": "classified_as",
-      "weight": 0.88,
+      "weight": 0.9,
+      "auto": true
+    },
+    {
+      "from": "DOC-ПП-1119",
+      "to": "DOM-DOCS",
+      "type": "classified_as",
+      "weight": 0.9,
       "auto": true
     },
     {
       "from": "DOC-ПП-1119",
       "to": "DOM-PDN",
       "type": "classified_as",
-      "weight": 0.94,
+      "weight": 0.96,
       "auto": true
     }
   ]
