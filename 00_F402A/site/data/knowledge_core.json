@@ -1,0 +1,441 @@
+{
+  "schema": "cybered.knowledge_core.v1",
+  "generated_at": "2026-10-03",
+  "weight_model": {
+    "note": "Weights are graph relevance/confidence values, not legal force or priority.",
+    "edge_weight": "0..1 strength of the modeled relationship",
+    "node_weight": "0..1 importance inside the current knowledge model",
+    "source_confidence": {
+      "VERIFIED": 1,
+      "SOURCE_LISTED": 0.72,
+      "SUPERSEDED": 0.25
+    }
+  },
+  "nodes": [
+    {
+      "id": "DOM-IB",
+      "label": "Информационная безопасность",
+      "type": "domain",
+      "weight": 1,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "DOM-PDN",
+      "label": "Персональные данные",
+      "type": "domain",
+      "weight": 1,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "DOM-GIS",
+      "label": "ГИС / госсектор",
+      "type": "domain",
+      "weight": 0.95,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "DOM-KII",
+      "label": "КИИ",
+      "type": "domain",
+      "weight": 0.92,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "DOM-SKZI",
+      "label": "СКЗИ / криптография",
+      "type": "domain",
+      "weight": 0.9,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "DOM-STANDARDS",
+      "label": "ГОСТ / ISO / стандарты",
+      "type": "domain",
+      "weight": 0.82,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "PDN-ISPDN",
+      "label": "ИСПДн",
+      "type": "system",
+      "weight": 1,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "PDN-DATA",
+      "label": "Персональные данные",
+      "type": "data",
+      "weight": 1,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "PDN-BIO",
+      "label": "Биометрические ПДн",
+      "type": "data",
+      "weight": 0.88,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-THREATS",
+      "label": "Угрозы безопасности ПДн",
+      "type": "knowledge",
+      "weight": 0.96,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-LEVELS",
+      "label": "Уровни защищённости ИСПДн",
+      "type": "knowledge",
+      "weight": 0.98,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-MEASURES",
+      "label": "Организационные и технические меры",
+      "type": "control_family",
+      "weight": 1,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-CRYPTO",
+      "label": "Криптографическая защита",
+      "type": "control_family",
+      "weight": 0.94,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-DAMAGE",
+      "label": "Оценка вреда субъекту ПДн",
+      "type": "process",
+      "weight": 0.84,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-DESTROY",
+      "label": "Уничтожение ПДн",
+      "type": "process",
+      "weight": 0.86,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-NOTIFY",
+      "label": "Уведомления оператора",
+      "type": "process",
+      "weight": 0.88,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-INCIDENT",
+      "label": "Инцидент с ПДн",
+      "type": "process",
+      "weight": 0.96,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-ANON",
+      "label": "Обезличивание ПДн",
+      "type": "process",
+      "weight": 0.86,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-XBORDER",
+      "label": "Трансграничная передача",
+      "type": "process",
+      "weight": 0.82,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-CONTROL",
+      "label": "Контроль / надзор",
+      "type": "process",
+      "weight": 0.8,
+      "origin": "source_model"
+    },
+    {
+      "id": "PDN-LOCALDOCS",
+      "label": "Локальные акты оператора",
+      "type": "artifact",
+      "weight": 0.92,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "PDN-EVIDENCE",
+      "label": "Evidence выполнения",
+      "type": "artifact",
+      "weight": 0.95,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "PDN-AUDIT",
+      "label": "Аудит ПДн",
+      "type": "process",
+      "weight": 0.9,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "ROLE-OPERATOR",
+      "label": "Оператор ПДн",
+      "type": "role",
+      "weight": 1,
+      "origin": "source_model"
+    },
+    {
+      "id": "ROLE-PDN",
+      "label": "Ответственный за организацию обработки ПДн",
+      "type": "role",
+      "weight": 0.95,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "ROLE-IB",
+      "label": "Подразделение / специалист ИБ",
+      "type": "role",
+      "weight": 0.9,
+      "origin": "knowledge_model"
+    },
+    {
+      "id": "ROLE-IT",
+      "label": "ИТ / администратор системы",
+      "type": "role",
+      "weight": 0.78,
+      "origin": "knowledge_model"
+    }
+  ],
+  "edges": [
+    {
+      "from": "DOM-PDN",
+      "to": "DOM-IB",
+      "type": "part_of",
+      "weight": 1
+    },
+    {
+      "from": "PDN-ISPDN",
+      "to": "DOM-PDN",
+      "type": "implements_domain",
+      "weight": 1
+    },
+    {
+      "from": "PDN-DATA",
+      "to": "DOM-PDN",
+      "type": "core_object",
+      "weight": 1
+    },
+    {
+      "from": "PDN-BIO",
+      "to": "PDN-DATA",
+      "type": "subtype",
+      "weight": 0.9
+    },
+    {
+      "from": "PDN-THREATS",
+      "to": "PDN-ISPDN",
+      "type": "threatens",
+      "weight": 0.96
+    },
+    {
+      "from": "PDN-LEVELS",
+      "to": "PDN-ISPDN",
+      "type": "classifies_protection",
+      "weight": 0.98
+    },
+    {
+      "from": "PDN-MEASURES",
+      "to": "PDN-THREATS",
+      "type": "mitigates",
+      "weight": 0.94
+    },
+    {
+      "from": "PDN-MEASURES",
+      "to": "PDN-LEVELS",
+      "type": "selected_for",
+      "weight": 0.96
+    },
+    {
+      "from": "PDN-CRYPTO",
+      "to": "PDN-MEASURES",
+      "type": "specialized_control",
+      "weight": 0.92
+    },
+    {
+      "from": "PDN-INCIDENT",
+      "to": "PDN-EVIDENCE",
+      "type": "produces",
+      "weight": 0.88
+    },
+    {
+      "from": "PDN-AUDIT",
+      "to": "PDN-EVIDENCE",
+      "type": "checks",
+      "weight": 0.95
+    },
+    {
+      "from": "PDN-LOCALDOCS",
+      "to": "PDN-EVIDENCE",
+      "type": "evidence_source",
+      "weight": 0.9
+    },
+    {
+      "from": "ROLE-OPERATOR",
+      "to": "DOM-PDN",
+      "type": "accountable_in_domain",
+      "weight": 1
+    },
+    {
+      "from": "ROLE-PDN",
+      "to": "PDN-LOCALDOCS",
+      "type": "governs",
+      "weight": 0.9
+    },
+    {
+      "from": "ROLE-IB",
+      "to": "PDN-MEASURES",
+      "type": "implements_or_controls",
+      "weight": 0.86
+    },
+    {
+      "from": "ROLE-IT",
+      "to": "PDN-MEASURES",
+      "type": "implements",
+      "weight": 0.72
+    },
+    {
+      "from": "DOC-152-ФЗ",
+      "to": "DOM-PDN",
+      "type": "governs",
+      "weight": 1
+    },
+    {
+      "from": "DOC-152-ФЗ",
+      "to": "ROLE-OPERATOR",
+      "type": "defines_obligations",
+      "weight": 0.98
+    },
+    {
+      "from": "DOC-ПП-1119",
+      "to": "PDN-LEVELS",
+      "type": "specifies",
+      "weight": 1
+    },
+    {
+      "from": "DOC-ПП-1119",
+      "to": "PDN-ISPDN",
+      "type": "protects",
+      "weight": 0.98
+    },
+    {
+      "from": "DOC-ФСТЭК-21",
+      "to": "PDN-MEASURES",
+      "type": "specifies",
+      "weight": 1
+    },
+    {
+      "from": "DOC-ФСТЭК-21",
+      "to": "PDN-ISPDN",
+      "type": "applies_to",
+      "weight": 0.98
+    },
+    {
+      "from": "DOC-ФСБ-378",
+      "to": "PDN-CRYPTO",
+      "type": "specifies",
+      "weight": 1
+    },
+    {
+      "from": "DOC-ПП-940",
+      "to": "PDN-THREATS",
+      "type": "governs",
+      "weight": 0.95
+    },
+    {
+      "from": "DOC-ПП-211",
+      "to": "PDN-LOCALDOCS",
+      "type": "requires_measures",
+      "weight": 0.9
+    },
+    {
+      "from": "DOC-ПП-687",
+      "to": "DOM-PDN",
+      "type": "governs_nonautomated",
+      "weight": 0.86
+    },
+    {
+      "from": "DOC-ПП-512",
+      "to": "PDN-BIO",
+      "type": "governs",
+      "weight": 0.92
+    },
+    {
+      "from": "DOC-ПП-1046",
+      "to": "PDN-CONTROL",
+      "type": "governs",
+      "weight": 0.94
+    },
+    {
+      "from": "DOC-РКН-178",
+      "to": "PDN-DAMAGE",
+      "type": "specifies",
+      "weight": 0.98
+    },
+    {
+      "from": "DOC-РКН-179",
+      "to": "PDN-DESTROY",
+      "type": "specifies",
+      "weight": 0.98
+    },
+    {
+      "from": "DOC-РКН-180",
+      "to": "PDN-NOTIFY",
+      "type": "specifies",
+      "weight": 0.98
+    },
+    {
+      "from": "DOC-РКН-187",
+      "to": "PDN-INCIDENT",
+      "type": "governs",
+      "weight": 0.97
+    },
+    {
+      "from": "DOC-ФСБ-77",
+      "to": "PDN-INCIDENT",
+      "type": "governs_response",
+      "weight": 0.96
+    },
+    {
+      "from": "DOC-РКН-140",
+      "to": "PDN-ANON",
+      "type": "specifies",
+      "weight": 0.98
+    },
+    {
+      "from": "DOC-РКН-128",
+      "to": "PDN-XBORDER",
+      "type": "supports",
+      "weight": 0.9
+    },
+    {
+      "from": "DOC-ПП-2526",
+      "to": "PDN-XBORDER",
+      "type": "sets_exceptions",
+      "weight": 0.9
+    },
+    {
+      "from": "DOC-ПП-6-2023",
+      "to": "PDN-XBORDER",
+      "type": "governs_restriction",
+      "weight": 0.92
+    },
+    {
+      "from": "DOC-ПП-24-2023",
+      "to": "PDN-XBORDER",
+      "type": "governs_restriction",
+      "weight": 0.9
+    },
+    {
+      "from": "DOC-ПП-538-2025",
+      "to": "PDN-ANON",
+      "type": "governs_datasets",
+      "weight": 0.9
+    }
+  ]
+}
