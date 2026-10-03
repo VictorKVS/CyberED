@@ -42,7 +42,14 @@ function renderDetail(d){
     <a class="requirement-link" href="requirements.html">Открыть контур требований →</a>`;
 }
 async function load(){
- const r=await fetch("data/documents.json",{cache:"no-store"}); state.data=await r.json(); renderList();
+ const r=await fetch("data/documents.json",{cache:"no-store"}); state.data=await r.json();
+ const all=state.data.documents||[];
+ const set=(id,v)=>{const n=document.getElementById(id);if(n)n.textContent=v;};
+ set("registry-total",all.length);
+ set("registry-gost",all.filter(x=>x.kind==="gost").length);
+ set("registry-verified",all.filter(x=>x.status==="VERIFIED").length);
+ set("registry-listed",all.filter(x=>x.status==="SOURCE_LISTED").length);
+ renderList();
 }
 document.getElementById("doc-search").addEventListener("input",e=>{state.query=e.target.value;renderList();});
 document.querySelectorAll(".filter-btn").forEach(b=>b.onclick=()=>{document.querySelectorAll(".filter-btn").forEach(x=>x.classList.remove("active"));b.classList.add("active");state.filter=b.dataset.filter;renderList();});
