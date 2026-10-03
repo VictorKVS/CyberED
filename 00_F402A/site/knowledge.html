@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberED — База знаний ИБ</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/knowledge.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">C</span><div><strong>CyberED</strong><span>Security Knowledge Graph</span></div></div>
+  <nav>
+    <a href="index.html">Курс</a>
+    <a href="documents.html">Документы</a>
+    <a href="knowledge.html">База знаний</a>
+    <a href="requirements.html">Требования</a>
+  </nav>
+</header>
+
+<main class="kg-main">
+  <section class="kg-head">
+    <div>
+      <div class="eyebrow">ALINA KNOWLEDGE CORE · NODES · EDGES · WEIGHTS</div>
+      <h1>База знаний <span>ИБ</span></h1>
+      <p class="hero-text">Документы превращаются в граф знаний. По ПДн уже разворачивается глубокий контур: ИСПДн → угрозы → уровни → меры → СКЗИ → инциденты → evidence.</p>
+    </div>
+    <div class="kg-stats">
+      <div><span>УЗЛЫ</span><strong id="kg-nodes">0</strong></div>
+      <div><span>СВЯЗИ</span><strong id="kg-edges">0</strong></div>
+      <div><span>ДОКУМЕНТЫ</span><strong id="kg-docs">0</strong></div>
+      <div><span>РЕЖИМ</span><strong id="kg-mode">ПДн</strong></div>
+    </div>
+  </section>
+
+  <section class="kg-toolbar">
+    <button class="kg-filter active" data-domain="PDN">ПДн / ИСПДн</button>
+    <button class="kg-filter" data-domain="GIS">ГИС</button>
+    <button class="kg-filter" data-domain="KII">КИИ</button>
+    <button class="kg-filter" data-domain="SKZI">СКЗИ</button>
+    <button class="kg-filter" data-domain="STANDARDS">ГОСТ / ISO</button>
+    <input id="kg-search" type="search" placeholder="Найти узел или документ...">
+  </section>
+
+  <section class="kg-workspace">
+    <aside class="kg-list">
+      <div class="kg-pane-title">KNOWLEDGE NODES</div>
+      <div id="kg-node-list"></div>
+    </aside>
+    <div class="kg-canvas-wrap">
+      <svg id="kg-canvas" viewBox="0 0 1200 720" role="img" aria-label="Граф знаний CyberED"></svg>
+      <div class="kg-legend">
+        <span>толщина линии = вес связи</span>
+        <span>размер узла = вес узла</span>
+        <span>веса — технические, не юридическая сила</span>
+      </div>
+    </div>
+    <aside class="kg-detail" id="kg-detail">
+      <div class="kg-pane-title">NODE DETAIL</div>
+      <h2>Выберите узел</h2>
+      <p>Здесь появятся тип, вес, статус источника и связанные узлы.</p>
+    </aside>
+  </section>
+</main>
+
+<footer><span>CyberED</span><span>Alina Security Knowledge Core</span><span id="year"></span></footer>
+<script src="assets/js/knowledge.js"></script>
+</body>
+</html>
