@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberED — Ответственность ИБ-команды</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsibility.css">
+</head>
+<body>
+<header class="topbar">
+    <div class="brand">
+        <span class="brand-mark">C</span>
+        <div>
+            <strong>CyberED</strong>
+            <span>Security Responsibility</span>
+        </div>
+    </div>
+    <nav>
+        <a href="index.html">Курс</a>
+        <a href="requirements.html">Требования</a>
+        <a href="#hierarchy">Управление</a>
+        <a href="#team">ИБ-команда</a>
+        <a href="#raci">RACI</a>
+    </nav>
+</header>
+
+<main class="responsibility-main">
+    <section class="responsibility-hero">
+        <div>
+            <div class="eyebrow">GOVERNANCE · RESPONSIBILITY · EVIDENCE</div>
+            <h1>Ответственность <span>ИБ-команды</span></h1>
+            <p class="hero-text">
+                Не просто список должностей: CyberED связывает нормативное требование,
+                роль, внутренний документ, конкретного исполнителя и доказательство исполнения.
+            </p>
+        </div>
+        <aside class="responsibility-summary">
+            <div><span>Модель</span><strong id="model-status">—</strong></div>
+            <div><span>Нормативные роли</span><strong id="normative-count">0</strong></div>
+            <div><span>Рабочие роли</span><strong id="team-count">0</strong></div>
+            <div><span>Подтверждено ЛНА</span><strong id="verified-count">0</strong></div>
+            <small>Пока внутренний приказ/положение/ДИ не загружены и не связаны, ответственность конкретного лица считается NOT_PROVEN.</small>
+        </aside>
+    </section>
+
+    <section class="section" id="hierarchy">
+        <div class="section-title">
+            <span>01</span>
+            <div>
+                <h2>Контур управления ИБ</h2>
+                <p>Нормативный верхний уровень и документальное закрепление полномочий.</p>
+            </div>
+        </div>
+        <div id="hierarchy-flow" class="hierarchy-flow"></div>
+        <div id="legal-basis" class="legal-grid"></div>
+    </section>
+
+    <section class="section" id="team">
+        <div class="section-title">
+            <span>02</span>
+            <div>
+                <h2>Рабочая ИБ-команда</h2>
+                <p>Роли CyberED. Конкретная структура организации подтверждается внутренними документами.</p>
+            </div>
+        </div>
+        <div id="team-grid" class="team-grid"></div>
+    </section>
+
+    <section class="section">
+        <div class="section-title">
+            <span>03</span>
+            <div>
+                <h2>Цепочка ответственности</h2>
+                <p>Требование нельзя назначить человеку без документального моста.</p>
+            </div>
+        </div>
+        <div id="traceability" class="traceability"></div>
+    </section>
+
+    <section class="section" id="raci">
+        <div class="section-title">
+            <span>04</span>
+            <div>
+                <h2>RACI-матрица</h2>
+                <p id="raci-note">Шаблон распределения ответственности.</p>
+            </div>
+        </div>
+        <div class="table-wrap">
+            <table class="raci-table" id="raci-table"></table>
+        </div>
+        <div class="raci-legend">
+            <span><b>R</b> выполняет</span>
+            <span><b>A</b> отвечает за результат</span>
+            <span><b>C</b> консультирует/согласует</span>
+            <span><b>I</b> информируется</span>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <span>CyberED</span>
+    <span>Security Responsibility & Governance</span>
+    <span id="year"></span>
+</footer>
+
+<script src="assets/js/responsibility.js"></script>
+</body>
+</html>
