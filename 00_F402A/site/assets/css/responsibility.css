@@ -44,3 +44,24 @@
 .raci-legend b{color:#39d7ff}
 @media(max-width:1050px){.responsibility-hero{grid-template-columns:1fr}.team-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.hierarchy-flow,.legal-grid,.team-grid{grid-template-columns:1fr}}
+
+/* Page-based responsibility navigation */
+.compact-hero{min-height:430px}
+.responsibility-page-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.responsibility-page-card{display:block;min-height:245px;padding:26px;border:1px solid #1b2d38;background:#091117;transition:.22s}
+.responsibility-page-card:hover{transform:translateY(-3px);border-color:#39d7ff}
+.responsibility-page-card>span{font:11px monospace;color:#39d7ff}
+.responsibility-page-card h3{margin:42px 0 12px;font-size:23px}
+.responsibility-page-card p{max-width:560px;color:#738895;line-height:1.6}
+.responsibility-page-card b{display:block;margin-top:24px;color:#39d7ff;font-size:12px}
+.page-section-first{padding-top:70px;min-height:calc(100vh - 190px)}
+.page-kicker{margin-bottom:28px;color:#39d7ff;font:11px monospace;letter-spacing:.14em}
+.page-nav{display:flex;justify-content:space-between;gap:16px;padding:22px 7vw 65px;border-top:1px solid #172630}
+.page-nav a{padding:13px 16px;border:1px solid #213441;color:#8da0ab;font-size:12px}
+.page-nav a:hover{border-color:#39d7ff;color:#39d7ff}
+.traceability-page{padding:28px 0 12px}
+.trace-explanation{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.trace-explanation article{padding:20px;border:1px solid #1b2d38;background:#091117}
+.trace-explanation strong{font-size:13px}
+.trace-explanation p{color:#728692;font-size:12px;line-height:1.55}
+@media(max-width:900px){.responsibility-page-grid,.trace-explanation{grid-template-columns:1fr}.page-nav{flex-direction:column}}
