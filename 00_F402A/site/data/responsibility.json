@@ -305,8 +305,14 @@
     "ROLE",
     "INTERNAL_DOCUMENT",
     "PERSON",
+    "COMPETENCY",
     "ACTION",
     "EVIDENCE",
     "COMPLIANCE_STATUS"
-  ]
+  ],
+  "competency_linkage": {
+    "rule": "ROLE -> PERSON -> COMPETENCY -> KNOWLEDGE_SOURCE",
+    "source_file": "people_competencies.json",
+    "assignment_status": "Конкретные лица заполняются только по подтвержденным внутренним документам."
+  }
 }
