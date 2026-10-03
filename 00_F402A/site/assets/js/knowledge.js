@@ -1,6 +1,6 @@
 const SVG_NS="http://www.w3.org/2000/svg";
-const state={graph:null,domain:"PDN",query:"",nodes:[],edges:[]};
-const DOMAIN_IDS={PDN:"DOM-PDN",GIS:"DOM-GIS",KII:"DOM-KII",SKZI:"DOM-SKZI",STANDARDS:"DOM-STANDARDS"};
+const state={graph:null,domain:"IB",query:"",nodes:[],edges:[]};
+const DOMAIN_IDS={IB:"DOM-IB",IT:"DOM-IT",DEV:"DOM-DEV",AI:"DOM-AI",CLOUD:"DOM-CLOUD",IT_AUDIT:"DOM-IT-AUDIT",IB_AUDIT:"DOM-IB-AUDIT",PENTEST:"DOM-PENTEST",ARCH:"DOM-SEC-ARCH",SOC:"DOM-SOC",GRC:"DOM-GRC",PDN:"DOM-PDN",GIS:"DOM-GIS",KII:"DOM-KII",SKZI:"DOM-SKZI",ITSO:"DOM-ITSO",DOCS:"DOM-DOCS",STANDARDS:"DOM-STANDARDS"};
 const year=document.getElementById("year");if(year)year.textContent=new Date().getFullYear();
 
 function el(name,attrs={}){const n=document.createElementNS(SVG_NS,name);for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);return n;}
@@ -46,7 +46,7 @@ function render(){
  document.getElementById("kg-nodes").textContent=state.graph.stats.nodes;
  document.getElementById("kg-edges").textContent=state.graph.stats.edges;
  document.getElementById("kg-docs").textContent=state.graph.stats.documents;
- document.getElementById("kg-mode").textContent=state.domain==="PDN"?"ПДн":state.domain;
+ const labels={IB:"ИБ",IT:"IT",DEV:"Разработка",AI:"AI",CLOUD:"Облака",IT_AUDIT:"IT-аудит",IB_AUDIT:"ИБ-аудит",PENTEST:"Пентест",ARCH:"Архитектура ИБ",SOC:"SOC / IR",GRC:"GRC / Risk",PDN:"ПДн",GIS:"ГИС",KII:"КИИ",SKZI:"СКЗИ",ITSO:"ИТСО",DOCS:"Документы",STANDARDS:"ГОСТ / ISO"};document.getElementById("kg-mode").textContent=labels[state.domain]||state.domain;
  renderList();renderSvg();
 }
 
