@@ -1,0 +1,554 @@
+{
+  "schema": "cybered.people_competencies.v1",
+  "generated_at": "2026-10-03",
+  "rules": {
+    "person_assignment": "Конкретное лицо считается назначенным только при наличии подтверждающего внутреннего документа.",
+    "competency_semantics": "Компетенции CyberED — рабочая инженерная модель; они не считаются нормативно обязательными, если конкретный источник прямо этого не устанавливает.",
+    "gap_logic": "GAP = требуемая компетенция отсутствует/не подтверждена либо лицо не назначено."
+  },
+  "levels": [
+    {
+      "level": 1,
+      "label": "Знакомство",
+      "meaning": "понимает термины и назначение"
+    },
+    {
+      "level": 2,
+      "label": "Рабочее знание",
+      "meaning": "выполняет типовые задачи по инструкции"
+    },
+    {
+      "level": 3,
+      "label": "Самостоятельная работа",
+      "meaning": "решает задачи и оформляет результат"
+    },
+    {
+      "level": 4,
+      "label": "Экспертный уровень",
+      "meaning": "проектирует, проверяет и консультирует"
+    },
+    {
+      "level": 5,
+      "label": "Архитектура / методология",
+      "meaning": "задаёт правила, архитектуру и контроль"
+    }
+  ],
+  "competencies": [
+    {
+      "id": "COMP-GRC",
+      "title": "Нормативные требования и applicability",
+      "domain": "Governance",
+      "sources": [
+        {
+          "type": "site",
+          "label": "ИБ-документация",
+          "href": "documents.html"
+        },
+        {
+          "type": "site",
+          "label": "Контур требований",
+          "href": "requirements.html"
+        },
+        {
+          "type": "site",
+          "label": "База знаний Алины",
+          "href": "knowledge.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-PDN",
+      "title": "Персональные данные / ИСПДн",
+      "domain": "Compliance",
+      "sources": [
+        {
+          "type": "site",
+          "label": "Граф ПДн / ИСПДн",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "site",
+          "label": "Реестр ПДн-документов",
+          "href": "documents.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-KII",
+      "title": "КИИ и категорирование",
+      "domain": "Compliance",
+      "sources": [
+        {
+          "type": "site",
+          "label": "База знаний КИИ",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "site",
+          "label": "ФСТЭК / КИИ",
+          "href": "documents.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-CRYPTO",
+      "title": "СКЗИ и криптографическая защита",
+      "domain": "Engineering",
+      "sources": [
+        {
+          "type": "site",
+          "label": "ФСБ / СКЗИ",
+          "href": "documents.html"
+        },
+        {
+          "type": "site",
+          "label": "Knowledge Graph — СКЗИ",
+          "href": "knowledge.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-NET",
+      "title": "Сетевая безопасность",
+      "domain": "Engineering",
+      "sources": [
+        {
+          "type": "course",
+          "label": "F109 — Локальные сети",
+          "href": "course.html"
+        },
+        {
+          "type": "site",
+          "label": "ГОСТ / Network Security",
+          "href": "documents.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-LINUX",
+      "title": "Linux Security / hardening",
+      "domain": "Engineering",
+      "sources": [
+        {
+          "type": "course",
+          "label": "F108 — Linux",
+          "href": "course.html"
+        },
+        {
+          "type": "lab",
+          "label": "CyberED Security Lab",
+          "href": "index.html#labs"
+        }
+      ]
+    },
+    {
+      "id": "COMP-WINAD",
+      "title": "Windows Server / AD / GPO / PKI",
+      "domain": "Engineering",
+      "sources": [
+        {
+          "type": "course",
+          "label": "F110 — Windows / AD",
+          "href": "course.html"
+        },
+        {
+          "type": "lab",
+          "label": "CyberED Security Lab",
+          "href": "index.html#labs"
+        }
+      ]
+    },
+    {
+      "id": "COMP-SZI",
+      "title": "СЗИ: SIEM / IDS / IPS / WAF / EDR",
+      "domain": "Engineering",
+      "sources": [
+        {
+          "type": "course",
+          "label": "F111 — Администрирование СЗИ",
+          "href": "course.html"
+        },
+        {
+          "type": "lab",
+          "label": "CyberED Security Lab",
+          "href": "index.html#labs"
+        }
+      ]
+    },
+    {
+      "id": "COMP-SOC",
+      "title": "SOC / мониторинг / detection engineering",
+      "domain": "Operations",
+      "sources": [
+        {
+          "type": "course",
+          "label": "F111 — СЗИ / SOC",
+          "href": "course.html"
+        },
+        {
+          "type": "site",
+          "label": "ГОСТ: мониторинг и журналирование",
+          "href": "documents.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-IR",
+      "title": "Incident Response / ГосСОПКА",
+      "domain": "Operations",
+      "sources": [
+        {
+          "type": "site",
+          "label": "Инциденты / ФСБ / ГОСТ",
+          "href": "documents.html"
+        },
+        {
+          "type": "site",
+          "label": "Knowledge Graph",
+          "href": "knowledge.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-AUDIT",
+      "title": "Аудит ИБ / evidence / gap-analysis",
+      "domain": "Assurance",
+      "sources": [
+        {
+          "type": "site",
+          "label": "Контур требований",
+          "href": "requirements.html"
+        },
+        {
+          "type": "site",
+          "label": "Ответственность / RACI",
+          "href": "responsibility-raci.html"
+        },
+        {
+          "type": "site",
+          "label": "ИБ-документация",
+          "href": "documents.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-RISK",
+      "title": "Риск-анализ и модель угроз",
+      "domain": "Assurance",
+      "sources": [
+        {
+          "type": "site",
+          "label": "Knowledge Graph",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "site",
+          "label": "ГОСТ / Risk Management",
+          "href": "documents.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-ARCH",
+      "title": "Security Architecture",
+      "domain": "Architecture",
+      "sources": [
+        {
+          "type": "site",
+          "label": "Knowledge Graph",
+          "href": "knowledge.html"
+        },
+        {
+          "type": "course",
+          "label": "Инженерный трек CyberED",
+          "href": "course.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-DOC",
+      "title": "ИБ-документооборот и трассируемость",
+      "domain": "Governance",
+      "sources": [
+        {
+          "type": "site",
+          "label": "Документация",
+          "href": "documents.html"
+        },
+        {
+          "type": "site",
+          "label": "Требования",
+          "href": "requirements.html"
+        },
+        {
+          "type": "site",
+          "label": "Цепочка ответственности",
+          "href": "responsibility-trace.html"
+        }
+      ]
+    },
+    {
+      "id": "COMP-LEAD",
+      "title": "Управление ИБ-командой и контроль исполнения",
+      "domain": "Management",
+      "sources": [
+        {
+          "type": "site",
+          "label": "Контур управления ИБ",
+          "href": "responsibility-governance.html"
+        },
+        {
+          "type": "site",
+          "label": "RACI",
+          "href": "responsibility-raci.html"
+        }
+      ]
+    }
+  ],
+  "role_profiles": [
+    {
+      "role_id": "ROLE-HEAD-IB",
+      "role": "Руководитель ИБ",
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": [],
+      "required": [
+        [
+          "COMP-LEAD",
+          5
+        ],
+        [
+          "COMP-GRC",
+          4
+        ],
+        [
+          "COMP-RISK",
+          4
+        ],
+        [
+          "COMP-ARCH",
+          4
+        ],
+        [
+          "COMP-AUDIT",
+          4
+        ],
+        [
+          "COMP-DOC",
+          4
+        ]
+      ]
+    },
+    {
+      "role_id": "ROLE-GRC",
+      "role": "GRC / нормативные требования",
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": [],
+      "required": [
+        [
+          "COMP-GRC",
+          5
+        ],
+        [
+          "COMP-DOC",
+          5
+        ],
+        [
+          "COMP-AUDIT",
+          4
+        ],
+        [
+          "COMP-RISK",
+          4
+        ],
+        [
+          "COMP-PDN",
+          4
+        ],
+        [
+          "COMP-KII",
+          3
+        ]
+      ]
+    },
+    {
+      "role_id": "ROLE-ENGINEER",
+      "role": "ИБ-инженер",
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": [],
+      "required": [
+        [
+          "COMP-NET",
+          4
+        ],
+        [
+          "COMP-LINUX",
+          4
+        ],
+        [
+          "COMP-WINAD",
+          4
+        ],
+        [
+          "COMP-SZI",
+          4
+        ],
+        [
+          "COMP-CRYPTO",
+          3
+        ],
+        [
+          "COMP-ARCH",
+          3
+        ]
+      ]
+    },
+    {
+      "role_id": "ROLE-SOC",
+      "role": "SOC / Incident Response",
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": [],
+      "required": [
+        [
+          "COMP-SOC",
+          4
+        ],
+        [
+          "COMP-IR",
+          4
+        ],
+        [
+          "COMP-SZI",
+          3
+        ],
+        [
+          "COMP-NET",
+          3
+        ],
+        [
+          "COMP-RISK",
+          3
+        ]
+      ]
+    },
+    {
+      "role_id": "ROLE-KII",
+      "role": "Специалист по КИИ",
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": [],
+      "required": [
+        [
+          "COMP-KII",
+          5
+        ],
+        [
+          "COMP-GRC",
+          4
+        ],
+        [
+          "COMP-RISK",
+          4
+        ],
+        [
+          "COMP-AUDIT",
+          3
+        ],
+        [
+          "COMP-DOC",
+          4
+        ]
+      ]
+    },
+    {
+      "role_id": "ROLE-PDN",
+      "role": "Специалист по ПДн",
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": [],
+      "required": [
+        [
+          "COMP-PDN",
+          5
+        ],
+        [
+          "COMP-GRC",
+          4
+        ],
+        [
+          "COMP-DOC",
+          4
+        ],
+        [
+          "COMP-AUDIT",
+          3
+        ],
+        [
+          "COMP-RISK",
+          3
+        ]
+      ]
+    },
+    {
+      "role_id": "ROLE-CRYPTO",
+      "role": "СКЗИ / криптографическая защита",
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": [],
+      "required": [
+        [
+          "COMP-CRYPTO",
+          5
+        ],
+        [
+          "COMP-SZI",
+          3
+        ],
+        [
+          "COMP-DOC",
+          4
+        ],
+        [
+          "COMP-AUDIT",
+          3
+        ]
+      ]
+    },
+    {
+      "role_id": "ROLE-AUDIT",
+      "role": "ИБ-аудит",
+      "person": null,
+      "assignment_status": "NOT_ASSIGNED",
+      "evidence": [],
+      "required": [
+        [
+          "COMP-AUDIT",
+          5
+        ],
+        [
+          "COMP-GRC",
+          4
+        ],
+        [
+          "COMP-RISK",
+          4
+        ],
+        [
+          "COMP-DOC",
+          4
+        ],
+        [
+          "COMP-PDN",
+          3
+        ],
+        [
+          "COMP-KII",
+          3
+        ]
+      ]
+    }
+  ]
+}
