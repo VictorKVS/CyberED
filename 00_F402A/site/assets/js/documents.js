@@ -38,6 +38,7 @@ function renderDetail(d){
     </div>
     <div class="detail-section"><h3>Теги / применимость</h3><ul>${(d.tags||[]).map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
     <div class="detail-section"><h3>Связанные требования</h3><p class="detail-summary">${d.requirements?.length?d.requirements.map(esc).join(", "):"Пока не атомизированы. Алина должна создать verified requirements из проверенного текста."}</p></div>
+    ${d.source_url ? `<a class="requirement-link" href="${esc(d.source_url)}" target="_blank" rel="noopener">Официальный / проверочный источник ↗</a>` : ""}
     <a class="requirement-link" href="requirements.html">Открыть контур требований →</a>`;
 }
 async function load(){
