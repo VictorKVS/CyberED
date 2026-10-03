@@ -3,36 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberED — Ответственность ИБ-команды</title>
+    <title>CyberED — Ответственность ИБ</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsibility.css">
 </head>
-<body>
+<body data-view="overview">
 <header class="topbar">
     <div class="brand">
         <span class="brand-mark">C</span>
-        <div>
-            <strong>CyberED</strong>
-            <span>Security Responsibility</span>
-        </div>
+        <div><strong>CyberED</strong><span>Security Responsibility</span></div>
     </div>
     <nav>
         <a href="index.html">Курс</a>
         <a href="requirements.html">Требования</a>
-        <a href="#hierarchy">Управление</a>
-        <a href="#team">ИБ-команда</a>
-        <a href="#raci">RACI</a>
+        <a href="responsibility.html">Ответственность</a>
     </nav>
 </header>
 
 <main class="responsibility-main">
-    <section class="responsibility-hero">
+    <section class="responsibility-hero compact-hero">
         <div>
             <div class="eyebrow">GOVERNANCE · RESPONSIBILITY · EVIDENCE</div>
-            <h1>Ответственность <span>ИБ-команды</span></h1>
+            <h1>Ответственность <span>ИБ</span></h1>
             <p class="hero-text">
-                Не просто список должностей: CyberED связывает нормативное требование,
-                роль, внутренний документ, конкретного исполнителя и доказательство исполнения.
+                Разделённое рабочее пространство: каждый блок открывается своей страницей,
+                без длинной прокрутки всего контура.
             </p>
         </div>
         <aside class="responsibility-summary">
@@ -40,60 +35,39 @@
             <div><span>Нормативные роли</span><strong id="normative-count">0</strong></div>
             <div><span>Рабочие роли</span><strong id="team-count">0</strong></div>
             <div><span>Подтверждено ЛНА</span><strong id="verified-count">0</strong></div>
-            <small>Пока внутренний приказ/положение/ДИ не загружены и не связаны, ответственность конкретного лица считается NOT_PROVEN.</small>
+            <small>Ответственность конкретного лица подтверждается внутренним документом организации.</small>
         </aside>
-    </section>
-
-    <section class="section" id="hierarchy">
-        <div class="section-title">
-            <span>01</span>
-            <div>
-                <h2>Контур управления ИБ</h2>
-                <p>Нормативный верхний уровень и документальное закрепление полномочий.</p>
-            </div>
-        </div>
-        <div id="hierarchy-flow" class="hierarchy-flow"></div>
-        <div id="legal-basis" class="legal-grid"></div>
-    </section>
-
-    <section class="section" id="team">
-        <div class="section-title">
-            <span>02</span>
-            <div>
-                <h2>Рабочая ИБ-команда</h2>
-                <p>Роли CyberED. Конкретная структура организации подтверждается внутренними документами.</p>
-            </div>
-        </div>
-        <div id="team-grid" class="team-grid"></div>
     </section>
 
     <section class="section">
         <div class="section-title">
-            <span>03</span>
+            <span>01–04</span>
             <div>
-                <h2>Цепочка ответственности</h2>
-                <p>Требование нельзя назначить человеку без документального моста.</p>
+                <h2>Разделы ответственности</h2>
+                <p>Открывай нужный рабочий экран отдельно.</p>
             </div>
         </div>
-        <div id="traceability" class="traceability"></div>
-    </section>
-
-    <section class="section" id="raci">
-        <div class="section-title">
-            <span>04</span>
-            <div>
-                <h2>RACI-матрица</h2>
-                <p id="raci-note">Шаблон распределения ответственности.</p>
-            </div>
-        </div>
-        <div class="table-wrap">
-            <table class="raci-table" id="raci-table"></table>
-        </div>
-        <div class="raci-legend">
-            <span><b>R</b> выполняет</span>
-            <span><b>A</b> отвечает за результат</span>
-            <span><b>C</b> консультирует/согласует</span>
-            <span><b>I</b> информируется</span>
+        <div class="responsibility-page-grid">
+            <a class="responsibility-page-card" href="responsibility-governance.html">
+                <span>01</span><h3>Контур управления ИБ</h3>
+                <p>Руководитель, ответственный заместитель, подразделение ИБ и нормативные основания.</p>
+                <b>Открыть →</b>
+            </a>
+            <a class="responsibility-page-card" href="responsibility-team.html">
+                <span>02</span><h3>Рабочая ИБ-команда</h3>
+                <p>Роли GRC, инженерии, SOC, КИИ, ПДн, СКЗИ и аудита.</p>
+                <b>Открыть →</b>
+            </a>
+            <a class="responsibility-page-card" href="responsibility-trace.html">
+                <span>03</span><h3>Цепочка ответственности</h3>
+                <p>Требование → обязанность → роль → ЛНА → лицо → действие → evidence.</p>
+                <b>Открыть →</b>
+            </a>
+            <a class="responsibility-page-card" href="responsibility-raci.html">
+                <span>04</span><h3>RACI-матрица</h3>
+                <p>Рабочее распределение R / A / C / I между участниками процессов ИБ.</p>
+                <b>Открыть →</b>
+            </a>
         </div>
     </section>
 </main>
@@ -103,7 +77,6 @@
     <span>Security Responsibility & Governance</span>
     <span id="year"></span>
 </footer>
-
 <script src="assets/js/responsibility.js"></script>
 </body>
 </html>
