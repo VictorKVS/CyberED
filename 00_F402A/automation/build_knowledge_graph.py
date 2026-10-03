@@ -1,5 +1,6 @@
-"""Build CyberED weighted knowledge graph from document registry + knowledge core.
+"""Build FATHER/CyberED weighted IT + information security knowledge graph.
 
+CyberED is a consumer of the common FATHER IT/IB knowledge model.
 Weights are technical relevance/confidence scores and MUST NOT be interpreted
 as legal force, legal hierarchy, applicability, or mandatory priority.
 """
@@ -17,6 +18,67 @@ OUT = DATA / "knowledge_graph.json"
 
 def load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def classify_document(doc: dict) -> dict[str, float]:
+    targets: dict[str, float] = {}
+
+    def link(target: str, weight: float):
+        targets[target] = max(weight, targets.get(target, 0.0))
+
+    kind = doc.get("kind", "")
+    hay = " ".join(
+        [
+            doc.get("code", ""),
+            doc.get("scope", ""),
+            doc.get("title", ""),
+            doc.get("authority", ""),
+            *doc.get("tags", []),
+        ]
+    ).lower()
+
+    # Every source document belongs to the common document/standards domain.
+    link("DOM-DOCS", 0.90)
+
+    if kind == "gis":
+        link("DOM-GIS", 0.94)
+    if kind == "pdn":
+        link("DOM-PDN", 0.96)
+    if kind == "fstec":
+        link("DOM-IB", 0.90)
+        link("DOM-GRC", 0.76)
+    if kind == "fsb":
+        link("DOM-SKZI", 0.88)
+        link("DOM-IB", 0.82)
+    if kind in {"rkn", "rospotreb"}:
+        link("DOM-PDN", 0.84)
+        link("DOM-GRC", 0.78)
+    if kind == "gost":
+        link("DOM-STANDARDS", 0.94)
+
+    rules = [
+        (("пдн", "персональн"), "DOM-PDN", 0.92),
+        (("гис", "госсектор", "гостех", "смэв", "есиа"), "DOM-GIS", 0.90),
+        (("кии", "критическ"), "DOM-KII", 0.94),
+        (("скзи", "крипт", "электронн подпис", "pki"), "DOM-SKZI", 0.92),
+        (("облач", "cloud", "kubernetes", "контейнер", "виртуализ"), "DOM-CLOUD", 0.84),
+        (("искусственн интеллект", "машинн обуч", "нейросет", "llm", "mlops", "rag"), "DOM-AI", 0.84),
+        (("разработ", "программ", "жизненного цикла", "secure sdlc", "appsec", "devsecops"), "DOM-DEV", 0.80),
+        (("аудит", "провер", "оценк соответств", "контрол"), "DOM-IB-AUDIT", 0.72),
+        (("ит-аудит", "it audit", "управление сервис", "it service"), "DOM-IT-AUDIT", 0.72),
+        (("уязвим", "проникнов", "pentest", "red team"), "DOM-PENTEST", 0.80),
+        (("архитект", "проектирован", "меры защиты", "требования по защите"), "DOM-SEC-ARCH", 0.76),
+        (("инцидент", "мониторинг", "регистрация событий", "журналирован", "госсопка", "реагирован"), "DOM-SOC", 0.84),
+        (("риск", "норматив", "compliance", "политик", "обязательн требован"), "DOM-GRC", 0.78),
+        (("видеонаблю", "скуд", "vms", "psim", "охран", "периметр", "физическ безопас", "биометр"), "DOM-ITSO", 0.80),
+        (("информационн технолог", "сеть", "сервер", "баз данных", "storage", "linux", "windows"), "DOM-IT", 0.68),
+    ]
+
+    for needles, target, weight in rules:
+        if any(needle in hay for needle in needles):
+            link(target, weight)
+
+    return targets
 
 
 def main() -> int:
@@ -42,43 +104,7 @@ def main() -> int:
             }
         )
 
-        targets: dict[str, float] = {}
-
-        def link(target: str, weight: float):
-            targets[target] = max(weight, targets.get(target, 0.0))
-
-        kind = doc.get("kind", "")
-        if kind == "gis":
-            link("DOM-GIS", 0.92)
-        if kind == "pdn":
-            link("DOM-PDN", 0.94)
-        if kind == "fstec":
-            link("DOM-IB", 0.82)
-        if kind == "fsb":
-            link("DOM-SKZI", 0.86)
-        if kind in {"rkn", "rospotreb"}:
-            link("DOM-PDN", 0.82)
-        if kind == "gost":
-            link("DOM-STANDARDS", 0.88)
-
-        hay = " ".join(
-            [
-                doc.get("scope", ""),
-                doc.get("title", ""),
-                *doc.get("tags", []),
-            ]
-        ).lower()
-
-        if "пдн" in hay or "персональ" in hay:
-            link("DOM-PDN", 0.90)
-        if "гис" in hay or "госсектор" in hay:
-            link("DOM-GIS", 0.88)
-        if "кии" in hay:
-            link("DOM-KII", 0.92)
-        if "скзи" in hay or "крипт" in hay:
-            link("DOM-SKZI", 0.90)
-
-        for target, weight in targets.items():
+        for target, weight in classify_document(doc).items():
             edges.append(
                 {
                     "from": doc["id"],
@@ -90,7 +116,9 @@ def main() -> int:
             )
 
     graph = {
-        "schema": "cybered.knowledge_graph.v1",
+        "schema": "father.it_ib.knowledge_graph.v2",
+        "owner": "FATHER",
+        "consumer": "CyberED",
         "generated_from": [
             str(DOCS.relative_to(ROOT)),
             str(CORE.relative_to(ROOT)),
@@ -105,13 +133,10 @@ def main() -> int:
         "edges": edges,
     }
 
-    OUT.write_text(
-        json.dumps(graph, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    OUT.write_text(json.dumps(graph, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print(
-        f"CyberED Knowledge Graph: "
+        f"FATHER IT/IB Knowledge Graph: "
         f"{graph['stats']['nodes']} nodes / "
         f"{graph['stats']['edges']} edges / "
         f"{graph['stats']['documents']} documents"
