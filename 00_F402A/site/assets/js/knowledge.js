@@ -46,6 +46,7 @@ function render(){
  document.getElementById("kg-nodes").textContent=state.graph.stats.nodes;
  document.getElementById("kg-edges").textContent=state.graph.stats.edges;
  document.getElementById("kg-docs").textContent=state.graph.stats.documents;
+ document.getElementById("kg-source-docs").textContent=state.graph.stats.source_documents||0;
  document.getElementById("kg-roles").textContent=state.graph.stats.roles||0;
  document.getElementById("kg-comps").textContent=state.graph.stats.competencies||0;
  const labels={IB:"ИБ",IT:"IT",DEV:"Разработка",AI:"AI",CLOUD:"Облака",IT_AUDIT:"IT-аудит",IB_AUDIT:"ИБ-аудит",PENTEST:"Пентест",ARCH:"Архитектура ИБ",SOC:"SOC / IR",GRC:"GRC / Risk",PDN:"ПДн",GIS:"ГИС",KII:"КИИ",SKZI:"СКЗИ",ITSO:"ИТСО",DOCS:"Документы",STANDARDS:"ГОСТ / ISO"};document.getElementById("kg-mode").textContent=labels[state.domain]||state.domain;
