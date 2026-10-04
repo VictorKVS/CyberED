@@ -1,4 +1,4 @@
-const state={data:null,status:"all",query:"",selected:null};
+const state={data:null,candidates:null,candidateBySource:new Map(),status:"all",query:"",selected:null};
 const year=document.getElementById("year");if(year)year.textContent=new Date().getFullYear();
 function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
 function visible(){
@@ -15,6 +15,7 @@ function render(){
  document.getElementById("nq-review").textContent=stats.review_required||0;
  document.getElementById("nq-normalize").textContent=stats.normalization_required||0;
  document.getElementById("nq-visible").textContent=items.length;
+ document.getElementById("nq-candidates").textContent=state.candidates?.stats?.create_candidates||0;
  const root=document.getElementById("nq-list");root.innerHTML="";
  if(!items.length){root.innerHTML='<div class="nq-row"><p>Очередь пуста или ничего не найдено.</p></div>';return;}
  for(const x of items){
@@ -29,6 +30,17 @@ function render(){
 }
 function detail(x){
  const candidates=(x.candidates||[]).map(c=>`<li><strong>${esc(c.id)}</strong><span>score ${Number(c.score||0).toFixed(3)}</span></li>`).join("");
+ const draft=state.candidateBySource.get(x.source_id);
+ const draftHtml=draft?`<div class="nq-section"><h3>Черновая normalized-карточка</h3>
+ <ul>
+  <li><strong>CODE</strong><span>${esc(draft.proposed_document?.code||"—")}</span></li>
+  <li><strong>TITLE</strong><span>${esc(draft.proposed_document?.title||"—")}</span></li>
+  <li><strong>AUTHORITY</strong><span>${esc(draft.proposed_document?.authority||"—")}</span></li>
+  <li><strong>EDITION</strong><span>${esc(draft.proposed_document?.edition||"—")}</span></li>
+  <li><strong>STATE</strong><span>${esc(draft.state||"CANDIDATE")}</span></li>
+ </ul>
+ <p>Флаги: ${(draft.risk_flags||[]).length?(draft.risk_flags||[]).map(esc).join(", "):"нет критичных флагов"}</p>
+ </div>`:"";
  document.getElementById("nq-detail").innerHTML=`<div class="nq-kicker">${esc(x.source_id)} · ${esc(x.queue_status)}</div>
  <h2>${esc(x.short_title||x.raw_title)}</h2>
  <div class="nq-grid">
@@ -41,13 +53,26 @@ function detail(x){
  </div>
  <div class="nq-section"><h3>Исходная запись</h3><p>${esc(x.raw_title)}</p></div>
  <div class="nq-section"><h3>Кандидаты normalized</h3>${candidates?`<ul>${candidates}</ul>`:"<p>Кандидатов нет — требуется создание новой нормализованной карточки.</p>"}</div>
+ ${draftHtml}
  <div class="nq-rule">SOURCE_FOUND ≠ REQUIREMENT_VERIFIED</div>`;
 }
 async function load(){
  try{
   const r=await fetch("data/source_normalization_queue.local.json",{cache:"no-store"});
   if(!r.ok)throw new Error("queue missing");
-  state.data=await r.json();render();
+  state.data=await r.json();
+
+  try{
+   const cr=await fetch("data/normalization_candidates.local.json",{cache:"no-store"});
+   if(cr.ok){
+    state.candidates=await cr.json();
+    state.candidateBySource=new Map(
+      (state.candidates.create_candidates||[]).map(x=>[x.source_id,x])
+    );
+   }
+  }catch(_){}
+
+  render();
  }catch(err){
   document.getElementById("nq-list").innerHTML='<div class="nq-row"><h3>Локальная очередь ещё не создана</h3><p>Запусти automation/SYNC_FATHER_KNOWLEDGE.ps1.</p></div>';
   console.error(err);
