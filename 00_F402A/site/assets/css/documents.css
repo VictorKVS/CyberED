@@ -51,3 +51,12 @@
 .badge-verified{color:#72e6b1}
 .badge-superseded{color:#7b8790}
 @media(max-width:720px){.registry-stats{grid-template-columns:1fr 1fr}}
+
+.catalog-mode{display:flex;align-items:center;gap:8px;padding:12px 5vw;border-bottom:1px solid #172630;background:#070d12}
+.catalog-mode-btn{padding:9px 12px;border:1px solid #20333e;background:#091117;color:#718692;cursor:pointer;font-size:11px}
+.catalog-mode-btn:hover,.catalog-mode-btn.active{border-color:#39d7ff;color:#39d7ff}
+.catalog-mode span{margin-left:auto;color:#5c717d;font-size:10px}
+.catalog-mode span.ready{color:#72e6b1}
+.badge-source_exact{color:#39d7ff}
+.status-btn:disabled{opacity:.35;cursor:not-allowed}
+@media(max-width:720px){.catalog-mode{flex-wrap:wrap}.catalog-mode span{width:100%;margin-left:0}}
