@@ -14,6 +14,7 @@ DATA = ROOT / "site" / "data"
 DOCS = DATA / "documents.json"
 CORE = DATA / "knowledge_core.json"
 PEOPLE = DATA / "people_competencies.json"
+SOURCE_CATALOG = DATA / "documents_source_full.json"
 OUT = DATA / "knowledge_graph.json"
 
 
@@ -86,6 +87,7 @@ def main() -> int:
     docs = load(DOCS)
     core = load(CORE)
     people = load(PEOPLE)
+    source_catalog = load(SOURCE_CATALOG) if SOURCE_CATALOG.exists() else {"documents": []}
 
     confidence = core["weight_model"]["source_confidence"]
     nodes = list(core["nodes"])
@@ -167,6 +169,31 @@ def main() -> int:
                 }
             )
 
+    for source_doc in source_catalog.get("documents", []):
+        source_id = source_doc["source_id"]
+        nodes.append(
+            {
+                "id": source_id,
+                "label": source_doc.get("title", source_id),
+                "type": "source_document",
+                "title": source_doc.get("title", ""),
+                "kind": source_doc.get("kind", ""),
+                "status": "SOURCE_EXACT",
+                "weight": 0.55,
+                "origin": "source_catalog",
+                "scope": source_doc.get("section", ""),
+            }
+        )
+        edges.append(
+            {
+                "from": source_id,
+                "to": "DOM-DOCS",
+                "type": "source_listed_in",
+                "weight": 0.80,
+                "auto": True,
+            }
+        )
+
     for doc in docs.get("documents", []):
         nodes.append(
             {
@@ -201,6 +228,7 @@ def main() -> int:
             str(DOCS.relative_to(ROOT)),
             str(CORE.relative_to(ROOT)),
             str(PEOPLE.relative_to(ROOT)),
+            *([str(SOURCE_CATALOG.relative_to(ROOT))] if SOURCE_CATALOG.exists() else []),
         ],
         "weight_model": core["weight_model"],
         "stats": {
@@ -209,6 +237,7 @@ def main() -> int:
             "documents": len(docs.get("documents", [])),
             "roles": len(people.get("role_profiles", [])),
             "competencies": len(people.get("competencies", [])),
+            "source_documents": len(source_catalog.get("documents", [])),
         },
         "nodes": nodes,
         "edges": edges,
