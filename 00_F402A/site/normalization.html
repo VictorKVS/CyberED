@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberED — Очередь нормализации FATHER</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/normalization.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">C</span><div><strong>CyberED</strong><span>FATHER Normalization Queue</span></div></div>
+  <nav>
+    <a href="index.html">Курс</a>
+    <a href="documents.html">Документы</a>
+    <a href="normalization.html">Очередь Алины</a>
+    <a href="knowledge.html">База знаний</a>
+    <a href="requirements.html">Требования</a>
+  </nav>
+</header>
+
+<main class="nq-main">
+  <section class="nq-head">
+    <div>
+      <div class="eyebrow">SOURCE → NORMALIZED → VERIFIED</div>
+      <h1>Очередь <span>Алины</span></h1>
+      <p>Необработанные и неоднозначные записи полного IT/ИБ-каталога. Запись в этой очереди — кандидат на нормализацию, а не подтверждённое нормативное требование.</p>
+    </div>
+    <input id="nq-search" type="search" placeholder="Номер, орган, название, раздел...">
+  </section>
+
+  <section class="nq-stats">
+    <div><span>ВСЕГО В ОЧЕРЕДИ</span><strong id="nq-total">0</strong></div>
+    <div><span>REVIEW REQUIRED</span><strong id="nq-review">0</strong></div>
+    <div><span>NORMALIZATION REQUIRED</span><strong id="nq-normalize">0</strong></div>
+    <div><span>ПОКАЗАНО</span><strong id="nq-visible">0</strong></div>
+  </section>
+
+  <section class="nq-toolbar">
+    <button class="nq-filter active" data-status="all">Все</button>
+    <button class="nq-filter" data-status="REVIEW_REQUIRED">На проверку</button>
+    <button class="nq-filter" data-status="NORMALIZATION_REQUIRED">Нормализовать</button>
+  </section>
+
+  <section class="nq-workspace">
+    <div class="nq-list" id="nq-list"></div>
+    <aside class="nq-detail" id="nq-detail">
+      <div class="nq-placeholder">
+        <span>FATHER DOCUMENT FACTORY</span>
+        <h2>Выберите запись</h2>
+        <p>Здесь будут разобранные реквизиты документа и возможные совпадения с нормализованным реестром.</p>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<footer><span>CyberED</span><span>FATHER Source Normalization Factory</span><span id="year"></span></footer>
+<script src="assets/js/normalization.js"></script>
+</body>
+</html>
