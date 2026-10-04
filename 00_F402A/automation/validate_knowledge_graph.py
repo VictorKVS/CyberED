@@ -12,7 +12,8 @@ def load(name: str):
 
 
 def main() -> int:
-    graph = load("knowledge_graph.json")
+    graph_name = "knowledge_graph.local.json" if (DATA / "knowledge_graph.local.json").exists() else "knowledge_graph.json"
+    graph = load(graph_name)
     node_ids = [n["id"] for n in graph.get("nodes", [])]
     node_set = set(node_ids)
     errors: list[str] = []
@@ -29,7 +30,9 @@ def main() -> int:
         if not isinstance(weight, (int, float)) or not 0 <= weight <= 1:
             errors.append(f"invalid edge weight: {edge}")
 
-    source_path = DATA / "documents_source_full.json"
+    source_path = DATA / "documents_source_linked.local.json"
+    if not source_path.exists():
+        source_path = DATA / "documents_source_full.json"
     if source_path.exists():
         source = json.loads(source_path.read_text(encoding="utf-8"))
         normalized = load("documents.json")
