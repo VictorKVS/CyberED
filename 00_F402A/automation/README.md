@@ -75,3 +75,30 @@ site/data/documents_source_full.json
 ```
 
 Импортёр сохраняет названия документов, раздел исходного справочника и номер строки. Авторские комментарии статьи в индекс не копируются. Статус `SOURCE_EXACT` означает только наличие записи в переданном справочнике и не подтверждает актуальность, применимость или обязательность документа.
+
+
+## Единый pipeline FATHER Knowledge
+
+После первого импорта или при обновлении исходного справочника весь цикл запускается одной командой:
+
+```powershell
+cd "G:\1\CyberED -IB\00_F402A"
+.\automation\SYNC_FATHER_KNOWLEDGE.ps1 -SourceFile "<путь-к-исходному-txt>"
+```
+
+Если `documents_source_full.json` уже существует локально:
+
+```powershell
+.\automation\SYNC_FATHER_KNOWLEDGE.ps1
+```
+
+Pipeline выполняет:
+
+```text
+SOURCE IMPORT
+  -> SOURCE/NORMALIZED LINKING
+  -> KNOWLEDGE GRAPH BUILD
+  -> INTEGRITY VALIDATION
+```
+
+Автоматическое сопоставление создаётся только при высокой уверенности. Пограничные варианты получают `AMBIGUOUS / REVIEW_REQUIRED`, а не считаются автоматически подтверждёнными.
