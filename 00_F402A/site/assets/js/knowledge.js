@@ -104,7 +104,14 @@ function showEdge(e){
 }
 
 async function load(){
- const r=await fetch("data/knowledge_graph.json",{cache:"no-store"});state.graph=await r.json();render();
+ const paths=["data/knowledge_graph.local.json","data/knowledge_graph.json"];
+ for(const path of paths){
+  try{
+   const r=await fetch(path,{cache:"no-store"});
+   if(r.ok){state.graph=await r.json();render();return;}
+  }catch(_){}
+ }
+ throw new Error("knowledge graph unavailable");
 }
 document.querySelectorAll(".kg-filter").forEach(b=>b.onclick=()=>{document.querySelectorAll(".kg-filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");state.domain=b.dataset.domain;state.query="";document.getElementById("kg-search").value="";render();});
 document.getElementById("kg-search").addEventListener("input",e=>{state.query=e.target.value;render();});
