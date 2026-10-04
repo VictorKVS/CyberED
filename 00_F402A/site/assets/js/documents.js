@@ -21,6 +21,16 @@ function statusClass(s){
   return "badge-"+String(s||"").toLowerCase();
 }
 
+async function fetchJsonFirst(paths){
+  for(const path of paths){
+    try{
+      const response=await fetch(path,{cache:"no-store"});
+      if(response.ok) return await response.json();
+    }catch(_){}
+  }
+  return null;
+}
+
 function activeDocuments(){
   if(state.mode==="source" && state.source) return state.source.documents||[];
   return state.normalized?.documents||[];
@@ -186,26 +196,25 @@ function setMode(mode){
 }
 
 async function load(){
-  const normalized=await fetch("data/documents.json",{cache:"no-store"});
-  if(!normalized.ok) throw new Error("documents.json unavailable");
-  state.normalized=await normalized.json();
+  const normalized=await fetchJsonFirst(["data/documents.json"]);
+  if(!normalized) throw new Error("documents.json unavailable");
+  state.normalized=normalized;
 
   const sourceState=document.getElementById("source-catalog-state");
-  try{
-    const source=await fetch("data/documents_source_full.json",{cache:"no-store"});
-    if(source.ok){
-      state.source=await source.json();
-      const count=state.source.stats?.documents??state.source.documents?.length??0;
-      const sections=state.source.stats?.sections??state.source.sections?.length??0;
-      const norm=state.source.normalization||{};
-      const coverage=norm.coverage_percent!==undefined?` · покрытие ${norm.coverage_percent}%`:"";
-      sourceState.textContent=`SOURCE: ${count} документов · ${sections} разделов${coverage}`;
-      sourceState.classList.add("ready");
-    }else{
-      sourceState.textContent="SOURCE: запусти IMPORT_SOURCE_CATALOG.ps1";
-    }
-  }catch(_){
-    sourceState.textContent="SOURCE: запусти IMPORT_SOURCE_CATALOG.ps1";
+  state.source=await fetchJsonFirst([
+    "data/documents_source_linked.local.json",
+    "data/documents_source_full.json"
+  ]);
+
+  if(state.source){
+    const count=state.source.stats?.documents??state.source.documents?.length??0;
+    const sections=state.source.stats?.sections??state.source.sections?.length??0;
+    const norm=state.source.normalization||{};
+    const coverage=norm.coverage_percent!==undefined?` · покрытие ${norm.coverage_percent}%`:"";
+    sourceState.textContent=`SOURCE: ${count} документов · ${sections} разделов${coverage}`;
+    sourceState.classList.add("ready");
+  }else{
+    sourceState.textContent="SOURCE: каталог не найден";
   }
 
   renderList();
