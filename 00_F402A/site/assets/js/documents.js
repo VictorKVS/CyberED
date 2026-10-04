@@ -46,13 +46,24 @@ function setStat(id,value){
 
 function renderStats(){
   const all=activeDocuments();
-  setStat("registry-total",all.length);
-  setStat("registry-gost",all.filter(x=>x.kind==="gost").length);
 
   if(state.mode==="source"){
-    setStat("registry-verified","—");
-    setStat("registry-listed",all.length);
+    const meta=state.source?.normalization||{};
+    setStat("stat-label-total","SOURCE ВСЕГО");
+    setStat("stat-label-gost","СВЯЗАНО");
+    setStat("stat-label-verified","НА ПРОВЕРКУ");
+    setStat("stat-label-listed","НЕ СВЯЗАНО");
+    setStat("registry-total",all.length);
+    setStat("registry-gost",meta.linked??all.filter(x=>x.match_status==="LINKED").length);
+    setStat("registry-verified",meta.ambiguous??all.filter(x=>x.match_status==="AMBIGUOUS").length);
+    setStat("registry-listed",meta.unmatched??all.filter(x=>x.match_status==="UNMATCHED").length);
   }else{
+    setStat("stat-label-total","ВСЕГО В РЕЕСТРЕ");
+    setStat("stat-label-gost","ГОСТ / ИТ / ИБ");
+    setStat("stat-label-verified","ПРОВЕРЕНО");
+    setStat("stat-label-listed","ТРЕБУЕТ СВЕРКИ");
+    setStat("registry-total",all.length);
+    setStat("registry-gost",all.filter(x=>x.kind==="gost").length);
     setStat("registry-verified",all.filter(x=>x.status==="VERIFIED").length);
     setStat("registry-listed",all.filter(x=>x.status==="SOURCE_LISTED").length);
   }
@@ -76,10 +87,12 @@ function renderList(){
     row.className="doc-row"+(state.selected===id?" active":"");
 
     if(state.mode==="source"){
+      const match=d.match_status||"UNMATCHED";
+      const label=match==="LINKED"?"LINKED":match==="AMBIGUOUS"?"REVIEW":"UNMATCHED";
       row.innerHTML=
         `<div class="doc-row-top">
           <span class="doc-row-code">${esc(d.source_id)} · строка ${esc(d.source_line)}</span>
-          <span class="doc-row-status badge-source_exact">SOURCE_EXACT</span>
+          <span class="doc-row-status badge-match-${match.toLowerCase()}">${label}</span>
         </div>
         <h3>${esc(d.title)}</h3>
         <p>${esc(d.section)} · ${esc(d.kind)}</p>`;
@@ -115,6 +128,8 @@ function renderDetail(d){
         <div class="detail-box"><span>Строка источника</span><strong>${esc(d.source_line)}</strong></div>
         <div class="detail-box"><span>Технический класс</span><strong>${esc(d.kind)}</strong></div>
         <div class="detail-box"><span>Нормализованный ID</span><strong>${esc(d.normalized_id||"НЕ СВЯЗАН")}</strong></div>
+        <div class="detail-box"><span>Сопоставление</span><strong>${esc(d.match_status||"UNMATCHED")}</strong></div>
+        <div class="detail-box"><span>Confidence</span><strong>${d.match_score!==null&&d.match_score!==undefined?Number(d.match_score).toFixed(3):"—"}</strong></div>
       </div>
       <div class="detail-section">
         <h3>Статус обработки Алиной</h3>
@@ -182,7 +197,9 @@ async function load(){
       state.source=await source.json();
       const count=state.source.stats?.documents??state.source.documents?.length??0;
       const sections=state.source.stats?.sections??state.source.sections?.length??0;
-      sourceState.textContent=`SOURCE: ${count} документов · ${sections} разделов`;
+      const norm=state.source.normalization||{};
+      const coverage=norm.coverage_percent!==undefined?` · покрытие ${norm.coverage_percent}%`:"";
+      sourceState.textContent=`SOURCE: ${count} документов · ${sections} разделов${coverage}`;
       sourceState.classList.add("ready");
     }else{
       sourceState.textContent="SOURCE: запусти IMPORT_SOURCE_CATALOG.ps1";
