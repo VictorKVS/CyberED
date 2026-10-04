@@ -13,7 +13,7 @@ Write-Host "============================================================" -Foreg
 
 if ($SourceFile) {
     Write-Host ""
-    Write-Host "[0/4] Import source catalog" -ForegroundColor DarkCyan
+    Write-Host "[0/5] Import source catalog" -ForegroundColor DarkCyan
     python "$PSScriptRoot\import_source_catalog.py" "$SourceFile"
 }
 elseif (-not (Test-Path $SourceCatalog)) {
@@ -27,19 +27,23 @@ elseif (-not (Test-Path $SourceCatalog)) {
 }
 
 Write-Host ""
-Write-Host "[1/4] SOURCE -> NORMALIZED" -ForegroundColor DarkCyan
+Write-Host "[1/5] SOURCE -> NORMALIZED" -ForegroundColor DarkCyan
 python "$PSScriptRoot\link_source_catalog.py"
 
 Write-Host ""
-Write-Host "[2/4] Build FATHER IT/IB graph" -ForegroundColor DarkCyan
+Write-Host "[2/5] Build normalization candidates" -ForegroundColor DarkCyan
+python "$PSScriptRoot\build_normalization_candidates.py"
+
+Write-Host ""
+Write-Host "[3/5] Build FATHER IT/IB graph" -ForegroundColor DarkCyan
 python "$PSScriptRoot\build_knowledge_graph.py"
 
 Write-Host ""
-Write-Host "[3/4] Validate graph" -ForegroundColor DarkCyan
+Write-Host "[4/5] Validate graph" -ForegroundColor DarkCyan
 python "$PSScriptRoot\validate_knowledge_graph.py"
 
 Write-Host ""
-Write-Host "[4/4] Done" -ForegroundColor Green
+Write-Host "[5/5] Done" -ForegroundColor Green
 Write-Host "Generated local files are *.local.json and are ignored by Git." -ForegroundColor DarkGray
 Write-Host "This pipeline no longer rewrites tracked knowledge snapshots." -ForegroundColor DarkGray
 Write-Host "Documents: http://localhost:8088/documents.html" -ForegroundColor Green
