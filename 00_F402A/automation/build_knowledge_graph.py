@@ -14,8 +14,9 @@ DATA = ROOT / "site" / "data"
 DOCS = DATA / "documents.json"
 CORE = DATA / "knowledge_core.json"
 PEOPLE = DATA / "people_competencies.json"
-SOURCE_CATALOG = DATA / "documents_source_full.json"
-OUT = DATA / "knowledge_graph.json"
+SOURCE_CANON = DATA / "documents_source_full.json"
+SOURCE_LINKED = DATA / "documents_source_linked.local.json"
+OUT = DATA / "knowledge_graph.local.json"
 
 
 def load(path: Path):
@@ -87,7 +88,8 @@ def main() -> int:
     docs = load(DOCS)
     core = load(CORE)
     people = load(PEOPLE)
-    source_catalog = load(SOURCE_CATALOG) if SOURCE_CATALOG.exists() else {"documents": []}
+    source_path = SOURCE_LINKED if SOURCE_LINKED.exists() else SOURCE_CANON
+    source_catalog = load(source_path) if source_path.exists() else {"documents": []}
 
     confidence = core["weight_model"]["source_confidence"]
     nodes = list(core["nodes"])
@@ -272,7 +274,7 @@ def main() -> int:
             str(DOCS.relative_to(ROOT)),
             str(CORE.relative_to(ROOT)),
             str(PEOPLE.relative_to(ROOT)),
-            *([str(SOURCE_CATALOG.relative_to(ROOT))] if SOURCE_CATALOG.exists() else []),
+            *([str(source_path.relative_to(ROOT))] if source_path.exists() else []),
         ],
         "weight_model": core["weight_model"],
         "stats": {
