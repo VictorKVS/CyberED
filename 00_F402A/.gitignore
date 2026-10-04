@@ -11,3 +11,4 @@ site/data/documents_source_linked.local.json
 site/data/source_normalization_report.local.json
 site/data/source_normalization_queue.local.json
 site/data/knowledge_graph.local.json
+site/data/normalization_candidates.local.json
