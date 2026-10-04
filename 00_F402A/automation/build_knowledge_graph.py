@@ -169,6 +169,21 @@ def main() -> int:
                 }
             )
 
+    source_domain_map = {
+        "pdn": "DOM-PDN",
+        "gis": "DOM-GIS",
+        "kii": "DOM-KII",
+        "fstec": "DOM-IB",
+        "fsb": "DOM-SKZI",
+        "rkn": "DOM-GRC",
+        "rospotreb": "DOM-GRC",
+        "gost": "DOM-STANDARDS",
+        "crypto": "DOM-SKZI",
+        "cloud": "DOM-CLOUD",
+        "ai": "DOM-AI",
+        "itso": "DOM-ITSO",
+    }
+
     for source_doc in source_catalog.get("documents", []):
         source_id = source_doc["source_id"]
         nodes.append(
@@ -179,6 +194,8 @@ def main() -> int:
                 "title": source_doc.get("title", ""),
                 "kind": source_doc.get("kind", ""),
                 "status": "SOURCE_EXACT",
+                "match_status": source_doc.get("match_status", "UNMATCHED"),
+                "match_score": source_doc.get("match_score"),
                 "weight": 0.55,
                 "origin": "source_catalog",
                 "scope": source_doc.get("section", ""),
@@ -193,6 +210,17 @@ def main() -> int:
                 "auto": True,
             }
         )
+        source_domain = source_domain_map.get(source_doc.get("kind", ""))
+        if source_domain:
+            edges.append(
+                {
+                    "from": source_id,
+                    "to": source_domain,
+                    "type": "source_candidate_for_domain",
+                    "weight": 0.65,
+                    "auto": True,
+                }
+            )
 
     for doc in docs.get("documents", []):
         nodes.append(
@@ -220,6 +248,22 @@ def main() -> int:
                 }
             )
 
+    normalized_ids = {doc["id"] for doc in docs.get("documents", [])}
+    source_links = 0
+    for source_doc in source_catalog.get("documents", []):
+        normalized_id = source_doc.get("normalized_id")
+        if normalized_id and normalized_id in normalized_ids:
+            edges.append(
+                {
+                    "from": source_doc["source_id"],
+                    "to": normalized_id,
+                    "type": "normalized_as",
+                    "weight": float(source_doc.get("match_score") or 0.95),
+                    "auto": source_doc.get("match_method") == "AUTO_HIGH_CONFIDENCE",
+                }
+            )
+            source_links += 1
+
     graph = {
         "schema": "father.it_ib.knowledge_graph.v2",
         "owner": "FATHER",
@@ -238,6 +282,7 @@ def main() -> int:
             "roles": len(people.get("role_profiles", [])),
             "competencies": len(people.get("competencies", [])),
             "source_documents": len(source_catalog.get("documents", [])),
+            "source_links": source_links,
         },
         "nodes": nodes,
         "edges": edges,
