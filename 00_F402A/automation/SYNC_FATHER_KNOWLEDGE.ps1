@@ -40,5 +40,7 @@ python "$PSScriptRoot\validate_knowledge_graph.py"
 
 Write-Host ""
 Write-Host "[4/4] Done" -ForegroundColor Green
+Write-Host "Generated local files are *.local.json and are ignored by Git." -ForegroundColor DarkGray
+Write-Host "This pipeline no longer rewrites tracked knowledge snapshots." -ForegroundColor DarkGray
 Write-Host "Documents: http://localhost:8088/documents.html" -ForegroundColor Green
 Write-Host "Knowledge: http://localhost:8088/knowledge.html" -ForegroundColor Green
