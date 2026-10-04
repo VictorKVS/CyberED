@@ -27,10 +27,10 @@ function subgraph(){
 }
 
 function layout(nodes){
- const groups={document:[],domain:[],system:[],data:[],knowledge:[],control_family:[],process:[],artifact:[],role:[],competency:[],person:[]};
+ const groups={source_document:[],document:[],domain:[],system:[],data:[],knowledge:[],control_family:[],process:[],artifact:[],role:[],competency:[],person:[]};
  for(const n of nodes)(groups[n.type]||groups.knowledge).push(n);
  const columns=[
-  ["document"],["domain"],["system","data","knowledge"],["control_family","process"],["role","person","competency","artifact"]
+  ["source_document","document"],["domain"],["system","data","knowledge"],["control_family","process"],["role","person","competency","artifact"]
  ];
  const pos=new Map();
  columns.forEach((types,ci)=>{
