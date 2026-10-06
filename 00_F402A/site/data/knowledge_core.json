@@ -284,6 +284,142 @@
       "type": "domain",
       "weight": 0.95,
       "origin": "father_it_ib_core"
+    },
+    {
+      "id": "KS-OWASP-WSTG",
+      "label": "OWASP Web Security Testing Guide",
+      "type": "knowledge_source",
+      "weight": 0.9,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "KS-OWASP-CHEATSHEETS",
+      "label": "OWASP Cheat Sheet Series",
+      "type": "knowledge_source",
+      "weight": 0.84,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "KS-OWASP-TOP10",
+      "label": "OWASP Top 10",
+      "type": "knowledge_source",
+      "weight": 0.88,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "KS-PORTSWIGGER-ACADEMY",
+      "label": "PortSwigger Web Security Academy",
+      "type": "knowledge_source",
+      "weight": 0.95,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "KS-SECLISTS",
+      "label": "SecLists",
+      "type": "knowledge_source",
+      "weight": 0.78,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "KS-PAYLOADS-ALL-THE-THINGS",
+      "label": "PayloadsAllTheThings",
+      "type": "knowledge_source",
+      "weight": 0.78,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "KS-HACKTRICS",
+      "label": "Hacktrics",
+      "type": "knowledge_source",
+      "weight": 0.76,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "LAB-CTFTIME",
+      "label": "CTFtime",
+      "type": "lab_source",
+      "weight": 0.72,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "LAB-HACKTHEBOX",
+      "label": "Hack The Box",
+      "type": "lab_source",
+      "weight": 0.84,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "LAB-ROOTME",
+      "label": "Root Me",
+      "type": "lab_source",
+      "weight": 0.8,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "LAB-W3CHALLS",
+      "label": "W3Challs",
+      "type": "lab_source",
+      "weight": 0.72,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "LAB-BWAPP",
+      "label": "bWAPP",
+      "type": "lab_source",
+      "weight": 0.84,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "LAB-DVWA",
+      "label": "Damn Vulnerable Web Application",
+      "type": "lab_source",
+      "weight": 0.9,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "LAB-BUGBOUNTY-BIZONE",
+      "label": "BI.ZONE Bug Bounty",
+      "type": "lab_source",
+      "weight": 0.72,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "LAB-STANDOFF365",
+      "label": "Standoff 365",
+      "type": "lab_source",
+      "weight": 0.76,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "TOOL-BURP-SUITE",
+      "label": "Burp Suite",
+      "type": "tool",
+      "weight": 0.94,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
+    },
+    {
+      "id": "TOOL-NOTES",
+      "label": "Сервис хранения заметок",
+      "type": "tool",
+      "weight": 0.7,
+      "origin": "father_web_security_resources",
+      "scope": "DOM-PENTEST"
     }
   ],
   "edges": [
@@ -676,6 +812,108 @@
       "to": "DOM-PENTEST",
       "type": "red_team_scope",
       "weight": 0.72
+    },
+    {
+      "from": "KS-OWASP-WSTG",
+      "to": "DOM-PENTEST",
+      "type": "supports_learning",
+      "weight": 0.88
+    },
+    {
+      "from": "KS-OWASP-CHEATSHEETS",
+      "to": "DOM-PENTEST",
+      "type": "supports_learning",
+      "weight": 0.88
+    },
+    {
+      "from": "KS-OWASP-TOP10",
+      "to": "DOM-PENTEST",
+      "type": "supports_learning",
+      "weight": 0.88
+    },
+    {
+      "from": "KS-PORTSWIGGER-ACADEMY",
+      "to": "DOM-PENTEST",
+      "type": "supports_learning",
+      "weight": 0.88
+    },
+    {
+      "from": "KS-SECLISTS",
+      "to": "DOM-PENTEST",
+      "type": "supports_learning",
+      "weight": 0.88
+    },
+    {
+      "from": "KS-PAYLOADS-ALL-THE-THINGS",
+      "to": "DOM-PENTEST",
+      "type": "supports_learning",
+      "weight": 0.88
+    },
+    {
+      "from": "KS-HACKTRICS",
+      "to": "DOM-PENTEST",
+      "type": "supports_learning",
+      "weight": 0.88
+    },
+    {
+      "from": "LAB-CTFTIME",
+      "to": "DOM-PENTEST",
+      "type": "training_environment_for",
+      "weight": 0.86
+    },
+    {
+      "from": "LAB-HACKTHEBOX",
+      "to": "DOM-PENTEST",
+      "type": "training_environment_for",
+      "weight": 0.86
+    },
+    {
+      "from": "LAB-ROOTME",
+      "to": "DOM-PENTEST",
+      "type": "training_environment_for",
+      "weight": 0.86
+    },
+    {
+      "from": "LAB-W3CHALLS",
+      "to": "DOM-PENTEST",
+      "type": "training_environment_for",
+      "weight": 0.86
+    },
+    {
+      "from": "LAB-BWAPP",
+      "to": "DOM-PENTEST",
+      "type": "training_environment_for",
+      "weight": 0.86
+    },
+    {
+      "from": "LAB-DVWA",
+      "to": "DOM-PENTEST",
+      "type": "training_environment_for",
+      "weight": 0.86
+    },
+    {
+      "from": "LAB-BUGBOUNTY-BIZONE",
+      "to": "DOM-PENTEST",
+      "type": "training_environment_for",
+      "weight": 0.86
+    },
+    {
+      "from": "LAB-STANDOFF365",
+      "to": "DOM-PENTEST",
+      "type": "training_environment_for",
+      "weight": 0.86
+    },
+    {
+      "from": "TOOL-BURP-SUITE",
+      "to": "DOM-PENTEST",
+      "type": "tool_for",
+      "weight": 0.84
+    },
+    {
+      "from": "TOOL-NOTES",
+      "to": "DOM-PENTEST",
+      "type": "tool_for",
+      "weight": 0.84
     }
   ],
   "owner": "FATHER",
