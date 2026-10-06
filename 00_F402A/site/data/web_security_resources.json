@@ -1,0 +1,172 @@
+{
+  "schema": "father.web_security_resources.v1",
+  "owner": "FATHER",
+  "consumer": "CyberED",
+  "domain_id": "DOM-PENTEST",
+  "title": "Web Security / Pentest Learning Pack",
+  "source_basis": "Материалы, предоставленные пользователем в чате 2026-10-06",
+  "safety_rule": "Практика только на собственных системах, специализированных учебных площадках или в явно разрешённом scope.",
+  "learning_flow": [
+    "OWASP / теория и методология",
+    "PortSwigger Web Security Academy / теория + лаборатории",
+    "Справочные базы и словари",
+    "CTF и специализированные тренировочные площадки",
+    "Уязвимые приложения",
+    "Bug Bounty в разрешённом scope",
+    "Инструменты и фиксация результатов"
+  ],
+  "groups": [
+    {
+      "id": "GRP-OWASP",
+      "title": "OWASP — Open Web Application Security Project",
+      "resources": [
+        {
+          "id": "KS-OWASP-WSTG",
+          "title": "OWASP Web Security Testing Guide",
+          "kind": "guide",
+          "url": "https://github.com/OWASP/wstg",
+          "purpose": "Обширный документ по этапам анализа веб-приложения."
+        },
+        {
+          "id": "KS-OWASP-CHEATSHEETS",
+          "title": "OWASP Cheat Sheet Series",
+          "kind": "cheatsheets",
+          "url": "https://github.com/OWASP/CheatSheetSeries/tree/master/cheatsheets",
+          "purpose": "Шпаргалки, полезные при подготовке рекомендаций и для безопасной разработки."
+        },
+        {
+          "id": "KS-OWASP-TOP10",
+          "title": "OWASP Top 10",
+          "kind": "reference",
+          "url": "https://owasp.org/www-project-top-ten/",
+          "purpose": "Обобщённый список наиболее критичных классов рисков веб-приложений."
+        }
+      ]
+    },
+    {
+      "id": "GRP-PORTSWIGGER",
+      "title": "PortSwigger Web Security Academy",
+      "resources": [
+        {
+          "id": "KS-PORTSWIGGER-ACADEMY",
+          "title": "PortSwigger Web Security Academy",
+          "kind": "academy",
+          "url": "https://portswigger.net/web-security",
+          "purpose": "Теоретические материалы и практические лаборатории."
+        }
+      ]
+    },
+    {
+      "id": "GRP-REFERENCE",
+      "title": "Другие материалы",
+      "resources": [
+        {
+          "id": "KS-SECLISTS",
+          "title": "SecLists",
+          "kind": "wordlists",
+          "url": "https://github.com/danielmiessler/SecLists",
+          "purpose": "Наборы словарей для учебных и разрешённых проверок."
+        },
+        {
+          "id": "KS-PAYLOADS-ALL-THE-THINGS",
+          "title": "PayloadsAllTheThings",
+          "kind": "reference",
+          "url": "https://github.com/swisskyrepo/PayloadsAllTheThings",
+          "purpose": "Справочные материалы по классам уязвимостей и техникам проверки."
+        },
+        {
+          "id": "KS-HACKTRICS",
+          "title": "Hacktrics",
+          "kind": "notes",
+          "url": "https://book.hacktricks.xyz/pentesting-web/web-vulnerabilities-methodology",
+          "purpose": "Заметки по уязвимостям, атакам и методологии веб-пентеста."
+        }
+      ]
+    },
+    {
+      "id": "GRP-TRAINING",
+      "title": "Площадки для тренировок",
+      "legal_note": "Тренироваться только на специализированных площадках и в разрешённых средах.",
+      "resources": [
+        {
+          "id": "LAB-CTFTIME",
+          "title": "CTFtime",
+          "kind": "ctf_aggregator",
+          "url": "https://ctftime.org/",
+          "categories": [
+            "web",
+            "crypto",
+            "reverse",
+            "binary/pwn/exploit",
+            "forensics",
+            "osint"
+          ]
+        },
+        {
+          "id": "LAB-HACKTHEBOX",
+          "title": "Hack The Box",
+          "kind": "training_platform",
+          "url": "https://www.hackthebox.com/"
+        },
+        {
+          "id": "LAB-ROOTME",
+          "title": "Root Me",
+          "kind": "training_platform",
+          "url": "https://www.root-me.org/"
+        },
+        {
+          "id": "LAB-W3CHALLS",
+          "title": "W3Challs",
+          "kind": "training_platform",
+          "url": "https://w3challs.com/"
+        },
+        {
+          "id": "LAB-BWAPP",
+          "title": "bWAPP",
+          "kind": "vulnerable_application",
+          "url": null
+        },
+        {
+          "id": "LAB-DVWA",
+          "title": "Damn Vulnerable Web Application",
+          "kind": "vulnerable_application",
+          "url": null
+        },
+        {
+          "id": "LAB-BUGBOUNTY-BIZONE",
+          "title": "BI.ZONE Bug Bounty",
+          "kind": "bug_bounty",
+          "url": "https://bugbounty.bi.zone",
+          "scope_rule": "Работать только в опубликованном scope конкретной программы."
+        },
+        {
+          "id": "LAB-STANDOFF365",
+          "title": "Standoff 365",
+          "kind": "bug_bounty_training",
+          "url": "https://standoff365.com",
+          "scope_rule": "Следовать правилам площадки и разрешённому scope."
+        }
+      ]
+    },
+    {
+      "id": "GRP-SOFTWARE",
+      "title": "Программное обеспечение",
+      "resources": [
+        {
+          "id": "TOOL-BURP-SUITE",
+          "title": "Burp Suite",
+          "kind": "web_security_tool",
+          "url": null,
+          "purpose": "Основной инструмент для анализа HTTP(S) и веб-приложений в учебной/разрешённой среде."
+        },
+        {
+          "id": "TOOL-NOTES",
+          "title": "Сервис хранения заметок",
+          "kind": "notes_tool",
+          "url": null,
+          "purpose": "Фиксация гипотез, шагов, evidence, находок и рекомендаций. Конкретный продукт в исходном материале не указан."
+        }
+      ]
+    }
+  ]
+}
