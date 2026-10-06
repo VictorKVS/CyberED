@@ -1,0 +1,708 @@
+{
+  "schema": "father.agent_work_runbook.v1",
+  "id": "RUNBOOK-WEB-SECURITY-001",
+  "title": "Web Security / Authorized Pentest",
+  "domain_id": "DOM-PENTEST",
+  "owner": "FATHER",
+  "consumer": "CyberED",
+  "agent_role": "AGENT-WEB-SECURITY",
+  "execution_model": {
+    "principle": "Агент обязан обработать каждый шаг runbook. Пропуск шага запрещён без статуса NOT_APPLICABLE с причиной.",
+    "states": [
+      "PENDING",
+      "READY",
+      "IN_PROGRESS",
+      "DONE",
+      "BLOCKED",
+      "NOT_APPLICABLE",
+      "REVIEW_REQUIRED"
+    ],
+    "terminal_states": [
+      "DONE",
+      "BLOCKED",
+      "NOT_APPLICABLE",
+      "REVIEW_REQUIRED"
+    ],
+    "completion_rule": "Работа завершена, когда каждый обязательный шаг имеет terminal state и сформированы итоговые evidence/findings/report.",
+    "safety_gate": "ACTIVE_TEST разрешён только при наличии подтверждённого scope/authorization. Иначе агент работает только в READ_ONLY/KNOWLEDGE_PREP."
+  },
+  "work_order_required_fields": [
+    "work_id",
+    "target_name",
+    "target_type",
+    "environment",
+    "scope",
+    "authorization_status",
+    "authorization_evidence",
+    "allowed_actions",
+    "forbidden_actions",
+    "start_time",
+    "operator"
+  ],
+  "runtime_entities": [
+    "WORK_ORDER",
+    "RUN",
+    "STEP",
+    "ACTION",
+    "KNOWLEDGE_REF",
+    "TOOL",
+    "OBSERVATION",
+    "EVIDENCE",
+    "FINDING",
+    "RISK",
+    "RECOMMENDATION",
+    "RETEST",
+    "REPORT"
+  ],
+  "agent_pipeline": [
+    "TRIGGER",
+    "WORK_ORDER_VALIDATOR",
+    "SCOPE_GUARD",
+    "KNOWLEDGE_ROUTER",
+    "WEB_SECURITY_AGENT",
+    "TOOL_ROUTER",
+    "EVIDENCE_COLLECTOR",
+    "EVALUATOR",
+    "FINDING_BUILDER",
+    "REPORT_BUILDER"
+  ],
+  "steps": [
+    {
+      "id": "WS-00",
+      "order": 0,
+      "title": "Проверка задания и разрешённого scope",
+      "mode": "GUARD",
+      "required": true,
+      "knowledge_refs": [
+        "DOM-PENTEST"
+      ],
+      "inputs": [
+        "work_order",
+        "authorization_evidence"
+      ],
+      "actions": [
+        "validate_scope",
+        "validate_allowed_actions",
+        "record_forbidden_actions"
+      ],
+      "outputs": [
+        "scope_snapshot"
+      ],
+      "evidence": [
+        "scope",
+        "authorization_reference"
+      ],
+      "completion": "scope decision recorded; ACTIVE_TEST only if authorization_status=VERIFIED"
+    },
+    {
+      "id": "WS-01",
+      "order": 1,
+      "title": "Сбор контекста и архитектуры приложения",
+      "mode": "READ_ONLY",
+      "required": true,
+      "knowledge_refs": [
+        "KS-OWASP-WSTG"
+      ],
+      "inputs": [
+        "target",
+        "scope_snapshot"
+      ],
+      "actions": [
+        "inventory_endpoints",
+        "identify_technologies",
+        "identify_trust_boundaries"
+      ],
+      "outputs": [
+        "application_map",
+        "technology_inventory"
+      ],
+      "evidence": [
+        "endpoint_inventory",
+        "architecture_notes"
+      ],
+      "completion": "application map captured"
+    },
+    {
+      "id": "WS-02",
+      "order": 2,
+      "title": "HTTP / Browser / TLS baseline",
+      "mode": "READ_ONLY",
+      "required": true,
+      "knowledge_refs": [
+        "KS-OWASP-WSTG",
+        "KS-OWASP-CHEATSHEETS"
+      ],
+      "actions": [
+        "review_http_behavior",
+        "review_cookie_attributes",
+        "review_security_headers",
+        "review_tls_surface"
+      ],
+      "outputs": [
+        "baseline"
+      ],
+      "evidence": [
+        "request_response_samples",
+        "header_snapshot"
+      ],
+      "completion": "baseline recorded"
+    },
+    {
+      "id": "WS-03",
+      "order": 3,
+      "title": "Recon & Mapping",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-OWASP-WSTG",
+        "KS-SECLISTS"
+      ],
+      "tools": [
+        "TOOL-BURP-SUITE"
+      ],
+      "actions": [
+        "map_attack_surface",
+        "enumerate_in_scope_routes",
+        "record_parameters"
+      ],
+      "outputs": [
+        "attack_surface_map"
+      ],
+      "evidence": [
+        "site_map",
+        "parameter_inventory"
+      ],
+      "completion": "in-scope surface mapped"
+    },
+    {
+      "id": "WS-04",
+      "order": 4,
+      "title": "Authentication",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-OWASP-WSTG",
+        "KS-PORTSWIGGER-ACADEMY"
+      ],
+      "tools": [
+        "TOOL-BURP-SUITE"
+      ],
+      "actions": [
+        "assess_authentication_controls",
+        "record_test_cases"
+      ],
+      "outputs": [
+        "auth_assessment"
+      ],
+      "evidence": [
+        "test_case_results"
+      ],
+      "completion": "authentication test set completed"
+    },
+    {
+      "id": "WS-05",
+      "order": 5,
+      "title": "Session Management",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-OWASP-WSTG",
+        "KS-OWASP-CHEATSHEETS"
+      ],
+      "actions": [
+        "assess_session_lifecycle",
+        "assess_cookie_protection",
+        "assess_logout_behavior"
+      ],
+      "outputs": [
+        "session_assessment"
+      ],
+      "evidence": [
+        "session_observations"
+      ],
+      "completion": "session controls assessed"
+    },
+    {
+      "id": "WS-06",
+      "order": 6,
+      "title": "Access Control",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-OWASP-TOP10",
+        "KS-PORTSWIGGER-ACADEMY"
+      ],
+      "actions": [
+        "assess_horizontal_access",
+        "assess_vertical_access",
+        "assess_object_level_authorization"
+      ],
+      "outputs": [
+        "access_control_assessment"
+      ],
+      "evidence": [
+        "authorization_test_matrix"
+      ],
+      "completion": "access control matrix completed"
+    },
+    {
+      "id": "WS-07",
+      "order": 7,
+      "title": "Input Validation",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-OWASP-WSTG",
+        "KS-OWASP-CHEATSHEETS"
+      ],
+      "actions": [
+        "identify_input_points",
+        "classify_server_side_and_client_side_validation"
+      ],
+      "outputs": [
+        "input_map"
+      ],
+      "evidence": [
+        "input_test_matrix"
+      ],
+      "completion": "input classes assessed"
+    },
+    {
+      "id": "WS-08",
+      "order": 8,
+      "title": "SQL Injection",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-PORTSWIGGER-ACADEMY",
+        "KS-PAYLOADS-ALL-THE-THINGS"
+      ],
+      "actions": [
+        "test_sqli_safely",
+        "record_result"
+      ],
+      "outputs": [
+        "sqli_result"
+      ],
+      "evidence": [
+        "test_case_results"
+      ],
+      "completion": "status recorded as DONE/NOT_APPLICABLE/BLOCKED"
+    },
+    {
+      "id": "WS-09",
+      "order": 9,
+      "title": "Cross-Site Scripting (XSS)",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-PORTSWIGGER-ACADEMY",
+        "KS-OWASP-CHEATSHEETS"
+      ],
+      "actions": [
+        "test_xss_safely",
+        "record_context"
+      ],
+      "outputs": [
+        "xss_result"
+      ],
+      "evidence": [
+        "test_case_results"
+      ],
+      "completion": "XSS contexts assessed"
+    },
+    {
+      "id": "WS-10",
+      "order": 10,
+      "title": "CSRF",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-PORTSWIGGER-ACADEMY",
+        "KS-OWASP-CHEATSHEETS"
+      ],
+      "actions": [
+        "assess_csrf_controls"
+      ],
+      "outputs": [
+        "csrf_result"
+      ],
+      "evidence": [
+        "control_observations"
+      ],
+      "completion": "CSRF controls assessed"
+    },
+    {
+      "id": "WS-11",
+      "order": 11,
+      "title": "SSRF",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-PORTSWIGGER-ACADEMY"
+      ],
+      "actions": [
+        "assess_server_side_request_behavior"
+      ],
+      "outputs": [
+        "ssrf_result"
+      ],
+      "evidence": [
+        "test_case_results"
+      ],
+      "completion": "SSRF test status recorded"
+    },
+    {
+      "id": "WS-12",
+      "order": 12,
+      "title": "XXE / XML Processing",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-PORTSWIGGER-ACADEMY"
+      ],
+      "actions": [
+        "identify_xml_processing",
+        "assess_xxe_controls_if_applicable"
+      ],
+      "outputs": [
+        "xxe_result"
+      ],
+      "evidence": [
+        "parser_observations"
+      ],
+      "completion": "DONE or NOT_APPLICABLE with reason"
+    },
+    {
+      "id": "WS-13",
+      "order": 13,
+      "title": "File Upload",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-PORTSWIGGER-ACADEMY"
+      ],
+      "actions": [
+        "assess_upload_validation",
+        "assess_storage_and_execution_controls"
+      ],
+      "outputs": [
+        "upload_result"
+      ],
+      "evidence": [
+        "upload_test_matrix"
+      ],
+      "completion": "upload path assessed or N/A"
+    },
+    {
+      "id": "WS-14",
+      "order": 14,
+      "title": "Path Traversal",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-PORTSWIGGER-ACADEMY"
+      ],
+      "actions": [
+        "assess_file_path_handling"
+      ],
+      "outputs": [
+        "traversal_result"
+      ],
+      "evidence": [
+        "test_case_results"
+      ],
+      "completion": "path handling assessed"
+    },
+    {
+      "id": "WS-15",
+      "order": 15,
+      "title": "Command Injection",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-PORTSWIGGER-ACADEMY"
+      ],
+      "actions": [
+        "assess_os_command_boundaries_safely"
+      ],
+      "outputs": [
+        "command_injection_result"
+      ],
+      "evidence": [
+        "test_case_results"
+      ],
+      "completion": "status recorded"
+    },
+    {
+      "id": "WS-16",
+      "order": 16,
+      "title": "SSTI",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-PORTSWIGGER-ACADEMY",
+        "KS-HACKTRICS"
+      ],
+      "actions": [
+        "identify_template_engines",
+        "assess_template_input_handling"
+      ],
+      "outputs": [
+        "ssti_result"
+      ],
+      "evidence": [
+        "test_case_results"
+      ],
+      "completion": "template contexts assessed or N/A"
+    },
+    {
+      "id": "WS-17",
+      "order": 17,
+      "title": "Unsafe Deserialization",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-OWASP-WSTG",
+        "KS-PORTSWIGGER-ACADEMY"
+      ],
+      "actions": [
+        "identify_serialization_surface",
+        "assess_deserialization_controls"
+      ],
+      "outputs": [
+        "deserialization_result"
+      ],
+      "evidence": [
+        "surface_observations"
+      ],
+      "completion": "serialization surface assessed or N/A"
+    },
+    {
+      "id": "WS-18",
+      "order": 18,
+      "title": "API Security",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-OWASP-WSTG",
+        "KS-OWASP-TOP10"
+      ],
+      "actions": [
+        "inventory_api",
+        "assess_authn_authz_validation_rate_limits"
+      ],
+      "outputs": [
+        "api_assessment"
+      ],
+      "evidence": [
+        "api_test_matrix"
+      ],
+      "completion": "in-scope APIs assessed"
+    },
+    {
+      "id": "WS-19",
+      "order": 19,
+      "title": "JWT / OAuth / Tokens",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-PORTSWIGGER-ACADEMY",
+        "KS-OWASP-CHEATSHEETS"
+      ],
+      "actions": [
+        "identify_token_flows",
+        "assess_token_validation",
+        "assess_oauth_flow_if_applicable"
+      ],
+      "outputs": [
+        "token_assessment"
+      ],
+      "evidence": [
+        "token_flow_notes"
+      ],
+      "completion": "token flows assessed or N/A"
+    },
+    {
+      "id": "WS-20",
+      "order": 20,
+      "title": "WebSockets",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-PORTSWIGGER-ACADEMY"
+      ],
+      "actions": [
+        "identify_websocket_endpoints",
+        "assess_auth_and_message_validation"
+      ],
+      "outputs": [
+        "websocket_assessment"
+      ],
+      "evidence": [
+        "websocket_test_matrix"
+      ],
+      "completion": "DONE or NOT_APPLICABLE"
+    },
+    {
+      "id": "WS-21",
+      "order": 21,
+      "title": "Business Logic",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-PORTSWIGGER-ACADEMY"
+      ],
+      "actions": [
+        "model_business_rules",
+        "test_invariant_violations_within_scope"
+      ],
+      "outputs": [
+        "business_logic_assessment"
+      ],
+      "evidence": [
+        "logic_test_cases"
+      ],
+      "completion": "business invariants assessed"
+    },
+    {
+      "id": "WS-22",
+      "order": 22,
+      "title": "Security Controls / WAF observations",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-OWASP-WSTG"
+      ],
+      "actions": [
+        "observe_security_controls",
+        "record_blocking_and_detection_behavior"
+      ],
+      "outputs": [
+        "control_observations"
+      ],
+      "evidence": [
+        "control_events"
+      ],
+      "completion": "controls observed; bypass is not required for completion"
+    },
+    {
+      "id": "WS-23",
+      "order": 23,
+      "title": "Findings & Risk",
+      "mode": "ANALYSIS",
+      "required": true,
+      "knowledge_refs": [
+        "KS-OWASP-CHEATSHEETS",
+        "KS-OWASP-TOP10"
+      ],
+      "actions": [
+        "deduplicate_findings",
+        "assess_impact",
+        "assign_severity",
+        "link_evidence"
+      ],
+      "outputs": [
+        "findings",
+        "risk_register"
+      ],
+      "evidence": [
+        "finding_evidence_links"
+      ],
+      "completion": "every confirmed issue has evidence and risk"
+    },
+    {
+      "id": "WS-24",
+      "order": 24,
+      "title": "Recommendations",
+      "mode": "ANALYSIS",
+      "required": true,
+      "knowledge_refs": [
+        "KS-OWASP-CHEATSHEETS"
+      ],
+      "actions": [
+        "prepare_remediation_recommendations",
+        "map_recommendations_to_findings"
+      ],
+      "outputs": [
+        "recommendations"
+      ],
+      "evidence": [
+        "recommendation_trace"
+      ],
+      "completion": "every finding has recommendation or accepted-risk reason"
+    },
+    {
+      "id": "WS-25",
+      "order": 25,
+      "title": "Retest",
+      "mode": "ACTIVE_TEST",
+      "required": true,
+      "knowledge_refs": [
+        "KS-OWASP-WSTG"
+      ],
+      "actions": [
+        "retest_confirmed_findings_when_fix_available"
+      ],
+      "outputs": [
+        "retest_results"
+      ],
+      "evidence": [
+        "before_after_evidence"
+      ],
+      "completion": "DONE/BLOCKED/NOT_APPLICABLE for every finding"
+    },
+    {
+      "id": "WS-26",
+      "order": 26,
+      "title": "Final Report & Evidence Package",
+      "mode": "REPORT",
+      "required": true,
+      "knowledge_refs": [
+        "TOOL-NOTES"
+      ],
+      "actions": [
+        "build_executive_summary",
+        "build_technical_report",
+        "attach_evidence_index",
+        "record_unchecked_items"
+      ],
+      "outputs": [
+        "final_report",
+        "evidence_package",
+        "coverage_matrix"
+      ],
+      "evidence": [
+        "report_artifact"
+      ],
+      "completion": "report generated and coverage=100% terminal states"
+    }
+  ],
+  "finding_schema": {
+    "fields": [
+      "finding_id",
+      "step_id",
+      "title",
+      "status",
+      "severity",
+      "asset",
+      "observation",
+      "evidence_refs",
+      "risk",
+      "recommendation",
+      "retest_status"
+    ]
+  },
+  "evidence_schema": {
+    "fields": [
+      "evidence_id",
+      "step_id",
+      "timestamp",
+      "source",
+      "artifact_type",
+      "artifact_ref",
+      "hash",
+      "note"
+    ]
+  }
+}
