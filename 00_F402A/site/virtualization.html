@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CyberED — Урок 1: Введение в виртуализацию</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.lesson-shell{max-width:1080px;margin:40px auto;padding:0 22px 70px}.lesson-shell h1{font-size:clamp(30px,5vw,52px);line-height:1.15}.lesson-shell h2{margin-top:34px}.lesson-shell p,.lesson-shell li{line-height:1.65}.lesson-shell .panel{border:1px solid #7f8c9a55;border-radius:16px;padding:22px;margin:18px 0}.lesson-shell .diagram{display:grid;gap:10px;text-align:center;margin:20px 0}.lesson-shell .layer{padding:15px;border:1px solid #8297a8;border-radius:10px}.lesson-shell .guests{display:grid;grid-template-columns:1fr 1fr;gap:12px}.lesson-shell .muted{opacity:.8}.lesson-shell a{color:inherit;text-decoration:underline}.lesson-shell .check{display:block;margin:12px 0}.lesson-shell .check input{margin-right:9px}.lesson-shell table{width:100%;border-collapse:collapse}.lesson-shell td,.lesson-shell th{border-bottom:1px solid #8297a855;padding:10px;text-align:left}@media(max-width:620px){.lesson-shell .guests{grid-template-columns:1fr}}
+</style></head><body>
+<main class="lesson-shell">
+<p><a href="index.html">← Главная CyberED</a> · F402A · Урок 1</p>
+<h1>Введение в виртуализацию</h1>
+<p class="muted">Инженерная теория · схемы · безопасность · лаборатория · проверка знаний</p>
+<section class="panel"><h2>Цель занятия</h2><p>Понять, как на одном физическом компьютере моделировать инфраструктуру предприятия: рабочие станции, серверы, сети и средства защиты. Научиться отличать виртуализацию от облака, контейнеризации, эмуляции и симуляции.</p></section>
+<section><h2>1. Архитектура виртуальной среды</h2>
+<div class="diagram" role="img" aria-label="Аппаратная платформа, гипервизор и две независимые виртуальные машины">
+<div class="guests"><div class="layer"><b>ВМ 1</b><p>Приложения</p><p>Гостевая ОС и ядро</p></div><div class="layer"><b>ВМ 2</b><p>Приложения</p><p>Гостевая ОС и ядро</p></div></div>
+<div class="layer"><b>Гипервизор</b> — распределение CPU, RAM, дисков и сетей</div>
+<div class="layer"><b>Физическая платформа</b> — процессор, память, диски, сетевые адаптеры</div></div>
+<p>ВМ изолированы логически, но разделяют физические ресурсы. Для hosted-гипервизора между оборудованием и гипервизором присутствует хостовая ОС.</p></section>
+<section><h2>2. Типы и технологии</h2>
+<table><thead><tr><th>Технология</th><th>Принцип</th><th>Примеры</th></tr></thead><tbody>
+<tr><td>Тип 1</td><td>Гипервизор на аппаратной платформе / специализированная архитектура</td><td>ESXi, Hyper-V, Xen, KVM</td></tr>
+<tr><td>Тип 2</td><td>Гипервизор поверх хостовой ОС</td><td>VirtualBox, VMware Workstation</td></tr>
+<tr><td>Контейнеры</td><td>Изоляция процессов с общим ядром хоста</td><td>Docker, Podman</td></tr>
+<tr><td>Эмуляция</td><td>Программное воспроизведение оборудования</td><td>QEMU</td></tr>
+</tbody></table></section>
+<section><h2>3. Аппаратная поддержка</h2><p>Intel VT-x и AMD-V/SVM ускоряют виртуализацию. Доступность зависит от процессора, прошивки и конфигурации ОС. Для вложенной виртуализации внешний гипервизор должен передавать необходимые расширения гостевой ВМ.</p><p><b>QEMU + KVM:</b> QEMU предоставляет виртуальные устройства и эмуляцию, KVM — аппаратное ускорение на Linux. VirtIO помогает ускорять ввод-вывод.</p></section>
+<section class="panel"><h2>4. Безопасность</h2><p>Границы защиты: хост → гипервизор → виртуальные сети → гостевые ОС → данные и снапшоты. Контролируем обновления, права управления, сегментацию, происхождение образов и резервное копирование. Изоляция снижает риски, но не является абсолютной гарантией.</p></section>
+<section><h2>5. Лаборатория № 1 — аудит готовности</h2><p>На этом этапе только собираем сведения. Ничего не устанавливаем и не изменяем в BIOS/UEFI.</p>
+<label class="check"><input type="checkbox">Зафиксированы CPU, RAM, ОС и свободное место</label>
+<label class="check"><input type="checkbox">Проверена поддержка и доступность аппаратной виртуализации</label>
+<label class="check"><input type="checkbox">Выявлены установленные гипервизоры</label>
+<label class="check"><input type="checkbox">Составлена схема двух ВМ и изолированной сети</label>
+<label class="check"><input type="checkbox">Составлен список рисков и требований к стенду</label>
+<p class="muted">Флажки служат памяткой и не сохраняются на сервере. Доказательства выполнения оформляются отдельно.</p></section>
+<section><h2>6. Контрольные вопросы</h2><ol><li>Чем виртуальная машина отличается от контейнера?</li><li>Как различаются гипервизоры типов 1 и 2?</li><li>Зачем QEMU использует KVM?</li><li>Что ускоряют драйверы VirtIO?</li><li>Когда нужна вложенная виртуализация?</li><li>Почему виртуализация не равна публичному облаку?</li><li>Какие угрозы возникают на уровне гипервизора и виртуальных сетей?</li></ol></section>
+<section class="panel"><h2>7. Дальнейший маршрут</h2><p>Инвентаризация → выбор гипервизора → две ВМ → виртуальная сеть → резервное копирование → hardening → модель угроз → инженерный отчёт.</p><p><a href="index.html">Вернуться к программе CyberED</a></p></section>
+</main></body></html>
