@@ -1,0 +1,25 @@
+{
+  "profile": "ispdn",
+  "assets": [
+    {
+      "name": "АРМ врача",
+      "type": "workstation"
+    },
+    {
+      "name": "Коммутатор отделения",
+      "type": "switch"
+    },
+    {
+      "name": "Сервер медицинской ИС",
+      "type": "server"
+    },
+    {
+      "name": "База данных пациентов",
+      "type": "database"
+    },
+    {
+      "name": "Межсетевой экран",
+      "type": "firewall"
+    }
+  ]
+}
