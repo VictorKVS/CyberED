@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FATHER Avatar Character Pack v1",
+  "type": "object",
+  "required": [
+    "standard",
+    "id",
+    "canvas",
+    "anchors",
+    "states",
+    "capabilities"
+  ],
+  "properties": {
+    "standard": {
+      "const": "FAS/1.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_-]+$"
+    },
+    "canvas": {
+      "type": "object",
+      "required": [
+        "width",
+        "height"
+      ],
+      "properties": {
+        "width": {
+          "const": 1024
+        },
+        "height": {
+          "const": 1024
+        }
+      },
+      "additionalProperties": false
+    },
+    "anchors": {
+      "type": "object",
+      "required": [
+        "left_eye",
+        "right_eye",
+        "mouth"
+      ],
+      "properties": {
+        "left_eye": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "right_eye": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "mouth": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          ],
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "states": {
+      "type": "object",
+      "required": [
+        "idle"
+      ],
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "required": [
+        "blink",
+        "visemes",
+        "tts"
+      ],
+      "properties": {
+        "blink": {
+          "type": "boolean"
+        },
+        "visemes": {
+          "type": "boolean"
+        },
+        "tts": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
