@@ -27,7 +27,7 @@
  function schedule(fn,delay){const g=generation;timers.push(setTimeout(()=>{if(g===generation&&!windowEl.hidden)fn()},delay))}
  function pose(state){const frame=frames[state]||frames.neutral;portrait.src="./assets/alina/frames/"+frame+".webp"}
  function idle(){stopMotion();pose("neutral")}
- function speak(){stopMotion();const seq=["speechA","speechB","speechC","speechB","speechA","smile"];seq.forEach((p,i)=>schedule(()=>pose(p),i*260));schedule(idle,seq.length*260+350)}
+ function speak(){/* FAS cinematic gate: do not swap unaligned full-face images. */idle()}
 
  function open(v){windowEl.hidden=!v;launch.setAttribute("aria-expanded",String(v));if(v){start();idle()}else stopMotion()}
  function option(label,cb){const b=document.createElement("button");b.type="button";b.className="alina-option";b.textContent=label;b.onclick=cb;body.appendChild(b)}
