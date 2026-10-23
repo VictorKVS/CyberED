@@ -15,6 +15,8 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import threading
 import wave
+from urllib.request import Request, urlopen
+from urllib.error import HTTPError, URLError
 
 LOG = logging.getLogger("fas.tts")
 VOICES = ("xenia", "baya", "kseniya", "aidar", "eugene")
@@ -53,7 +55,33 @@ class Handler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(payload)
 
+    def proxy_to_father(self, method, body=None):
+        target = self.server.father_voice_url + self.path.split("?", 1)[0]
+        try:
+            headers = {"Content-Type": "application/json; charset=utf-8"} if body is not None else {}
+            request = Request(target, data=body, headers=headers, method=method)
+            with urlopen(request, timeout=90) as response:
+                payload = response.read()
+                status = response.status
+                content_type = response.headers.get("Content-Type", "application/octet-stream")
+        except HTTPError as exc:
+            status = exc.code
+            payload = exc.read()
+            content_type = exc.headers.get("Content-Type", "application/json")
+        except (URLError, TimeoutError, OSError) as exc:
+            LOG.warning("FATHER_VOICE_UNAVAILABLE: %s", exc)
+            return self.send_json(503, {"error": "FATHER Voice service unavailable"})
+        self.send_response(status)
+        self.send_header("Content-Type", content_type)
+        self.send_header("Cache-Control", "no-store")
+        self.send_header("Content-Length", str(len(payload)))
+        self.end_headers()
+        self.wfile.write(payload)
+        LOG.info("father proxy method=%s status=%s bytes=%d", method, status, len(payload))
+
     def do_GET(self):
+        if self.server.father_voice_url and self.path.split("?", 1)[0] == "/api/tts/health":
+            return self.proxy_to_father("GET")
         if self.path.split("?", 1)[0] == "/api/tts/health":
             self.send_json(200, {"provider": "silero", "ready": MODEL is not None,
                                  "voices": list(VOICES), "model_configured": bool(self.server.model_path)})
@@ -64,6 +92,15 @@ class Handler(SimpleHTTPRequestHandler):
         if self.path != "/api/tts/local":
             self.send_json(404, {"error": "Unknown API route"})
             return
+        if self.server.father_voice_url:
+            try:
+                size = int(self.headers.get("Content-Length", "0"))
+                if not 0 < size <= 32768:
+                    return self.send_json(413, {"error": "Invalid request size"})
+                body = self.rfile.read(size)
+            except ValueError:
+                return self.send_json(400, {"error": "Invalid Content-Length"})
+            return self.proxy_to_father("POST", body)
         LOG.info("tts request received")
         if MODEL is None:
             self.send_json(503, {"error": "Silero model not loaded", "hint": "Start server with --silero-model pointing to an installed compatible Silero v5 model"})
@@ -112,15 +149,22 @@ def main():
     parser.add_argument("--site", required=True)
     parser.add_argument("--port", type=int, default=8088)
     parser.add_argument("--silero-model", default=os.environ.get("SILERO_MODEL", ""))
+    parser.add_argument("--father-voice-url", default="", help="Shared FATHER Voice URL")
     args = parser.parse_args()
+    if args.father_voice_url and args.father_voice_url.rstrip("/") not in ("http://127.0.0.1:8091", "http://localhost:8091"):
+        parser.error("FATHER Voice proxy is restricted to local port 8091")
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
     site = Path(args.site).resolve()
     if not site.is_dir():
         parser.error("Site directory not found: " + str(site))
-    load_model(args.silero_model)
+    if not args.father_voice_url:
+        load_model(args.silero_model)
+    else:
+        LOG.info("FATHER Voice proxy enabled: %s", args.father_voice_url)
     from functools import partial
     server = ThreadingHTTPServer(("127.0.0.1", args.port), partial(Handler, directory=str(site)))
     server.model_path = args.silero_model
+    server.father_voice_url = args.father_voice_url.rstrip("/")
     LOG.info("Serving http://127.0.0.1:%d/avatar-lab.html; ready=%s", args.port, MODEL is not None)
     server.serve_forever()
 
