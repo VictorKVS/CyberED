@@ -1,0 +1,30 @@
+{
+  "standard": "FAS/1.0",
+  "id": "alina",
+  "canvas": {
+    "width": 1024,
+    "height": 1024
+  },
+  "anchors": {
+    "left_eye": [
+      0.38,
+      0.37
+    ],
+    "right_eye": [
+      0.62,
+      0.37
+    ],
+    "mouth": [
+      0.5,
+      0.62
+    ]
+  },
+  "states": {
+    "idle": "frames/idle.webp"
+  },
+  "capabilities": {
+    "blink": false,
+    "visemes": false,
+    "tts": false
+  }
+}
