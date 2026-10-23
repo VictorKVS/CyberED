@@ -26,7 +26,7 @@
  function stopMotion(){generation++;timers.forEach(clearTimeout);timers=[]}
  function schedule(fn,delay){const g=generation;timers.push(setTimeout(()=>{if(g===generation&&!windowEl.hidden)fn()},delay))}
  function pose(state){const frame=frames[state]||frames.neutral;portrait.src="./assets/alina/frames/"+frame+".webp"}
- function idle(){stopMotion();pose("neutral");function blink(){pose("blink");schedule(()=>{pose("neutral");schedule(blink,4200)},140)}schedule(blink,4200)}
+ function idle(){stopMotion();pose("neutral")}
  function speak(){stopMotion();const seq=["speechA","speechB","speechC","speechB","speechA","smile"];seq.forEach((p,i)=>schedule(()=>pose(p),i*260));schedule(idle,seq.length*260+350)}
 
  function open(v){windowEl.hidden=!v;launch.setAttribute("aria-expanded",String(v));if(v){start();idle()}else stopMotion()}
