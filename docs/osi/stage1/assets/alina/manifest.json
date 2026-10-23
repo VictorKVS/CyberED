@@ -1,0 +1,200 @@
+{
+  "character": "alina",
+  "frames": [
+    {
+      "id": 1,
+      "state": "neutral",
+      "src": "frames/01_neutral.webp"
+    },
+    {
+      "id": 2,
+      "state": "soft_smile",
+      "src": "frames/02_soft_smile.webp"
+    },
+    {
+      "id": 3,
+      "state": "smile",
+      "src": "frames/03_smile.webp"
+    },
+    {
+      "id": 4,
+      "state": "speech_a",
+      "src": "frames/04_speech_a.webp"
+    },
+    {
+      "id": 5,
+      "state": "speech_b",
+      "src": "frames/05_speech_b.webp"
+    },
+    {
+      "id": 6,
+      "state": "speech_c",
+      "src": "frames/06_speech_c.webp"
+    },
+    {
+      "id": 7,
+      "state": "question",
+      "src": "frames/07_question.webp"
+    },
+    {
+      "id": 8,
+      "state": "clarify",
+      "src": "frames/08_clarify.webp"
+    },
+    {
+      "id": 9,
+      "state": "serious",
+      "src": "frames/09_serious.webp"
+    },
+    {
+      "id": 10,
+      "state": "look_side",
+      "src": "frames/10_look_side.webp"
+    },
+    {
+      "id": 11,
+      "state": "listening",
+      "src": "frames/11_listening.webp"
+    },
+    {
+      "id": 12,
+      "state": "thinking",
+      "src": "frames/12_thinking.webp"
+    },
+    {
+      "id": 13,
+      "state": "analyzing",
+      "src": "frames/13_analyzing.webp"
+    },
+    {
+      "id": 14,
+      "state": "reading",
+      "src": "frames/14_reading.webp"
+    },
+    {
+      "id": 15,
+      "state": "writing",
+      "src": "frames/15_writing.webp"
+    },
+    {
+      "id": 16,
+      "state": "explaining_1",
+      "src": "frames/16_explaining_1.webp"
+    },
+    {
+      "id": 17,
+      "state": "explaining_2",
+      "src": "frames/17_explaining_2.webp"
+    },
+    {
+      "id": 18,
+      "state": "inviting",
+      "src": "frames/18_inviting.webp"
+    },
+    {
+      "id": 19,
+      "state": "warning",
+      "src": "frames/19_warning.webp"
+    },
+    {
+      "id": 20,
+      "state": "nod",
+      "src": "frames/20_nod.webp"
+    },
+    {
+      "id": 21,
+      "state": "approval",
+      "src": "frames/21_approval.webp"
+    },
+    {
+      "id": 22,
+      "state": "agreement",
+      "src": "frames/22_agreement.webp"
+    },
+    {
+      "id": 23,
+      "state": "disagree",
+      "src": "frames/23_disagree.webp"
+    },
+    {
+      "id": 24,
+      "state": "surprised",
+      "src": "frames/24_surprised.webp"
+    },
+    {
+      "id": 25,
+      "state": "pondering",
+      "src": "frames/25_pondering.webp"
+    },
+    {
+      "id": 26,
+      "state": "look_down",
+      "src": "frames/26_look_down.webp"
+    },
+    {
+      "id": 27,
+      "state": "eyes_closed",
+      "src": "frames/27_eyes_closed.webp"
+    },
+    {
+      "id": 28,
+      "state": "eyes_open",
+      "src": "frames/28_eyes_open.webp"
+    },
+    {
+      "id": 29,
+      "state": "blink_1",
+      "src": "frames/29_blink_1.webp"
+    },
+    {
+      "id": 30,
+      "state": "blink_2",
+      "src": "frames/30_blink_2.webp"
+    },
+    {
+      "id": 31,
+      "state": "blink_3",
+      "src": "frames/31_blink_3.webp"
+    },
+    {
+      "id": 32,
+      "state": "profile_left",
+      "src": "frames/32_profile_left.webp"
+    },
+    {
+      "id": 33,
+      "state": "profile_right",
+      "src": "frames/33_profile_right.webp"
+    },
+    {
+      "id": 34,
+      "state": "profile_speech",
+      "src": "frames/34_profile_speech.webp"
+    },
+    {
+      "id": 35,
+      "state": "at_laptop",
+      "src": "frames/35_at_laptop.webp"
+    },
+    {
+      "id": 36,
+      "state": "on_phone",
+      "src": "frames/36_on_phone.webp"
+    },
+    {
+      "id": 37,
+      "state": "with_documents",
+      "src": "frames/37_with_documents.webp"
+    },
+    {
+      "id": 38,
+      "state": "presenting_screen",
+      "src": "frames/38_presenting_screen.webp"
+    },
+    {
+      "id": 39,
+      "state": "final_pose",
+      "src": "frames/39_final_pose.webp"
+    }
+  ]
+}
