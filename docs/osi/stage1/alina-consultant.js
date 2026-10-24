@@ -16,25 +16,40 @@
  #alina-consultant .alina-option:hover{border-color:#6be6f1}
  #alina-consultant .alina-link{display:inline-block;padding:11px 14px;background:#1ab0cd;color:#061522;border-radius:9px;text-decoration:none;font-size:13px;font-weight:800;margin-top:10px}
  #alina-consultant .alina-close{margin-left:auto;background:transparent;border:0;color:#e5faff;font-size:24px;cursor:pointer}
- #alina-consultant .alina-foot{font-size:11px;color:#92acc0;margin-top:14px}
+ #alina-consultant .alina-voice{padding:7px 10px;border:1px solid #477895;border-radius:8px;background:#163e58;color:#eaf8ff;cursor:pointer;font-size:12px} #alina-consultant .alina-voice:focus-visible{outline:2px solid #74dff2} #alina-consultant .alina-foot{font-size:11px;color:#92acc0;margin-top:14px}
  @media(max-width:540px){#alina-consultant{right:12px;bottom:12px}#alina-consultant .alina-window{right:0}}
  `;document.head.appendChild(css);
- const root=document.createElement("div");root.id="alina-consultant";root.innerHTML=`<div class="alina-window" id="alina-window" hidden role="dialog" aria-label="Алина — цифровой консультант"><div class="alina-header"><span class="alina-avatar" aria-hidden="true">А</span><span><strong>Алина · CyberED</strong><small>Цифровой консультант · демо</small></span><button class="alina-close" type="button" aria-label="Закрыть">×</button></div><img class="alina-portrait" id="alina-portrait" src="./assets/alina/frames/01_neutral.webp" alt="Алина — цифровой консультант"><div id="alina-body"></div><div class="alina-foot">Сценарный помощник без ИИ и передачи данных. Не вводите персональные данные.</div></div><button class="alina-launch" type="button" aria-expanded="false" aria-controls="alina-window"><span class="alina-avatar" aria-hidden="true">А</span> Спросить Алину</button>`;document.body.appendChild(root);
+ const root=document.createElement("div");root.id="alina-consultant";root.innerHTML=`<div class="alina-window" id="alina-window" hidden role="dialog" aria-label="Алина — цифровой консультант"><div class="alina-header"><span class="alina-avatar" aria-hidden="true">А</span><span><strong>Алина · CyberED</strong><small>Цифровой консультант · демо</small></span><button class="alina-voice" type="button" aria-pressed="true" title="Включить или выключить озвучивание">🔊 Голос</button><button class="alina-close" type="button" aria-label="Закрыть">×</button></div><img class="alina-portrait" id="alina-portrait" src="./assets/alina/frames/01_neutral.webp" alt="Алина — цифровой консультант"><div id="alina-body"></div><div class="alina-foot">Сценарный помощник без LLM. Для озвучивания текст передаётся локальному сервису Silero. Не вводите персональные данные.</div></div><button class="alina-launch" type="button" aria-expanded="false" aria-controls="alina-window"><span class="alina-avatar" aria-hidden="true">А</span> Спросить Алину</button>`;document.body.appendChild(root);
  const windowEl=root.querySelector("#alina-window"),launch=root.querySelector(".alina-launch"),body=root.querySelector("#alina-body"),portrait=root.querySelector("#alina-portrait");
- const frames={neutral:"01_neutral",smile:"02_soft_smile",blink:"27_eyes_closed",listening:"11_listening",thinking:"12_thinking",speechA:"04_speech_a",speechB:"05_speech_b",speechC:"06_speech_c"};
- let timers=[],generation=0;
- function stopMotion(){generation++;timers.forEach(clearTimeout);timers=[]}
- function schedule(fn,delay){const g=generation;timers.push(setTimeout(()=>{if(g===generation&&!windowEl.hidden)fn()},delay))}
- function pose(state){const frame=frames[state]||frames.neutral;portrait.src="./assets/alina/frames/"+frame+".webp"}
- function idle(){stopMotion();pose("neutral")}
- function speak(){/* FAS cinematic gate: do not swap unaligned full-face images. */idle()}
-
- function open(v){windowEl.hidden=!v;launch.setAttribute("aria-expanded",String(v));if(v){start();idle()}else stopMotion()}
+ // Static portrait only. Voice is opt-in via user interaction, no facial animation.
+ let audio=null,objectUrl=null,requestId=0;
+ let voiceEnabled=localStorage.getItem('cybered.alina.voice')!=='off';
+ const voiceButton=root.querySelector('.alina-voice');
+ function syncVoiceButton(){voiceButton.textContent=voiceEnabled?'🔊 Голос':'🔇 Без звука';voiceButton.setAttribute('aria-pressed',String(voiceEnabled))}
+ function stopVoice(){requestId++;if(audio){audio.pause();audio.onended=null;audio=null}if(objectUrl){URL.revokeObjectURL(objectUrl);objectUrl=null}}
+ async function say(phrase){
+   stopVoice();if(!voiceEnabled||!phrase)return;
+   const id=requestId;
+   try{
+     const response=await fetch('/api/tts/local',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:phrase,voice:'kseniya'})});
+     if(id!==requestId)return;
+     if(!response.ok)throw new Error('Silero HTTP '+response.status);
+     const blob=await response.blob();if(id!==requestId)return;
+     if(!blob.type.startsWith('audio/'))throw new Error('Некорректный формат звука');
+     objectUrl=URL.createObjectURL(blob);audio=new Audio(objectUrl);
+     audio.onended=()=>{if(id===requestId)stopVoice()};
+     await audio.play();
+   }catch(err){if(id===requestId){console.warn('[ALINA VOICE]',err);voiceButton.title='Silero недоступен: '+err.message}}
+ }
+ syncVoiceButton();
+ voiceButton.onclick=()=>{voiceEnabled=!voiceEnabled;localStorage.setItem('cybered.alina.voice',voiceEnabled?'on':'off');syncVoiceButton();if(!voiceEnabled)stopVoice()};
+ function idle(){/* Portrait intentionally static. */}
+ function open(v){windowEl.hidden=!v;launch.setAttribute("aria-expanded",String(v));if(v){start();idle()}else stopVoice()}
  function option(label,cb){const b=document.createElement("button");b.type="button";b.className="alina-option";b.textContent=label;b.onclick=cb;body.appendChild(b)}
- function message(s){const p=document.createElement("p");p.className="alina-text";p.textContent=s;body.appendChild(p);speak()}
+ function message(s){const p=document.createElement("p");p.className="alina-text";p.textContent=s;body.appendChild(p);say(s)}
  function action(label,url){const a=document.createElement("a");a.className="alina-link";a.textContent=label;a.href=url;body.appendChild(a)}
  function back(){option("← Вернуться к выбору",start)}
  function start(){body.replaceChildren();message("Здравствуйте! Я Алина, цифровой консультант CyberED. Что вы хотите получить от платформы?");option("Освоить профессию инженера ИБ",()=>route("student"));option("Научиться проводить аудит ИБ",()=>route("audit"));option("Проектировать архитектуру защиты",()=>route("architect"));option("Изучить возможности для команды",()=>route("business"))}
- function route(kind){body.replaceChildren();pose("thinking");const routes={student:["Начните с вводного курса: активы, OSI, нормативная база, угрозы и практические задания.","Начать обучение","./portal.html#course"],audit:["Вы сможете составить учебный план аудита, выбрать профиль ИС и сформировать список проверок. Это пока не автоматическое заключение.","Открыть планировщик аудита","./portal.html#audit"],architect:["В конструкторе можно добавить активы, выбрать профиль системы и экспортировать JSON. Полноценный редактор потоков и связей ещё в разработке.","Открыть конструктор","./portal.html#architect"],business:["Для команды CyberED планирует сценарии обучения и подготовки аудита. B2B-пилоты и приём заявок ещё не подключены; пока изучите демонстрацию.","Посмотреть платформу","./portal.html"]};const [t,label,url]=routes[kind];message(t);action(label,url);back()}
+ function route(kind){body.replaceChildren();const routes={student:["Начните с вводного курса: активы, OSI, нормативная база, угрозы и практические задания.","Начать обучение","./portal.html#course"],audit:["Вы сможете составить учебный план аудита, выбрать профиль ИС и сформировать список проверок. Это пока не автоматическое заключение.","Открыть планировщик аудита","./portal.html#audit"],architect:["В конструкторе можно добавить активы, выбрать профиль системы и экспортировать JSON. Полноценный редактор потоков и связей ещё в разработке.","Открыть конструктор","./portal.html#architect"],business:["Для команды CyberED планирует сценарии обучения и подготовки аудита. B2B-пилоты и приём заявок ещё не подключены; пока изучите демонстрацию.","Посмотреть платформу","./portal.html"]};const [t,label,url]=routes[kind];message(t);action(label,url);back()}
  launch.onclick=()=>open(windowEl.hidden);root.querySelector(".alina-close").onclick=()=>open(false);document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!windowEl.hidden)open(false)});
 })();
