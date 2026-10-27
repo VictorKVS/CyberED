@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1",
+  "sources": [
+    {
+      "id": "INTERNAL-SEC-POLICY",
+      "title": "CyberED training security requirements (draft)",
+      "version": "0.1-draft",
+      "verified_at": "2026-10-27",
+      "url": "https://github.com/VictorKVS/CyberED/tree/main/PIONEER-00",
+      "source_type": "internal_training_draft"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "EVD-001",
+      "requirement_id": "REQ-SEC-001",
+      "control_id": "db-access-policy",
+      "status": "planned",
+      "artifact_ref": null
+    }
+  ]
+}
