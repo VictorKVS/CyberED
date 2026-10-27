@@ -1,0 +1,33 @@
+{
+  "schema_version": "0.2",
+  "project_id": "cybered-medical-lab-deps",
+  "threats": [
+    {
+      "id": "THR-001",
+      "name": "Unauthorized database access",
+      "affected_assets": [
+        "db01"
+      ],
+      "controls": [
+        "db-access-policy"
+      ],
+      "status": "identified"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-SEC-001",
+      "description": "Restrict database access",
+      "controls": [
+        "db-access-policy"
+      ],
+      "source_refs": [
+        {
+          "source_id": "INTERNAL-SEC-POLICY",
+          "clause": "SEC-01",
+          "verification_status": "internal_draft"
+        }
+      ]
+    }
+  ]
+}
