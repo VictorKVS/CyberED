@@ -1,0 +1,21 @@
+agent_id: AG-005
+name: PIONEER
+version: 0.1.0
+role: infrastructure_architecture
+program: CyberED
+platform: FATHER
+local_workspace: 'G:\1\PIONEER-00'
+phase: P01
+permissions:
+  infrastructure_write: false
+  cloud_credentials: false
+  physical_network_write: false
+inputs:
+  - architecture.json
+outputs:
+  - handoff-to-tima.json
+  - validation-report.json
+handoff:
+  target_agent: AG-003
+  gate: GATE-1
+  default_approval_status: READY_FOR_REVIEW
