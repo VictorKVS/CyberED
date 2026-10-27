@@ -1,0 +1,51 @@
+{
+  "project_id": "cybered-medical-lab-deps",
+  "schema_version": "0.2",
+  "architecture_revision": "1",
+  "target_environment": "virtual-lab",
+  "networks": [
+    {
+      "id": "users",
+      "cidr": "10.10.10.0/24"
+    },
+    {
+      "id": "servers",
+      "cidr": "10.10.20.0/24"
+    }
+  ],
+  "resources": [
+    {
+      "id": "db01",
+      "kind": "database",
+      "network": "servers",
+      "cpu": 2,
+      "memory_gb": 4
+    },
+    {
+      "id": "app01",
+      "kind": "server",
+      "network": "servers",
+      "cpu": 2,
+      "memory_gb": 4,
+      "depends_on": [
+        "db01"
+      ]
+    }
+  ],
+  "security_controls": [
+    {
+      "id": "db-access-policy",
+      "protects": "db01"
+    }
+  ],
+  "network_policy": {
+    "default_action": "deny"
+  },
+  "acceptance_tests": [
+    {
+      "id": "AT-001",
+      "type": "healthcheck",
+      "target": "app01"
+    }
+  ]
+}
