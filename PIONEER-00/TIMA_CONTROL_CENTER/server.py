@@ -1,4 +1,4 @@
-import json, os, platform, subprocess, threading, uuid, shutil
+import json, os, subprocess, threading, uuid, shutil, re
 from pathlib import Path
 from datetime import datetime, timezone
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
@@ -18,6 +18,8 @@ def command(args, timeout=25):
                          creationflags=getattr(subprocess,"CREATE_NO_WINDOW",0))
         return {"status":"ok" if p.returncode==0 else "error",
                 "exit_code":p.returncode,"stdout":p.stdout[:120000],"stderr":p.stderr[:3000]}
+    except FileNotFoundError:
+        return {"status":"unavailable","reason":"executable not found"}
     except subprocess.TimeoutExpired:
         return {"status":"timeout"}
     except Exception as exc:
@@ -36,7 +38,7 @@ def scan(job, requested=None):
       ("docker",lambda:command(["docker","version","--format","{{json .}}"])),
       ("containers",lambda:command(["docker","ps","-a","--format","{{json .}}"])),
       ("wsl",lambda:command(["wsl.exe","--list","--verbose"])),
-      ("virtualization",lambda:ps("Get-Service vmms,vmcompute,hns -ErrorAction SilentlyContinue | Select-Object Name,Status,StartType | ConvertTo-Json -Compress")),
+      ("virtualization",lambda:ps("@(Get-Service -Name vmms,vmcompute,hns -ErrorAction SilentlyContinue | Select-Object Name,Status,StartType) | ConvertTo-Json -Compress")),
       ("adapters",lambda:ps("Get-NetAdapter | Select-Object Name,Status,LinkSpeed | ConvertTo-Json -Compress")),
       ("network",lambda:ps("Get-NetIPConfiguration | Select-Object InterfaceAlias,IPv4Address,IPv4DefaultGateway,DNSServer | ConvertTo-Json -Depth 5 -Compress")),
     ]
@@ -53,6 +55,10 @@ def scan(job, requested=None):
                 STATE["current"]=name
                 STATE["modules"][name]="running"
             result=fn()
+            if name in ("docker","containers") and result["status"] == "error":
+                result["hint"]="Docker CLI доступен, но команда завершилась ошибкой. Проверьте Docker Desktop, контекст и права доступа; TIMA ничего не изменяет."
+            if name == "virtualization" and result["status"] == "error":
+                result["hint"]="Не удалось прочитать состояние служб. Проверьте доступность Get-Service и права пользователя."
             results[name]=result
             with LOCK:
                 STATE["results"]=dict(results)
@@ -84,6 +90,16 @@ class Handler(BaseHTTPRequestHandler):
         if self.path=="/api/status":
             with LOCK: value=dict(STATE)
             return self.reply(200,value)
+        if self.path=="/api/summary":
+            with LOCK: name=STATE.get("report")
+            if not name: return self.reply(404,{"error":"no report"})
+            report=json.loads((REPORTS/name).read_text(encoding="utf-8"))
+            summary={"schema":"tima-public-summary-v1","scope":report.get("scope"),
+                     "timestamp":report.get("timestamp"),"modules":{}}
+            for key,value in report.get("results",{}).items():
+                summary["modules"][key]={"status":value.get("status","unknown")}
+            summary["publication_status"]="NOT_PUBLISHED_REVIEW_REQUIRED"
+            return self.reply(200,summary)
         if self.path=="/api/report":
             with LOCK: name=STATE.get("report")
             if not name: return self.reply(404,{"error":"no report"})
