@@ -1,5 +1,6 @@
 import json, os, subprocess, threading, uuid, shutil, re
 from pathlib import Path
+from model_zoo import discover, load_ollama
 from datetime import datetime, timezone
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 
@@ -85,6 +86,8 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path=="/":
             return self.reply(200,(ROOT/"index.html").read_text(encoding="utf-8"),"text/html")
+        if self.path=="/api/models":
+            return self.reply(200,discover())
         if self.path=="/api/modules":
             return self.reply(200,{"modules":["hardware","windows","disks","software","aida64","docker","containers","wsl","virtualization","adapters","network"]})
         if self.path=="/api/status":
@@ -108,6 +111,17 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         from urllib.parse import urlsplit, parse_qs
         parsed=urlsplit(self.path)
+        if parsed.path=="/api/models/load":
+            if self.headers.get("Origin")!="http://127.0.0.1:8093":
+                return self.reply(403,{"error":"origin denied"})
+            try:
+                length=int(self.headers.get("Content-Length","0"))
+                if not 0<length<=500: return self.reply(400,{"error":"invalid body length"})
+                data=json.loads(self.rfile.read(length))
+                code,result=load_ollama(data.get("name"))
+                return self.reply(code,result)
+            except (ValueError,TypeError,AttributeError):
+                return self.reply(400,{"error":"invalid JSON"})
         if parsed.path!="/api/scan": return self.reply(404,{"error":"not found"})
         query=parse_qs(parsed.query)
         allowed={"hardware","windows","disks","software","aida64","docker","containers","wsl","virtualization","adapters","network"}
