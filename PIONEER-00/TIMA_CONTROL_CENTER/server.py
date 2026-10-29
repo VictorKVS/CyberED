@@ -6,7 +6,7 @@ from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 ROOT=Path(__file__).resolve().parent
 REPORTS=ROOT/"reports"
 REPORTS.mkdir(exist_ok=True)
-STATE={"status":"idle","job":None,"current":None,"results":{},"report":None}
+STATE={"status":"idle","job":None,"current":None,"results":{},"report":None,"selected":[],"modules":{},"completed":0,"total":0}
 LOCK=threading.Lock()
 
 def command(args, timeout=25):
@@ -26,7 +26,7 @@ def command(args, timeout=25):
 def ps(script):
     return command(["powershell.exe","-NoProfile","-NonInteractive","-Command",script],40)
 
-def scan(job):
+def scan(job, requested=None):
     tasks=[
       ("hardware",lambda:ps("Get-CimInstance Win32_ComputerSystem | Select-Object Manufacturer,Model,TotalPhysicalMemory,HypervisorPresent | ConvertTo-Json -Compress; Get-CimInstance Win32_Processor | Select-Object Name,NumberOfCores,NumberOfLogicalProcessors | ConvertTo-Json -Compress")),
       ("windows",lambda:ps("Get-CimInstance Win32_OperatingSystem | Select-Object Caption,Version,BuildNumber | ConvertTo-Json -Compress")),
@@ -40,12 +40,24 @@ def scan(job):
       ("adapters",lambda:ps("Get-NetAdapter | Select-Object Name,Status,LinkSpeed | ConvertTo-Json -Compress")),
       ("network",lambda:ps("Get-NetIPConfiguration | Select-Object InterfaceAlias,IPv4Address,IPv4DefaultGateway,DNSServer | ConvertTo-Json -Depth 5 -Compress")),
     ]
+    if requested is not None:
+        tasks=[t for t in tasks if t[0] in requested]
+    with LOCK:
+        STATE["total"]=len(tasks)
+        STATE["completed"]=0
+        STATE["modules"]={name:"pending" for name,_ in tasks}
     try:
         results={}
         for name,fn in tasks:
-            with LOCK: STATE["current"]=name
-            results[name]=fn()
-            with LOCK: STATE["results"]=dict(results)
+            with LOCK:
+                STATE["current"]=name
+                STATE["modules"][name]="running"
+            result=fn()
+            results[name]=result
+            with LOCK:
+                STATE["results"]=dict(results)
+                STATE["modules"][name]=result.get("status","error")
+                STATE["completed"]+=1
         report={"job":job,"timestamp":datetime.now(timezone.utc).isoformat(),
                 "scope":"local host passive inventory; no network scanning","results":results}
         filename="inventory_"+job+".json"
@@ -67,6 +79,8 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path=="/":
             return self.reply(200,(ROOT/"index.html").read_text(encoding="utf-8"),"text/html")
+        if self.path=="/api/modules":
+            return self.reply(200,{"modules":["hardware","windows","disks","software","aida64","docker","containers","wsl","virtualization","adapters","network"]})
         if self.path=="/api/status":
             with LOCK: value=dict(STATE)
             return self.reply(200,value)
@@ -76,7 +90,14 @@ class Handler(BaseHTTPRequestHandler):
             return self.reply(200,(REPORTS/name).read_text(encoding="utf-8"))
         return self.reply(404,{"error":"not found"})
     def do_POST(self):
-        if self.path!="/api/scan": return self.reply(404,{"error":"not found"})
+        from urllib.parse import urlsplit, parse_qs
+        parsed=urlsplit(self.path)
+        if parsed.path!="/api/scan": return self.reply(404,{"error":"not found"})
+        query=parse_qs(parsed.query)
+        allowed={"hardware","windows","disks","software","aida64","docker","containers","wsl","virtualization","adapters","network"}
+        selected=query.get("module",[])
+        if len(selected)>1 or (selected and selected[0] not in allowed):
+            return self.reply(400,{"error":"invalid module"})
         if self.headers.get("Origin")!= "http://127.0.0.1:8093":
             return self.reply(403,{"error":"origin denied"})
         if self.headers.get("Content-Length","0") not in ("0",""):
@@ -84,8 +105,8 @@ class Handler(BaseHTTPRequestHandler):
         with LOCK:
             if STATE["status"]=="running": return self.reply(409,{"error":"busy"})
             job=uuid.uuid4().hex[:12]
-            STATE.update(status="running",job=job,current="starting",results={},report=None,error=None)
-        threading.Thread(target=scan,args=(job,),daemon=True).start()
+            STATE.update(status="running",job=job,current="starting",results={},report=None,error=None,completed=0,total=0,modules={})
+        threading.Thread(target=scan,args=(job,selected or None),daemon=True).start()
         return self.reply(202,{"job":job})
 if __name__=="__main__":
     if os.name!="nt": raise SystemExit("Windows only")
