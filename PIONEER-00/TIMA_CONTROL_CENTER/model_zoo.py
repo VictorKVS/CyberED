@@ -5,8 +5,8 @@ import os, json, shutil, subprocess, urllib.request, urllib.error
 from pathlib import Path
 
 EXTENSIONS={".gguf",".safetensors",".onnx",".pt",".pth",".ckpt"}
-MAX_FILES=1500
-MAX_DEPTH=5
+MAX_FILES=20000
+MAX_DEPTH=9
 
 def roots():
     home=Path.home()
@@ -16,6 +16,14 @@ def roots():
         home/".cache"/"lm-studio"/"models",
         home/"AppData"/"Local"/"LM-Studio"/"models",
         Path("G:/1"),
+        home/"models",
+        home/"Downloads",
+        home/"AppData"/"Local"/"Ollama"/"models",
+        Path("G:/models"),
+        Path("G:/Models"),
+        Path("G:/LLM"),
+        Path("G:/AI"),
+        Path("D:/models"),
     ]
     for var in ("FATHER_MODEL_DIRS",):
         for raw in os.environ.get(var,"").split(os.pathsep):
@@ -34,7 +42,9 @@ def discover():
     models=[]
     warnings=[]
     inspected=0
+    checked_roots=[]
     for root in roots():
+        checked_roots.append(str(root))
         # Avoid expensive scans of all project code under G:/1; bounded depth/file count.
         stack=[(root,0)]
         while stack and inspected<MAX_FILES:
@@ -78,7 +88,9 @@ def discover():
                 warnings.append("Ollama CLI unavailable: "+p.stderr[:180])
         except (OSError,subprocess.TimeoutExpired):
             warnings.append("Ollama list timed out or failed")
-    return {"files":models,"ollama":ollama,"roots_checked":sum(1 for _ in roots()),
+    else:
+        warnings.append("Ollama CLI not found on PATH; this does not prove no Ollama models exist")
+    return {"files":models,"ollama":ollama,"roots_checked":len(checked_roots),"checked_roots":checked_roots,
             "inspected":inspected,"warnings":warnings,
             "note":"File discovery does not prove model compatibility or readiness"}
 
