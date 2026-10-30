@@ -39,23 +39,29 @@ def roots():
             continue
 
 def discover():
-    models=[]
-    warnings=[]
+    models, warnings, checked_roots, sources = [], [], [], []
     inspected=0
-    checked_roots=[]
     for root in roots():
         checked_roots.append(str(root))
-        # Avoid expensive scans of all project code under G:/1; bounded depth/file count.
+        root_count=0
         stack=[(root,0)]
-        while stack and inspected<MAX_FILES:
+        truncated=False
+        while stack:
+            if root_count>=MAX_FILES:
+                truncated=True
+                break
             folder,depth=stack.pop()
             try:
                 with os.scandir(folder) as entries:
                     for entry in entries:
+                        root_count+=1
                         inspected+=1
-                        if inspected>=MAX_FILES: break
+                        if root_count>=MAX_FILES:
+                            truncated=True
+                            break
                         try:
-                            if entry.is_symlink(): continue
+                            if entry.is_symlink():
+                                continue
                             if entry.is_file(follow_symlinks=False):
                                 suffix=Path(entry.name).suffix.lower()
                                 if suffix in EXTENSIONS:
@@ -69,11 +75,11 @@ def discover():
                                     stack.append((Path(entry.path),depth+1))
                         except (PermissionError,OSError):
                             continue
-            except (PermissionError,OSError) as exc:
-                warnings.append(str(type(exc).__name__))
-        if inspected>=MAX_FILES:
-            warnings.append("File inspection limit reached; results may be incomplete")
-            break
+            except (PermissionError,OSError):
+                warnings.append("Unreadable directory under "+str(root))
+        sources.append({"root":str(root),"inspected":root_count,"truncated":truncated})
+        if truncated:
+            warnings.append("Search limit reached in "+str(root)+"; other roots continue")
     ollama=[]
     if shutil.which("ollama"):
         try:
@@ -85,13 +91,14 @@ def discover():
                     if parts:
                         ollama.append({"name":parts[0],"status":"installed","runtime":"ollama"})
             else:
-                warnings.append("Ollama CLI unavailable: "+p.stderr[:180])
+                warnings.append("Ollama CLI failed: "+p.stderr[:180])
         except (OSError,subprocess.TimeoutExpired):
             warnings.append("Ollama list timed out or failed")
     else:
-        warnings.append("Ollama CLI not found on PATH; this does not prove no Ollama models exist")
-    return {"files":models,"ollama":ollama,"roots_checked":len(checked_roots),"checked_roots":checked_roots,
-            "inspected":inspected,"warnings":warnings,
+        warnings.append("Ollama CLI not found on PATH")
+    return {"files":models,"ollama":ollama,"roots_checked":len(checked_roots),
+            "checked_roots":checked_roots,"sources":sources,"inspected":inspected,
+            "warnings":warnings,"search_complete":not any(x["truncated"] for x in sources),
             "note":"File discovery does not prove model compatibility or readiness"}
 
 def load_ollama(name):
