@@ -81,6 +81,27 @@ def discover():
         if truncated:
             warnings.append("Search limit reached in "+str(root)+"; other roots continue")
     ollama=[]
+    # Ollama model manifests are JSON records; blob filenames have no model extension.
+    # Read only metadata, never read or publish model blobs.
+    seen_models=set()
+    for root in roots():
+        manifest_base=root/"manifests"
+        if not manifest_base.is_dir():
+            continue
+        for registry in manifest_base.iterdir():
+            if not registry.is_dir() or registry.is_symlink(): continue
+            for namespace in registry.iterdir():
+                if not namespace.is_dir() or namespace.is_symlink(): continue
+                for model_dir in namespace.iterdir():
+                    if not model_dir.is_dir() or model_dir.is_symlink(): continue
+                    for tag in model_dir.iterdir():
+                        if not tag.is_file() or tag.is_symlink(): continue
+                        name=model_dir.name+":"+tag.name
+                        if name not in seen_models:
+                            seen_models.add(name)
+                            ollama.append({"name":name,"status":"manifest-found-not-tested",
+                                           "runtime":"ollama","location":str(tag.parent),
+                                           "registry":registry.name,"namespace":namespace.name})
     if shutil.which("ollama"):
         try:
             p=subprocess.run(["ollama","list"],capture_output=True,text=True,timeout=12,
@@ -89,7 +110,12 @@ def discover():
                 for line in p.stdout.splitlines()[1:]:
                     parts=line.split()
                     if parts:
-                        ollama.append({"name":parts[0],"status":"installed","runtime":"ollama"})
+                        if parts[0] in seen_models:
+                            for item in ollama:
+                                if item["name"]==parts[0]: item["status"]="installed"
+                        else:
+                            seen_models.add(parts[0])
+                            ollama.append({"name":parts[0],"status":"installed","runtime":"ollama"})
             else:
                 warnings.append("Ollama CLI failed: "+p.stderr[:180])
         except (OSError,subprocess.TimeoutExpired):
